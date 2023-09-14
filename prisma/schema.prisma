@@ -19,4 +19,6 @@ model User {
   gender         String
   createdAt      DateTime @default(now())
   updateAt       DateTime @updatedAt
+  level          Int      @default(0)
+  rank           String   @default("Elite")
 }

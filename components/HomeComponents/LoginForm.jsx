@@ -1,12 +1,14 @@
 'use client'
 import {signIn} from 'next-auth/react'
 import React from 'react'
-
+import  {useRouter} from 'next/navigation'
 const LoginForm = () => {
     const [data,setData] = React.useState({
         idNumber:"",
         password:""
     });
+
+    const router = useRouter();
     
     const handleChange = (e) => {
         setData({
@@ -25,6 +27,8 @@ const LoginForm = () => {
       }
       if(callback?.ok && !callback?.error){
        alert("User login successfully")
+       router.push('/dashboard');
+
       }
     });
 
@@ -33,11 +37,11 @@ const LoginForm = () => {
 
   return (
     <div>
-        <form action="" onSubmit={loginUser}>
-            <div>
+        <form action="" onSubmit={loginUser} className='w-80 h-96 p-4 rounded-md bg-[#a6c7d04d]'>
+            <div className='flex flex-col w-full mt-5 gap-2' >
                 <label htmlFor="idNumber">ID Number</label>
                 <input 
-                    className='text-black'                   
+                    className='text-black px-2 py-3 rounded outline-none'                   
                     type="text" 
                     placeholder='Enter ID Number'
                     value={data.idNumber}
@@ -47,10 +51,10 @@ const LoginForm = () => {
                  />
             </div>
 
-            <div>
+            <div className='flex flex-col w-full mt-5 gap-2'>
                 <label htmlFor="password">Password</label>
                 <input
-                    className='text-black'
+                    className='text-black px-2 py-3 rounded outline-none'
                     type="password" 
                     placeholder='Enter Password'
                     value={data.password}
@@ -59,7 +63,7 @@ const LoginForm = () => {
                  />
             </div>
 
-            <button className='bg-[#E58E27] px-4 py-3 rounded ' type='submit'>Login</button>
+            <button className='bg-[#E58E27] w-full mt-5 py-4 rounded ' type='submit'>Login</button>
         </form>
 
         
