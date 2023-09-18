@@ -22,19 +22,19 @@ export const authOptions = {
                 }
 
                 // check if use exist or registered
-                 const user = await prisma.user.findUnique({
+                 const student = await prisma.student.findUnique({
                     where:{
                         idNumber: credentials.idNumber,
                         email: credentials.email
                     }
                  });
 
-                //  if no user was found
-                if(!user || !user?.hashedPassword){
-                    throw new Error("NO user Found!")
+                //  if no student was found
+                if(!student || !student?.hashedPassword){
+                    throw new Error("NO student Found!")
                 }   
                 // if password match
-                const passwordMatch = await brcypt.compare(credentials.password, user.hashedPassword);
+                const passwordMatch = await brcypt.compare(credentials.password, student.hashedPassword);
 
                 // if password dont match
 
@@ -42,11 +42,45 @@ export const authOptions = {
                     throw new Error("Incorrect Password")
                 }
 
-                return user;
+                return student;
             } //!end of authorize callbackfunction
         })
     ],
 
+
+    callbacks:{ //create callback functions     
+        async jwt({token, user ,session,trigger}){
+            // console.log('jwt callback', {token, user,session}) //c
+           
+            if(user){
+                return {
+                    ...token,
+                    id: user.id,
+                    level: user.level,
+                    rank:user.rank
+                }
+            }
+        
+            return token;
+        },
+        async session({session,token,user}){
+            // console.log('Session callback',{session,token,user});
+            
+            return {
+                ...session,
+                user:{
+                    ...session.user,
+                    id: token.id,
+                    level: token.level,
+                    rank: token.rank
+                }
+            }
+            
+        }
+    },
+
+
+    
     secret:process.env.SECRET,
     session:{
         strategy: 'jwt' //json web tokens

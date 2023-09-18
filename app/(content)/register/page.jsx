@@ -1,17 +1,50 @@
 'use client'
 
-import React from 'react'
+import {useState,useEffect} from 'react'
 import axios from 'axios'
 // import {toast} from 'react-hot-toast'
 import { useRouter } from 'next/navigation'
 
 
 export default function RegisterPage() {
-  const [data,setData] = React.useState({
+  const [data,setData] = useState({
+    idNumber:'',
     name:'',
     email:'',
-    password:''
+    password:'',
+    gender:'',
+    age:null,
+    yearLevel:null,
+    course:'',
   })
+
+  const [course,setCourse] =  useState([]);
+
+  useEffect(() => {
+    const courseGetter = async () => {
+      try {
+        const response = await axios.get('/api/course');
+        const courseData = response.data;
+        setCourse(courseData)
+      } catch (error) {
+        // Handle any errors that occurred during the request
+        console.error('Error:', error);
+        throw error; // Re-throw the error to propagate it further if needed
+      }
+    };
+    
+    // You can call the function like this:
+    courseGetter()
+      .then((data) => {
+        console.log(data); // Array of course data
+      })
+      .catch((error) => {
+        // Handle any errors that occurred during the request
+        console.error('Error:', error);
+      });
+    
+    
+  },[])
 
   const router  = useRouter();
 
@@ -36,7 +69,11 @@ export default function RegisterPage() {
         name:'',
         email:'',
         password:'',
-        gender:''
+        gender:'',
+        age:null,
+        yearLevel:null,
+        course:'',
+
      })
       router.push('/');
     })                               
@@ -158,6 +195,46 @@ export default function RegisterPage() {
               </div>
             </div>
 
+
+            
+            <div>
+              <label htmlFor="age" className="block text-sm font-medium leading-6 ">
+                Age
+              </label>
+              <div className="mt-2">
+                <input
+                  onChange={handleChange}
+                  value={data.age}
+                  id="age"
+                  name="age"
+                  type="number"
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                />
+              </div>
+            </div>
+
+            
+            <div>
+              <label htmlFor="yearLevel" className="block text-sm font-medium leading-6 ">
+                Year Level
+              </label>
+              <div className="mt-2">
+                <input
+                  onChange={handleChange}
+                  value={data.yearLevel}
+                  id="yearLevel"
+                  name="yearLevel"
+                  type="number"
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                />
+              </div>
+            </div>
+
+            
+            <select onChange={handleChange} value={data.course}  className='text-black' name="course" id="course">
+                {course.map(val => <option key={val.id} value={val.id}>{val.name}</option>)}
+            </select>
+
             <div>
               <button
                 type="submit"
@@ -167,6 +244,8 @@ export default function RegisterPage() {
               </button>
             </div>
           </form>
+
+         
 
         </div>
       </div>

@@ -10,15 +10,68 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User {
-  id             String   @id @default(auto()) @map("_id") @db.ObjectId
-  idNumber       String   @unique
-  email          String   @unique
+model Student {
+  id             String    @id @default(auto()) @map("_id") @db.ObjectId
+  idNumber       String    @unique
   name           String
-  hashedPassword String
+  email          String    @unique
   gender         String
-  createdAt      DateTime @default(now())
-  updateAt       DateTime @updatedAt
-  level          Int      @default(0)
-  rank           String   @default("Elite")
+  age            Int
+  yearLevel      Int
+  hashedPassword String
+  points         Int       @default(0)
+  level          Int       @default(0)
+  createdAt      DateTime  @default(now())
+  updateAt       DateTime  @updatedAt
+  course         Course    @relation(fields: [courseId], references: [id])
+  courseId       String    @db.ObjectId
+  subjectsId     String[]  @db.ObjectId
+  subjects       Subject[] @relation(fields: [subjectsId], references: [id])
+}
+
+model Course {
+  id        String    @id @default(auto()) @map("_id") @db.ObjectId
+  name      String    @unique
+  student   Student[]
+  college   College   @relation(fields: [collegeId], references: [id])
+  collegeId String    @db.ObjectId
+}
+
+model College {
+  id     String   @id @default(auto()) @map("_id") @db.ObjectId
+  name   String   @unique
+  Course Course[]
+}
+
+model Activity {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  title     String
+  type      String
+  score     Int
+  items     Int
+  createdAt DateTime @default(now())
+  updateAt  DateTime @updatedAt
+}
+
+model Lesson {
+  id    String @id @default(auto()) @map("_id") @db.ObjectId
+  title String
+  type  String
+}
+
+model Instructor {
+  id         String    @id @default(auto()) @map("_id") @db.ObjectId
+  name       String    @unique
+  subjectsId String[]  @db.ObjectId
+  subjects   Subject[] @relation(fields: [subjectsId], references: [id])
+}
+
+model Subject {
+  id            String       @id @default(auto()) @map("_id") @db.ObjectId
+  title         String
+  studentsId    String[]     @db.ObjectId
+  students      Student[]    @relation(fields: [studentsId], references: [id])
+  type          String
+  instructorsId String[]     @db.ObjectId
+  instructors   Instructor[] @relation(fields: [instructorsId], references: [id])
 }
