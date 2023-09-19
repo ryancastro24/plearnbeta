@@ -26,6 +26,9 @@ export const authOptions = {
                     where:{
                         idNumber: credentials.idNumber,
                         email: credentials.email
+                    },
+                    include:{
+                        subjects:true
                     }
                  });
 
@@ -41,7 +44,7 @@ export const authOptions = {
                 if(!passwordMatch){
                     throw new Error("Incorrect Password")
                 }
-
+                console.log(student);
                 return student;
             } //!end of authorize callbackfunction
         })
@@ -57,7 +60,12 @@ export const authOptions = {
                     ...token,
                     id: user.id,
                     level: user.level,
-                    rank:user.rank
+                    idNumber: user.idNumber,
+                    gender:user.gender,
+                    age:user.age,
+                    yearLevel:user.yearLevel,
+                    subjects:user.subjects,
+                    points: user.points
                 }
             }
         
@@ -72,7 +80,12 @@ export const authOptions = {
                     ...session.user,
                     id: token.id,
                     level: token.level,
-                    rank: token.rank
+                    idNumber: token.idNumber,
+                    gender:token.gender,
+                    age:token.age,
+                    yearLevel:token.yearLevel,
+                    subjects:token.subjects,
+                    points: token.points
                 }
             }
             

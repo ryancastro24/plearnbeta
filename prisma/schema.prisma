@@ -69,6 +69,8 @@ model Instructor {
 model Subject {
   id            String       @id @default(auto()) @map("_id") @db.ObjectId
   title         String
+  section       String
+  subjectCode   String
   studentsId    String[]     @db.ObjectId
   students      Student[]    @relation(fields: [studentsId], references: [id])
   type          String
