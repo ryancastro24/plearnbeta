@@ -45,18 +45,22 @@ model College {
 
 model Activity {
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
-  title     String
+  title     String   @unique
   type      String
-  score     Int
+  score     Int      @default(0)
   items     Int
   createdAt DateTime @default(now())
   updateAt  DateTime @updatedAt
+  Subject   Subject? @relation(fields: [subjectId], references: [id])
+  subjectId String?  @db.ObjectId
 }
 
 model Lesson {
-  id    String @id @default(auto()) @map("_id") @db.ObjectId
-  title String
-  type  String
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  title     String   @unique
+  type      String
+  Subject   Subject? @relation(fields: [subjectId], references: [id])
+  subjectId String?  @db.ObjectId
 }
 
 model Instructor {
@@ -76,4 +80,6 @@ model Subject {
   type          String
   instructorsId String[]     @db.ObjectId
   instructors   Instructor[] @relation(fields: [instructorsId], references: [id])
+  activityId    Activity[]
+  lessonId      Lesson[]
 }
