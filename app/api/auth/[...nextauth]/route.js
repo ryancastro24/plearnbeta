@@ -28,7 +28,11 @@ export const authOptions = {
                         email: credentials.email
                     },
                     include:{
-                        subjects:true
+                        subjects:{
+                            include:{
+                                activityId:true
+                            }
+                        }
                     }
                  });
 
@@ -65,7 +69,8 @@ export const authOptions = {
                     age:user.age,
                     yearLevel:user.yearLevel,
                     subjects:user.subjects,
-                    points: user.points
+                    points: user.points,
+                    activities: user.subjects.activityId
                 }
             }
         
@@ -85,7 +90,8 @@ export const authOptions = {
                     age:token.age,
                     yearLevel:token.yearLevel,
                     subjects:token.subjects,
-                    points: token.points
+                    points: token.points,
+                    activities:token.subjects.activities
                 }
             }
             
