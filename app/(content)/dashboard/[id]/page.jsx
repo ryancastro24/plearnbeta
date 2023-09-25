@@ -1,8 +1,8 @@
 
 import React from 'react'
 import Image from 'next/image'
-import ActivitiesCard from '@/components/DashboardComponent/ActivitiesCard';
-
+import Notes from '@/components/DashboardComponent/Notes';
+import Backbutton from '@/components/DashboardComponent/Backbutton';
 async function getData(id){
     const res = await fetch(`http://localhost:3000/api/subject/${id}`,{
         next:{revalidate:0}
@@ -20,7 +20,7 @@ const Subject = async ({params}) => {
   return ( 
    <>
    <div className='w-full h-screen absolute top-0 bg-forest bg-cover'>
-
+        <Backbutton/>
         <div className='w-full bg-forest h-2/5 bg-cover relative'>
 
    
@@ -38,8 +38,10 @@ const Subject = async ({params}) => {
 
         </div>
 
-        <div className='w-full bg-[#41454A] rounded-t-3xl h-3/5'>
-        <div className='w-full bg-[#161a1e99] p-10 h-full   '>
+        <div className='w-full bg-[#41454A] p-10 rounded-t-3xl h-3/5 relative'>
+
+
+            <div className='w-full  h-full'>
                 <div className='flex flex-col gap-3 ml-8'>
                     <span className='text-2xl font-bold text-[#E58E27]'>Welcome to the Jungle</span>
                     <span>Mr. Mark Phil Pacot</span>
@@ -99,7 +101,7 @@ const Subject = async ({params}) => {
                                 </span>
 
                                 <span className='text-black text-xs'>
-                                    Available: <b>{data.activityId.length}</b>
+                                    Available: <b>{data.lessonId.length}</b>
                                 </span>
                             
                             
@@ -107,8 +109,8 @@ const Subject = async ({params}) => {
                         <div className=' h-full w-2/5 rounded bg-[#E58E27] flex items-center justify-center '>
 
                             {/* add a lessson data to change this part */}
-                            {data.activityId.length > 5 ? <div>
-                                <span className='text-md font-thin mr-2'>0/{data.activityId.length}</span>
+                            {data.lessonId.length > 0 ? <div>
+                                <span className='text-md font-thin mr-2'>0/{data.lessonId.length}</span>
                                 <span className='text-xs '>Done</span>
                             </div>
                             :
@@ -121,6 +123,20 @@ const Subject = async ({params}) => {
                   
                 </div>
 
+            </div>
+
+
+            <div className='h-full w-1/2  absolute flex flex-col gap-2 items-end justify-end py-10 px-16 top-0 right-0'>
+                
+                <div className=' bg-[#36393E] h-44 w-96 rounded-md p-5'>
+                    <span className='flex gap-1 font-bold'>Announcements <Image
+                     height={15} width={15} alt='annoucement' src={'/DashboardAssets/icons/announcement.svg'}/>
+                     </span>
+
+                     <p className='text-sm font-extralight mt-3 text-justify'>Join us for a programming exercise on September 08, 2023 at CCIS Building. Whether you're a beginner or an experienced coder, this is a great opportunity to practice your skills and have some fun!</p>
+                </div>
+
+                <Notes/>
             </div>
         </div>
    </div>
