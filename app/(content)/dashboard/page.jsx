@@ -7,14 +7,22 @@ import Announcement from '@/components/DashboardComponent/Announcement'
 import SubjectCard from '@/components/DashboardComponent/SubjectCard'
 import SideSubjects from '@/components/DashboardComponent/SideSubjects'
 import WorldButton from '@/components/DashboardComponent/WorldButton'
+import AdminDashboard from '@/components/DashboardComponent/AdminDashboard'
+
 const  Dashboard = async() => {
   
   const session = await getServerSession(authOptions)
   const finalData = await session;
 
 
-  console.log(finalData)
-
+  if(finalData.user.role === 'employee'){
+    return (
+      <>  
+       <AdminDashboard/>
+      </>
+    )
+  }
+//seperate the component for this student dashboard
   return (
     <div className='w-full h-screen pt-16 p-6'>
     

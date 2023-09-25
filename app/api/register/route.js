@@ -4,10 +4,10 @@ import { NextResponse } from 'next/server'
 
 export async function POST(request){
     const body  = await request.json();
-    const {idNumber,name,email,password,gender,course,age,yearLevel} = body;
+    const {idNumber,name,email,password,gender,course,age,yearLevel,role} = body;
 
 
-    if(!name || !email || !password || !idNumber || !gender || !age || !yearLevel || !course){ //validate input 
+    if(!name || !email || !password || !idNumber || !gender || !age || !yearLevel || !course || !role){ //validate input 
         return new NextResponse('Missing Fields', {status:400});
     }
 
@@ -36,7 +36,9 @@ export async function POST(request){
             gender,
             age:finalAge,
             yearLevel:finalYearLevel,
-            courseId: course
+            courseId: course,
+            role
+,
         }
     })
 

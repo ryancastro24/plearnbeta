@@ -3,6 +3,7 @@
 import React from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { signOut } from 'next-auth/react'
 const DashboardNav = ({name,email,level,rank}) => {
   const pathname = usePathname();
   const [data,setData] = React.useState({
@@ -25,7 +26,7 @@ const DashboardNav = ({name,email,level,rank}) => {
         <div className='flex items-center justify-center gap-5'>
             <span className='text-sm'>Level {data.level}</span>
             <span className='text-sm'>{data.name}</span>
-
+            <button className='px-3 py-2 bg-red-500 rounded' onClick={() => signOut()}>Logout</button>
             <div className='w-8 h-8 rounded-full bg-orange-500'></div>
         </div>
 

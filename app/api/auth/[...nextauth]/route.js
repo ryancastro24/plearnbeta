@@ -48,7 +48,6 @@ export const authOptions = {
                 if(!passwordMatch){
                     throw new Error("Incorrect Password")
                 }
-                console.log(student);
                 return student;
             } //!end of authorize callbackfunction
         })
@@ -68,6 +67,7 @@ export const authOptions = {
                     gender:user.gender,
                     age:user.age,
                     yearLevel:user.yearLevel,
+                    role:user.role,
                     subjects:user.subjects,
                     points: user.points,
                     activities: user.subjects.activityId
@@ -89,6 +89,7 @@ export const authOptions = {
                     gender:token.gender,
                     age:token.age,
                     yearLevel:token.yearLevel,
+                    role:token.role,
                     subjects:token.subjects,
                     points: token.points,
                     activities:token.subjects.activities

@@ -18,6 +18,7 @@ model Student {
   gender         String
   age            Int
   yearLevel      Int
+  role           String
   hashedPassword String
   points         Int       @default(0)
   level          Int       @default(0)

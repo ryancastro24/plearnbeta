@@ -16,6 +16,7 @@ export default function RegisterPage() {
     age:null,
     yearLevel:null,
     course:'',
+    role:''
   })
 
   const [course,setCourse] =  useState([]);
@@ -73,7 +74,7 @@ export default function RegisterPage() {
         age:null,
         yearLevel:null,
         course:'',
-
+        role:''
      })
       router.push('/');
     })                               
@@ -234,6 +235,16 @@ export default function RegisterPage() {
             <select onChange={handleChange} value={data.course}  className='text-black' name="course" id="course">
                 {course.map(val => <option key={val.id} value={val.id}>{val.name}</option>)}
             </select>
+
+               
+            <select onChange={handleChange} value={data.role}  className='text-black' name="role" id="role">
+                <option value="student">Student</option>
+                <option value="employee">Employee</option>
+                <option value="admin">Admin</option>
+            </select>
+
+            
+
 
             <div>
               <button
