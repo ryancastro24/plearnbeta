@@ -18,7 +18,7 @@ const  Dashboard = async() => {
   if(finalData.user.role === 'employee'){
     return (
       <>  
-       <AdminDashboard/>
+       <AdminDashboard subjects={finalData.user.subjects}/>
       </>
     )
   }
@@ -40,8 +40,10 @@ const  Dashboard = async() => {
           <div  className='w-3/4 rounded-md h-full  flex flex-col justify-between pb-7'>
 
             <Announcement/>
-            <SubjectCard subjects={finalData.user.subjects}/>
-            
+
+            <div className='w-full h-80 rounded-md flex gap-4 items-center '>
+               <SubjectCard subjects={finalData.user.subjects}/>
+            </div>
           
           </div>
 

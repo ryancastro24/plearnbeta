@@ -1,9 +1,33 @@
-import React from 'react'
+'use client'
+import React, { useState } from 'react'
+import SubjectCard from './SubjectCard'
+import Image from 'next/image'
+import AdminSearchBtn from './adminDashboard/AdminSearchBtn'
+import AddSubjectModal from './adminDashboard/AddSubjectModal'
+const AdminDashboard = ({subjects}) => {
 
-const AdminDashboard = () => {
+    const [isShow,setIsShow] = useState(false);
   return (
-    <div className='w-full h-screen pt-16 p-6 flex justify-center items-center'>
-            <h1>This is the Employee dashboard</h1>
+    <div className='w-full h-screen pt-28 p-6 flex flex-col gap-10 relative'>
+
+      {isShow && <AddSubjectModal show={setIsShow}/>}
+          <div className='flex items-center justify-between'> 
+          
+            <AdminSearchBtn/>   
+
+            <div className='flex justify-center items-center gap-3'>
+              <button className='px-4 py-2 bg-[#41454A] flex justify-center items-center gap-2 rounded'><Image alt='archives' src={'/DashboardAssets/icons/archive.svg'} height={15} width={15}  />Archives</button>
+              <button onClick={() => setIsShow(true)} className='px-4 py-2 bg-[#E58E27] flex justify-center items-center gap-2 rounded'><Image alt='archives' src={'/DashboardAssets/icons/add.svg'} height={15} width={15}  />Add Subject</button>
+            </div>
+          </div>
+
+        
+
+          <div className='flex gap-5 w-full '>
+              <SubjectCard subjects={subjects}/>
+          </div>
+          
+         
     </div>
   )
 }

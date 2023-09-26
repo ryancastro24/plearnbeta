@@ -8,7 +8,7 @@ const DashboardNav = ({name,email,level,rank}) => {
   const pathname = usePathname();
   const [data,setData] = React.useState({
     name,
-    level ,
+    level,  
     email,
     rank
   })
