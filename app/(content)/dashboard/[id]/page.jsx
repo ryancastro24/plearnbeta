@@ -16,12 +16,16 @@ async function getData(id){
 const Subject = async ({params}) => {
 
     const data = await getData(params.id);
+    console.log(data.realm)
+    let bg = 'bg-';
+  let backgroundImage =  bg.concat(data.realm)
+  console.log(backgroundImage)
 
   return ( 
    <>
-   <div className='w-full h-screen absolute top-0 bg-forest bg-cover'>
+   <div className={`w-full h-screen absolute top-0 bg-forest z-20 bg-cover`}>
         <Backbutton/>
-        <div className='w-full bg-forest h-2/5 bg-cover relative'>
+        <div className={`w-full bg-forest  h-2/5 bg-cover relative`}>
 
    
             <div className='w-full bg-[#161a1e99] p-10 h-full   '>

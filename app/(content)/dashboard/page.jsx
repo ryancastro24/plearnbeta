@@ -18,7 +18,7 @@ const  Dashboard = async() => {
   if(finalData.user.role === 'employee'){
     return (
       <>  
-       <AdminDashboard subjects={finalData.user.subjects}/>
+       <AdminDashboard {...finalData.user}/>
       </>
     )
   }

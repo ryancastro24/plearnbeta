@@ -76,6 +76,7 @@ model Subject {
   title         String
   section       String
   subjectCode   String
+  realm         String?
   studentsId    String[]     @db.ObjectId
   students      Student[]    @relation(fields: [studentsId], references: [id])
   type          String

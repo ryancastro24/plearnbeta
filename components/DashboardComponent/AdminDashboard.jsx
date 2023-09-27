@@ -1,16 +1,18 @@
 'use client'
 import React, { useState } from 'react'
-import SubjectCard from './SubjectCard'
 import Image from 'next/image'
 import AdminSearchBtn from './adminDashboard/AdminSearchBtn'
 import AddSubjectModal from './adminDashboard/AddSubjectModal'
-const AdminDashboard = ({subjects}) => {
+import AdminSubjectCard from './adminDashboard/AdminSubjectCards'
+const AdminDashboard = ({subjects,idNumber}) => {
 
     const [isShow,setIsShow] = useState(false);
   return (
     <div className='w-full h-screen pt-28 p-6 flex flex-col gap-10 relative'>
 
-      {isShow && <AddSubjectModal show={setIsShow}/>}
+
+      
+      {isShow && <AddSubjectModal idNumber={idNumber} show={setIsShow}/>}
           <div className='flex items-center justify-between'> 
           
             <AdminSearchBtn/>   
@@ -23,8 +25,8 @@ const AdminDashboard = ({subjects}) => {
 
         
 
-          <div className='flex gap-5 w-full '>
-              <SubjectCard subjects={subjects}/>
+          <div className='flex gap-10 w-full flex-wrap pb-10 '>
+              <AdminSubjectCard subjects={subjects}/>
           </div>
           
          

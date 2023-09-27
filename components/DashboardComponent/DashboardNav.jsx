@@ -13,7 +13,7 @@ const DashboardNav = ({name,email,level,rank}) => {
     rank
   })
   return (
-    <div className='flex items-center justify-between w-full px-5 py-6 absolute top-0'>
+    <div className='flex items-center justify-between w-full px-5 py-6 z-10  absolute top-0'>
         <ul className='flex items-center justify-center gap-7  '>
             <li className={pathname === '/dashboard' ? 'text-orange-500 font-bold text-xl ': 'text-sm text-white'}><Link href={'/dashboard'}>Dashboard</Link></li>
             <li className={pathname === '/message' ? 'text-orange-500 font-bold text-xl ': 'text-sm text-white'}><Link href={'/message'}>Messages</Link></li>

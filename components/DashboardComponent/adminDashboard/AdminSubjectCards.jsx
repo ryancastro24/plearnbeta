@@ -4,12 +4,12 @@
 import React from 'react'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
-const SubjectCard = ({subjects}) => {
+const AdminSubjectCard = ({subjects}) => {
     const router = useRouter();
   return (
     <>
-   
-        {subjects.slice(0,4).map(val => ( 
+    {/* i adjust lang ni taod.x :D .slice(0,4)*/}
+        {subjects.map(val => ( 
 
            
             <div onClick={() => router.push(`/dashboard/${val.id}`)} key={val.id} className='h-80 w-56 bg-[#D2F5FF] relative cursor-pointer hover:bg-[#5f7176] rounded-md p-3'>
@@ -35,4 +35,4 @@ const SubjectCard = ({subjects}) => {
   )
 }
 
-export default SubjectCard
+export default AdminSubjectCard
