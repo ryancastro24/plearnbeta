@@ -4,7 +4,7 @@ import Image from 'next/image'
 import AdminSearchBtn from './adminDashboard/AdminSearchBtn'
 import AddSubjectModal from './adminDashboard/AddSubjectModal'
 import AdminSubjectCard from './adminDashboard/AdminSubjectCards'
-const AdminDashboard = ({subjects,idNumber}) => {
+const AdminDashboard = ({subjects,idNumber,id}) => {
 
     const [isShow,setIsShow] = useState(false);
   return (
@@ -26,7 +26,7 @@ const AdminDashboard = ({subjects,idNumber}) => {
         
 
           <div className='flex gap-10 w-full flex-wrap pb-10 '>
-              <AdminSubjectCard subjects={subjects}/>
+              <AdminSubjectCard id={id} subjects={subjects}/>
           </div>
           
          

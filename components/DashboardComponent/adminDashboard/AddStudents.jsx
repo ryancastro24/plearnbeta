@@ -23,17 +23,17 @@ function arrayToObject(dataArray) {
 
 
 
-const Message = () => {
+const AddStudents = ({subjectId}) => {
 
 
   const [patchedData,setPatchedData] = useState({
-    subjectId: '651448db137283d1a3fc4951',
+    subjectId,
     studentData:null
     
   })
 
   const handleSubmit = async(e) => {
-    e.preventDefault();
+    e.preventDefault(); 
     const res = axios.post('/api/subject/connectStudent',patchedData)
     .then(() => alert("data has been updated"))
     .catch((err) => alert(err));
@@ -70,19 +70,21 @@ const Message = () => {
   console.log(patchedData)
 
   return (
-    <div  className='w-full h-screen pt-16 p-6'>
-        <div className='mt-10'>
+    <div>
+        <div>
 
-        <form action="" onSubmit={handleSubmit}>
-          <h1>Excel to Object Conversion</h1>
+        <form className='flex flex-col gap-3 ' onSubmit={handleSubmit}>
+      
           <input type="file" accept=".xlsx, .xls" onChange={handleFileUpload} />
-          <button type='submit' className='px-3 py-2 bg-blue-500 rounded'>add students</button>
+          <div>
+              <button type='submit' className='px-3 py-2 bg-[#E58E27] rounded'>add students</button>
+          </div>
         </form>
         </div>
        
     </div>
-  );
+  )
  
 }
 
-export default Message
+export default AddStudents

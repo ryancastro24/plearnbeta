@@ -22,33 +22,27 @@ export const authOptions = {
                 }
 
                 // check if use exist or registered
-                 const student = await prisma.student.findUnique({
+                 const user = await prisma.user.findUnique({
                     where:{
                         idNumber: credentials.idNumber,
                         email: credentials.email
                     },
-                    include:{
-                        subjects:{
-                            include:{
-                                activityId:true
-                            }
-                        }
-                    }
+                    
                  });
 
                 //  if no student was found
-                if(!student || !student?.hashedPassword){
+                if(!user || !user?.hashedPassword){
                     throw new Error("NO student Found!")
                 }   
                 // if password match
-                const passwordMatch = await brcypt.compare(credentials.password, student.hashedPassword);
+                const passwordMatch = await brcypt.compare(credentials.password, user.hashedPassword);
 
                 // if password dont match
 
                 if(!passwordMatch){
                     throw new Error("Incorrect Password")
                 }
-                return student;
+                return user;
             } //!end of authorize callbackfunction
         })
     ],
@@ -56,7 +50,7 @@ export const authOptions = {
 
     callbacks:{ //create callback functions     
         async jwt({token, user ,session,trigger}){
-            // console.log('jwt callback', {token, user,session}) //c
+    
            
             if(user){
                 return {
@@ -68,9 +62,7 @@ export const authOptions = {
                     age:user.age,
                     yearLevel:user.yearLevel,
                     role:user.role,
-                    subjects:user.subjects,
                     points: user.points,
-                    activities: user.subjects.activityId
                 }
             }
         
@@ -90,9 +82,7 @@ export const authOptions = {
                     age:token.age,
                     yearLevel:token.yearLevel,
                     role:token.role,
-                    subjects:token.subjects,
                     points: token.points,
-                    activities:token.subjects.activities
                 }
             }
             

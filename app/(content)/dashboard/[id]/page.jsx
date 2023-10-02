@@ -3,8 +3,13 @@ import React from 'react'
 import Image from 'next/image'
 import Notes from '@/components/DashboardComponent/Notes';
 import Backbutton from '@/components/DashboardComponent/Backbutton';
+import AddStudents from '@/components/DashboardComponent/adminDashboard/AddStudents';
+import { getServerSession } from 'next-auth';
+import { authOptions } from '@/app/api/auth/[...nextauth]/route';
+
 async function getData(id){
     const res = await fetch(`http://localhost:3000/api/subject/${id}`,{
+
         next:{revalidate:0}
     });
     if (!res.ok) {
@@ -13,7 +18,12 @@ async function getData(id){
       }
     return res.json()
 }  
+
 const Subject = async ({params}) => {
+
+    const session = await getServerSession(authOptions);
+
+    const finaldData = await session;
 
     const data = await getData(params.id);
     console.log(data.realm)
@@ -33,11 +43,14 @@ const Subject = async ({params}) => {
                     <span className='text-2xl font-bold'>{data.title}</span>
                     <span>{data.subjectCode}</span>
                     <span>Section: {data.section}</span>
+                    
                 </div>
 
-                <div className='absolute bottom-0 right-10 '>
-                    <Image alt='bird' src={'/DashboardAssets/img/bird.png'} height={300} width={300}/>
-                </div>
+
+            {finaldData.user.role === "employee" && <div className='absolute top-10 right-0'>
+                        <AddStudents subjectId={data.id}/>
+                </div> }
+               
             </div>
 
         </div>

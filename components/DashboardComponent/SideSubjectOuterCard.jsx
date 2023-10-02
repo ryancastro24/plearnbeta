@@ -1,7 +1,7 @@
 
 import React from 'react'
 import Image from 'next/image'
-import SubjectCardInnerContent from './SubjectCardInnerContent'
+import SideSubjects from './SideSubjects'
 const getData = async(id) => {
     const res = await fetch(`http://localhost:3000/api/userSubject/${id}`)
 
@@ -15,17 +15,17 @@ const getData = async(id) => {
 
 
 
-const SubjectCard = async({id}) => {
+const SideSubjectOuterCard = async({id}) => {
 
     const data = await getData(id)
    
 
   return (
     <>
-        <SubjectCardInnerContent {...data}/>
+        <SideSubjects {...data}/>
        
     </>
   )
 }
 
-export default SubjectCard
+export default SideSubjectOuterCard

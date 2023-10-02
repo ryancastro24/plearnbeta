@@ -9,7 +9,7 @@ const ContentLayout = async({children}) => {
 // uncommnet dashboard component after adding students
   return (
     <div>
-        <DashboardNav {...data.user}/> 
+        {/* <DashboardNav {...data.user}/>  */}
       <Provider>
         {children}
       </Provider>
