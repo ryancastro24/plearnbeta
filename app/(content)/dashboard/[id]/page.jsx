@@ -6,7 +6,7 @@ import Backbutton from '@/components/DashboardComponent/Backbutton';
 import AddStudents from '@/components/DashboardComponent/adminDashboard/AddStudents';
 import { getServerSession } from 'next-auth';
 import { authOptions } from '@/app/api/auth/[...nextauth]/route';
-
+import QuestField from '@/components/DashboardComponent/QuestField';
 async function getData(id){
     const res = await fetch(`http://localhost:3000/api/subject/${id}`,{
 
@@ -73,34 +73,8 @@ const Subject = async ({params}) => {
                 <div className='flex gap-5 ml-8 mt-10 w-1/2'>
 
 
-                    <div className=' flex h-16 w-60 rounded p-1 relative bg-[#D2F5FF] cursor-pointer hover:bg-[#879fa5]'>
-                        <div className=' h-full w-3/5 rounded flex flex-col p-2 '>
-                        
-                                <span className='text-black flex gap-2 font-semibold'><Image alt='quest' 
-                                src={'/DashboardAssets/icons/quest.svg'} 
-                                height={15}
-                                width={15}
-                                />
-                                Quests
-                                </span>
 
-                                <span className='text-black text-xs'>
-                                    Available: <b>{data.activityId.length}</b>
-                                </span>
-                            
-                            
-                        </div> 
-                        <div className=' h-full w-2/5 rounded bg-[#E58E27] flex items-center justify-center '>
-                            {data.activityId.length > 0 ? <div>
-                                <span className='text-md font-thin mr-2'>0/{data.activityId.length}</span>
-                                <span className='text-xs '>Done</span>
-                            </div>
-                            :
-                            <span className='text-xs font-extralight'>No Available</span>
-                        }
-                    
-                        </div> 
-                    </div>
+                    <QuestField {...data}/>
 
 
 
@@ -143,7 +117,7 @@ const Subject = async ({params}) => {
             </div>
 
 
-            <div className='h-full w-1/2  absolute flex flex-col gap-2 items-end justify-end py-10 px-16 top-0 right-0'>
+            <div className='h-full w-1/2  absolute flex flex-col gap-2 items-end py-10 px-16 top-0 right-0'>
                 
                 <div className=' bg-[#36393E] h-44 w-96 rounded-md p-5'>
                     <span className='flex gap-1 font-bold'>Announcements <Image
@@ -153,7 +127,9 @@ const Subject = async ({params}) => {
                      <p className='text-sm font-extralight mt-3 text-justify'>Join us for a programming exercise on September 08, 2023 at CCIS Building. Whether you're a beginner or an experienced coder, this is a great opportunity to practice your skills and have some fun!</p>
                 </div>
 
-                <Notes/>
+
+            {finaldData.user.role === 'employee' ? <button className='px-3 py-2 rounded bg-[#E58E27] mt-5'>Add Announcements</button>: <Notes/>}
+                
             </div>
         </div>
    </div>

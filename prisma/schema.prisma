@@ -48,6 +48,7 @@ model Activity {
   id         String     @id @default(auto()) @map("_id") @db.ObjectId
   title      String     @unique
   type       String
+  isDone     Boolean    @default(false)
   score      Int        @default(0)
   createdAt  DateTime   @default(now())
   items      Int        @default(0)

@@ -14,8 +14,6 @@ export default function EmployeeRegisterPage() {
     password:'',
     gender:'',
     age:null,
-    yearLevel:null,
-    course:'',
     role:''
   })
 
@@ -60,7 +58,7 @@ export default function EmployeeRegisterPage() {
   const registerUser = async(e) =>{
      e.preventDefault()
     
-     axios.post('/api/register',data)
+     axios.post('/api/register/registeremployee',data)
      .then(() => {
      
      alert("User has been registered");
@@ -72,8 +70,6 @@ export default function EmployeeRegisterPage() {
         password:'',
         gender:'',
         age:'',
-        yearLevel:'',
-        course:'',
         role:''
      })
       router.push('/');
@@ -201,7 +197,7 @@ export default function EmployeeRegisterPage() {
               <label htmlFor="age" className="block text-sm font-medium leading-6 ">
                 Age
               </label>
-              <div className="mt-2">s
+              <div className="mt-2">
                 <input
                   onChange={handleChange}
                   value={data.age}

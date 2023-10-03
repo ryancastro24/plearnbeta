@@ -47,7 +47,7 @@ const AddSubjectModal = ({show,idNumber}) => {
   
 
 
-            <div className='w-[700px] h-[450px] bg-[#D2F5FF]  rounded-md p-7'>
+            <div className='w-[700px] h-[450px] bg-[#D2F5FF] relative rounded-md p-7'>
 
 
             <form onSubmit={addSubject} action="" className='flex flex-col justify-between h-full w-full'>
@@ -111,13 +111,14 @@ const AddSubjectModal = ({show,idNumber}) => {
 
               <div className='flex justify-between items-center'>
                 <button className='py-2 px-3 bg-[#E58E27] rounded' type='submit'>Create Subject</button>
-                <button onClick={() => show(false)} className='bg-red-500 px-3 py-2 rounded'>close</button>
+               
     
               </div>
 
 
             </form>
 
+            <button  onClick={() => show(false)} className='bg-red-500 px-3 py-2 rounded absolute bottom-7 right-7'>close</button>
                
 
 
