@@ -10,31 +10,32 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Student {
+model User {
   id             String    @id @default(auto()) @map("_id") @db.ObjectId
   idNumber       String    @unique
   name           String
   email          String    @unique
   gender         String
   age            Int
-  yearLevel      Int
+  yearLevel      Int?
+  role           String
   hashedPassword String
-  points         Int       @default(0)
-  level          Int       @default(0)
+  points         Int?      @default(0)
+  level          Int?      @default(0)
   createdAt      DateTime  @default(now())
   updateAt       DateTime  @updatedAt
-  course         Course    @relation(fields: [courseId], references: [id])
-  courseId       String    @db.ObjectId
+  course         Course?   @relation(fields: [courseId], references: [id])
+  courseId       String?   @db.ObjectId
   subjectsId     String[]  @db.ObjectId
   subjects       Subject[] @relation(fields: [subjectsId], references: [id])
 }
 
 model Course {
-  id        String    @id @default(auto()) @map("_id") @db.ObjectId
-  name      String    @unique
-  student   Student[]
-  college   College   @relation(fields: [collegeId], references: [id])
-  collegeId String    @db.ObjectId
+  id        String  @id @default(auto()) @map("_id") @db.ObjectId
+  name      String  @unique
+  student   User[]
+  college   College @relation(fields: [collegeId], references: [id])
+  collegeId String  @db.ObjectId
 }
 
 model College {
@@ -44,15 +45,39 @@ model College {
 }
 
 model Activity {
-  id        String   @id @default(auto()) @map("_id") @db.ObjectId
-  title     String   @unique
-  type      String
-  score     Int      @default(0)
-  items     Int
-  createdAt DateTime @default(now())
-  updateAt  DateTime @updatedAt
-  Subject   Subject? @relation(fields: [subjectId], references: [id])
-  subjectId String?  @db.ObjectId
+  id         String     @id @default(auto()) @map("_id") @db.ObjectId
+  title      String     @unique
+  type       String
+  isDone     Boolean    @default(false)
+  score      Int        @default(0)
+  createdAt  DateTime   @default(now())
+  items      Int        @default(0)
+  updatedAt  DateTime   @updatedAt
+  subject    Subject?   @relation(fields: [subjectId], references: [id])
+  subjectId  String?    @db.ObjectId
+  questionId String[]   @db.ObjectId
+  questions  Question[] @relation(fields: [questionId], references: [id])
+}
+
+model Question {
+  id           String     @id @default(auto()) @map("_id") @db.ObjectId
+  questionText String
+  questionType String
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
+  choices      Choice[] // Define a one-to-many relationship with choices
+  activityId   String[]   @db.ObjectId
+  activities   Activity[] @relation(fields: [activityId], references: [id])
+}
+
+model Choice {
+  id              String    @id @default(auto()) @map("_id") @db.ObjectId
+  choiceText      String
+  isCorrectChoice Boolean
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+  question        Question? @relation(fields: [questionId], references: [id])
+  questionId      String    @db.ObjectId
 }
 
 model Lesson {
@@ -63,23 +88,15 @@ model Lesson {
   subjectId String?  @db.ObjectId
 }
 
-model Instructor {
-  id         String    @id @default(auto()) @map("_id") @db.ObjectId
-  name       String    @unique
-  subjectsId String[]  @db.ObjectId
-  subjects   Subject[] @relation(fields: [subjectsId], references: [id])
-}
-
 model Subject {
-  id            String       @id @default(auto()) @map("_id") @db.ObjectId
-  title         String
-  section       String
-  subjectCode   String
-  studentsId    String[]     @db.ObjectId
-  students      Student[]    @relation(fields: [studentsId], references: [id])
-  type          String
-  instructorsId String[]     @db.ObjectId
-  instructors   Instructor[] @relation(fields: [instructorsId], references: [id])
-  activityId    Activity[]
-  lessonId      Lesson[]
+  id          String     @id @default(auto()) @map("_id") @db.ObjectId
+  title       String
+  section     String
+  subjectCode String
+  realm       String?
+  studentsId  String[]   @db.ObjectId
+  students    User[]     @relation(fields: [studentsId], references: [id])
+  type        String
+  activityId  Activity[]
+  lessonId    Lesson[]
 }

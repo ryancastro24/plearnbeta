@@ -4,10 +4,10 @@ import { NextResponse } from 'next/server'
 
 export async function POST(request){
     const body  = await request.json();
-    const {idNumber,name,email,password,gender,course,age,yearLevel,role} = body;
+    const {idNumber,name,email,password,gender,age} = body;
 
 
-    if(!name || !email || !password || !idNumber || !gender || !age || !role){ //validate input 
+    if(!name || !email || !password || !idNumber || !gender || !age ){ //validate input 
         return new NextResponse('Missing Fields', {status:400});
     }
 
@@ -26,7 +26,6 @@ export async function POST(request){
 
 
     const finalAge = +age;
-    const finalYearLevel = +yearLevel;
     const user = await prisma.user.create({ //creates  a new user in the database
         data:{
             idNumber,
@@ -35,9 +34,7 @@ export async function POST(request){
             hashedPassword,
             gender,
             age:finalAge,
-            yearLevel:finalYearLevel,
-            courseId: course,
-            role
+            role:"employee"
 ,
         }
     })
@@ -48,11 +45,3 @@ export async function POST(request){
 
 }   
 
-
-//todo:sample get method to get specific data from db
-// export async function  GET(){
-
-//     const user = await prisma.college.findMany();
-    
-//     return NextResponse.json(user)
-// }

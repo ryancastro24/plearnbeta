@@ -8,6 +8,9 @@ const LoginForm = () => {
         password:""
     });
 
+
+    const [logging,setLogging] = React.useState(false)
+
     const router = useRouter();
     
     const handleChange = (e) => {
@@ -24,10 +27,16 @@ const LoginForm = () => {
     .then((callback)=> {
       if(callback?.error){
         alert(callback.error);
+        setLogging(false)
+        setData({
+          idNumber:"",
+          password:""
+        })
       }
       if(callback?.ok && !callback?.error){
        alert("User login successfully")
        router.push('/dashboard');
+      
 
       }
     });
@@ -63,7 +72,7 @@ const LoginForm = () => {
                  />
             </div>
 
-            <button className='bg-[#E58E27] w-full mt-5 py-4 rounded ' type='submit'>Login</button>
+            <button onClick={() => setLogging(true)} className='bg-[#E58E27] w-full mt-5 py-4 rounded ' type='submit'>{logging ? "Logging In" : "Login"}</button>
         </form>
 
         

@@ -281,3 +281,141 @@ body{
     opacity: 1.0;
   }
 }
+
+
+
+
+
+/* image input */
+
+#radioButton1[type="radio"] {
+  display: none;
+}
+
+/* Style the label with a background image for the unchecked state */
+label.radio-button1 {
+  display: inline-block;
+  width: 100px; /* Adjust the width as needed */
+  height: 100px; /* Adjust the height as needed */
+  background-image: url('/DashboardAssets/img/forest\ pixelate\ 0\ \(1\).png'); /* Replace 'unchecked.png' with your image URL */
+  background-size: cover;
+  cursor: pointer;
+  border-radius:8px;
+  transition: transform 0.2s ease; 
+}
+
+/* Style the label with a different background image for the checked state */
+#radioButton1[type="radio"]:checked + label.radio-button1 {
+  background-image: url('/DashboardAssets/img/forest\ pixelate\ 0\ \(1\).png'); /* Replace 'checked.png' with your checked image URL */
+  transform: scale(1.2);
+  border:5px solid #E58E27; 
+}
+
+
+
+
+
+#radioButton2[type="radio"] {
+  display: none;
+}
+
+/* Style the label with a background image for the unchecked state */
+label.radio-button2 {
+  display: inline-block;
+  width: 100px; /* Adjust the width as needed */
+  height: 100px; /* Adjust the height as needed */
+  background-image: url('/DashboardAssets/img//desert\ pixelate\ 0.png');  /* Replace 'unchecked.png' with your image URL */
+  background-size: cover;
+  cursor: pointer;
+  border-radius:8px;
+  transition: transform 0.2s ease; 
+}
+
+/* Style the label with a different background image for the checked state */
+#radioButton2[type="radio"]:checked + label.radio-button2 {
+  background-image: url('/DashboardAssets/img//desert\ pixelate\ 0.png'); /* Replace 'checked.png' with your checked image URL */
+  transform: scale(1.2);
+  border:5px solid #E58E27; 
+}
+
+
+
+
+#radioButton3[type="radio"] {
+  display: none;
+}
+
+/* Style the label with a background image for the unchecked state */
+label.radio-button3 {
+  display: inline-block;
+  width: 100px; /* Adjust the width as needed */
+  height: 100px; /* Adjust the height as needed */
+  background-image: url('/DashboardAssets/img/city\ pixelated\ \ 0.png');  /* Replace 'unchecked.png' with your image URL */
+  background-size: cover;
+  cursor: pointer;
+  border-radius:8px;
+  transition: transform 0.2s ease; 
+}
+
+/* Style the label with a different background image for the checked state */
+#radioButton3[type="radio"]:checked + label.radio-button3 {
+  background-image:url('/DashboardAssets/img/city\ pixelated\ \ 0.png');  /* Replace 'checked.png' with your checked image URL */
+  transform: scale(1.2);
+  border:5px solid #E58E27;  
+}
+
+
+
+
+
+#radioButton4[type="radio"] {
+  display: none;
+}
+
+/* Style the label with a background image for the unchecked state */
+label.radio-button4 {
+  display: inline-block;
+  width: 100px; /* Adjust the width as needed */
+  height: 100px; /* Adjust the height as needed */
+  background-image: url('/DashboardAssets/img/ice\ land\ pixela\ 0.png');  /* Replace 'unchecked.png' with your image URL */
+  background-size: cover;
+  cursor: pointer;
+  border-radius:8px;
+  transition: transform 0.2s ease; 
+}
+
+/* Style the label with a different background image for the checked state */
+#radioButton4[type="radio"]:checked + label.radio-button4 {
+  background-image:url('/DashboardAssets/img/ice\ land\ pixela\ 0.png'); 
+  transform: scale(1.2);
+  border:5px solid #E58E27;  /* Replace 'checked.png' with your checked image URL */
+}
+
+
+
+
+
+
+#radioButton5[type="radio"] {
+  display: none;
+}
+
+/* Style the label with a background image for the unchecked state */
+label.radio-button5{
+  display: inline-block;
+  width: 100px; /* Adjust the width as needed */
+  height: 100px; /* Adjust the height as needed */
+  background-image: url('/DashboardAssets/img/sea\ pixelated\ g\ 0.png');  /* Replace 'unchecked.png' with your image URL */
+  background-size: cover;
+  cursor: pointer;
+  border-radius:8px;
+  transition: transform 0.2s ease; 
+}
+
+/* Style the label with a different background image for the checked state */
+#radioButton5[type="radio"]:checked + label.radio-button5 {
+  background-image:url('/DashboardAssets/img/sea\ pixelated\ g\ 0.png');    /* Replace 'checked.png' with your checked image URL */
+  transform: scale(1.2);
+  border:5px solid #E58E27;
+}
+

@@ -6,7 +6,7 @@ const ContentLayout = async({children}) => {
     const session = await getServerSession(authOptions);
     const data = await session;
 
-
+// uncommnet dashboard component after adding students
   return (
     <div>
         <DashboardNav {...data.user}/> 

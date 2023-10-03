@@ -3,8 +3,13 @@ import React from 'react'
 import Image from 'next/image'
 import Notes from '@/components/DashboardComponent/Notes';
 import Backbutton from '@/components/DashboardComponent/Backbutton';
+import AddStudents from '@/components/DashboardComponent/adminDashboard/AddStudents';
+import { getServerSession } from 'next-auth';
+import { authOptions } from '@/app/api/auth/[...nextauth]/route';
+import QuestField from '@/components/DashboardComponent/QuestField';
 async function getData(id){
     const res = await fetch(`http://localhost:3000/api/subject/${id}`,{
+
         next:{revalidate:0}
     });
     if (!res.ok) {
@@ -13,15 +18,24 @@ async function getData(id){
       }
     return res.json()
 }  
+
 const Subject = async ({params}) => {
 
+    const session = await getServerSession(authOptions);
+
+    const finaldData = await session;
+
     const data = await getData(params.id);
+    console.log(data.realm)
+    let bg = 'bg-';
+  let backgroundImage =  bg.concat(data.realm)
+  console.log(backgroundImage)
 
   return ( 
    <>
-   <div className='w-full h-screen absolute top-0 bg-forest bg-cover'>
+   <div className={`w-full h-screen absolute top-0 bg-forest z-20 bg-cover`}>
         <Backbutton/>
-        <div className='w-full bg-forest h-2/5 bg-cover relative'>
+        <div className={`w-full bg-forest  h-2/5 bg-cover relative`}>
 
    
             <div className='w-full bg-[#161a1e99] p-10 h-full   '>
@@ -29,11 +43,14 @@ const Subject = async ({params}) => {
                     <span className='text-2xl font-bold'>{data.title}</span>
                     <span>{data.subjectCode}</span>
                     <span>Section: {data.section}</span>
+                    
                 </div>
 
-                <div className='absolute bottom-0 right-10 '>
-                    <Image alt='bird' src={'/DashboardAssets/img/bird.png'} height={300} width={300}/>
-                </div>
+
+            {finaldData.user.role === "employee" && <div className='absolute top-10 right-0'>
+                        <AddStudents subjectId={data.id}/>
+                </div> }
+               
             </div>
 
         </div>
@@ -56,34 +73,8 @@ const Subject = async ({params}) => {
                 <div className='flex gap-5 ml-8 mt-10 w-1/2'>
 
 
-                    <div className=' flex h-16 w-60 rounded p-1 relative bg-[#D2F5FF] cursor-pointer hover:bg-[#879fa5]'>
-                        <div className=' h-full w-3/5 rounded flex flex-col p-2 '>
-                        
-                                <span className='text-black flex gap-2 font-semibold'><Image alt='quest' 
-                                src={'/DashboardAssets/icons/quest.svg'} 
-                                height={15}
-                                width={15}
-                                />
-                                Quests
-                                </span>
 
-                                <span className='text-black text-xs'>
-                                    Available: <b>{data.activityId.length}</b>
-                                </span>
-                            
-                            
-                        </div> 
-                        <div className=' h-full w-2/5 rounded bg-[#E58E27] flex items-center justify-center '>
-                            {data.activityId.length > 0 ? <div>
-                                <span className='text-md font-thin mr-2'>0/{data.activityId.length}</span>
-                                <span className='text-xs '>Done</span>
-                            </div>
-                            :
-                            <span className='text-xs font-extralight'>No Available</span>
-                        }
-                    
-                        </div> 
-                    </div>
+                    <QuestField {...data}/>
 
 
 
@@ -126,7 +117,7 @@ const Subject = async ({params}) => {
             </div>
 
 
-            <div className='h-full w-1/2  absolute flex flex-col gap-2 items-end justify-end py-10 px-16 top-0 right-0'>
+            <div className='h-full w-1/2  absolute flex flex-col gap-2 items-end py-10 px-16 top-0 right-0'>
                 
                 <div className=' bg-[#36393E] h-44 w-96 rounded-md p-5'>
                     <span className='flex gap-1 font-bold'>Announcements <Image
@@ -136,7 +127,9 @@ const Subject = async ({params}) => {
                      <p className='text-sm font-extralight mt-3 text-justify'>Join us for a programming exercise on September 08, 2023 at CCIS Building. Whether you're a beginner or an experienced coder, this is a great opportunity to practice your skills and have some fun!</p>
                 </div>
 
-                <Notes/>
+
+            {finaldData.user.role === 'employee' ? <button className='px-3 py-2 rounded bg-[#E58E27] mt-5'>Add Announcements</button>: <Notes/>}
+                
             </div>
         </div>
    </div>
