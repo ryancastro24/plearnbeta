@@ -2,8 +2,9 @@
 
 import React from 'react'
 import axios from 'axios'
+import Image from 'next/image'
 const AddActivityModal = ({id,setShowModal}) => {
-
+    
     const [data,setData] = React.useState({
         id,
         title:"",
@@ -27,7 +28,7 @@ const AddActivityModal = ({id,setShowModal}) => {
    
   return (
     <div className='w-full top-0 left-0 h-full bg-[#161a1eb3] flex justify-center items-center absolute z-40'>
-        <div className='w-[600px] h-96 p-7  bg-[#D2F5FF] rounded-md text-black flex items-center flex-col'>
+        <div className='w-[600px] h-96 p-7 relative  bg-[#D2F5FF] rounded-md text-black flex items-center flex-col'>
             
             <h1>Add Activity</h1>
             <form onSubmit={handleSubmit} action="" className='w-full mt-5 flex flex-col gap-5'>
@@ -51,6 +52,10 @@ const AddActivityModal = ({id,setShowModal}) => {
 
                
             </form>
+
+            <button onClick={() => setShowModal(false)} className='bg-red-500  p-2 px-3 opacity-25 hover:opacity-100 rounded-full absolute top-3 right-3'>
+                <Image width={15} height={15} alt='close'  src={'/DashboardAssets/icons/close.svg'}/>
+            </button>
         </div>
     </div>
   )

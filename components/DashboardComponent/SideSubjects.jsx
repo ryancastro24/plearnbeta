@@ -17,7 +17,7 @@ const SideSubjects = ({subjects}) => {
                     {/* {val.activityId.length > 0 && <div style={{top:-5,right:-5}} className='w-6 h-6 flex justify-center items-center bg-red-500 rounded-full absolute  '>
                     <span className='text-sm'>{val.activityId.length}</span></div>}  */}
                   <div>
-                      <Image src={'/DashboardAssets/img/desert pixelate 0.png'} height={45} width={45}/>
+                      <Image src={`/DashboardAssets/img/${val.realm ? val.realm + ".png" : 'forest pixelate 0 (1).png'}`} height={45} width={45}/>
                   </div>
 
                   <div>

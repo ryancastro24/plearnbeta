@@ -10,7 +10,7 @@ import QuestField from '@/components/DashboardComponent/QuestField';
 async function getData(id){
     const res = await fetch(`http://localhost:3000/api/subject/${id}`,{
 
-        next:{revalidate:0}
+        next:{revalidate:3600}
     });
     if (!res.ok) {
         // This will activate the closest `error.js` Error Boundary
@@ -29,13 +29,14 @@ const Subject = async ({params}) => {
     console.log(data.realm)
     let bg = 'bg-';
   let backgroundImage =  bg.concat(data.realm)
-  console.log(backgroundImage)
+    console.log(backgroundImage)
+
 
   return ( 
    <>
    <div className={`w-full h-screen absolute top-0 bg-forest z-20 bg-cover`}>
         <Backbutton/>
-        <div className={`w-full bg-forest  h-2/5 bg-cover relative`}>
+        <div className={`w-full bg-forest h-2/5 bg-cover relative`}>
 
    
             <div className='w-full bg-[#161a1e99] p-10 h-full   '>
@@ -74,7 +75,7 @@ const Subject = async ({params}) => {
 
 
 
-                    <QuestField {...data}/>
+                    <QuestField  {...data}/>
 
 
 

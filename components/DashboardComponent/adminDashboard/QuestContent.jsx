@@ -4,9 +4,11 @@ import React from 'react'
 import QuestsPage from '@/components/DashboardComponent/QuestsPage';
 import QuestPageFooter from '@/components/DashboardComponent/QuestPageFooter';
 import AddActivityModal from './AddActivityModal';
+
 const QuestContent = ({activityId,role,id}) => {
 
     const [showModal,setShowModal] = React.useState(false);
+
   return (
     <>
     <div className='flex justify-between w-full items-center '>
@@ -22,11 +24,11 @@ const QuestContent = ({activityId,role,id}) => {
 
       <div>
           {activityId.length > 0 ? <QuestsPage activityId={activityId} role={role}/> : 
-          <div className='w-full h-[480px] bg-red-500 flex justify-center items-center'><span>No Quests Available</span></div>}
+          <div className='w-full h-[480px] flex justify-center items-center'><span className='text-2xl'>No Quests Available</span></div>}
       </div>
 
 
-      <QuestPageFooter setShowModal={setShowModal} role={role}/>
+      <QuestPageFooter setShowModal={setShowModal} role={role} activityLength={activityId.length}/>
 
     </>
   )
