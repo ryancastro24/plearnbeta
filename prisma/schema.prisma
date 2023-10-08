@@ -48,6 +48,7 @@ model Activity {
   id         String     @id @default(auto()) @map("_id") @db.ObjectId
   title      String     @unique
   type       String
+  isEditable Boolean    @default(true)
   isDone     Boolean    @default(false)
   score      Int        @default(0)
   createdAt  DateTime   @default(now())
@@ -62,7 +63,7 @@ model Activity {
 model Question {
   id           String     @id @default(auto()) @map("_id") @db.ObjectId
   questionText String
-  questionType String
+  questionType String     @default("Multiple Choice")
   createdAt    DateTime   @default(now())
   updatedAt    DateTime   @updatedAt
   choices      Choice[] // Define a one-to-many relationship with choices

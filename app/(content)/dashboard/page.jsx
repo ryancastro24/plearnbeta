@@ -1,5 +1,5 @@
 
-import DashboardNav from '@/components/DashboardComponent/DashboardNav'
+
 import { getServerSession } from 'next-auth'
 import { authOptions } from '@/app/api/auth/[...nextauth]/route'
 import RecentActivities from '@/components/DashboardComponent/RecentActivities'

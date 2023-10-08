@@ -10,7 +10,15 @@ export async function GET(request,{params}){
                 id: params.id
             },
             include:{
-                activityId:true,
+                activityId:{
+                    include:{
+                        questions:{
+                            include:{
+                                choices:true
+                            }
+                        }
+                    }
+                },
                 lessonId:true
             }
             
