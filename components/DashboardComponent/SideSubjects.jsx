@@ -5,17 +5,26 @@ import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 const SideSubjects = ({subjects}) => {
   const router = useRouter();
+
+  const updatedSubjects = subjects.map(val => {
+    const res = val.activityId.filter(data =>  data.isDone === false)
+     return {
+       ...val,
+       activityId: res
+     }
+   
+ })
   return (
     <div className='w-full mt-5 flex justify-between flex-col gap-4'>
         <h2 className='font-bold'>Other Realms</h2>
 
 
         <div className='flex flex-col gap-2'>
-            {subjects.slice(4,7).map(val => (
+            {updatedSubjects.slice(4,7).map(val => (
                 <div onClick={() => router.push(`/dashboard/${val.id}`)} key={val.id} className='bg-[#D2F5FF] cursor-pointer relative hover:bg-[#798f95] h-14 w-full rounded-sm flex p-2 items-center gap-3'>
                     
-                    {/* {val.activityId.length > 0 && <div style={{top:-5,right:-5}} className='w-6 h-6 flex justify-center items-center bg-red-500 rounded-full absolute  '>
-                    <span className='text-sm'>{val.activityId.length}</span></div>}  */}
+                    {val.activityId.length > 0 && <div style={{top:-5,right:-5}} className='w-6 h-6 flex justify-center items-center bg-red-500 rounded-full absolute  '>
+                    <span className='text-sm'>{val.activityId.length}</span></div>} 
                   <div>
                       <Image src={`/DashboardAssets/img/${val.realm ? val.realm + ".png" : 'forest pixelate 0 (1).png'}`} height={45} width={45}/>
                   </div>

@@ -11,10 +11,13 @@ export async function GET(request,{params}){
         where:{
             id:params.id
         },
-        select:{
-            role:true,
-            subjects:true
+        include:{
+            subjects:{
+                include:{
+                    activityId:true
+                }
             }
+        }
         
     })
 

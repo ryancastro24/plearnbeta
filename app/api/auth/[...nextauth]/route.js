@@ -32,7 +32,7 @@ export const authOptions = {
 
                 //  if no student was found
                 if(!user || !user?.hashedPassword){
-                    throw new Error("NO student Found!")
+                    throw new Error("User Not Found!")
                 }   
                 // if password match
                 const passwordMatch = await brcypt.compare(credentials.password, user.hashedPassword);

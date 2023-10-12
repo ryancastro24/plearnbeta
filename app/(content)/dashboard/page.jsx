@@ -31,8 +31,9 @@ const  Dashboard = async() => {
 
           <div className='w-1/5 rounded-md h-full bg-[#41454A] p-5 flex flex-col justify-between'>
 
-            <RecentActivities/>
-            <SideSubjectOuterCard id={finalData.user.id} subjects={finalData.user.subjects}/>
+            <RecentActivities id={finalData.user.id} />
+
+            <SideSubjectOuterCard id={finalData.user.id} />
 
             <WorldButton/>
 
