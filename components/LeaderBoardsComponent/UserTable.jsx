@@ -1,5 +1,6 @@
+'use client'
 import React from 'react'
-
+import { Suspense } from 'react'
 const UserTable = ({data,idNumber}) => {
 
   return (
@@ -15,7 +16,8 @@ const UserTable = ({data,idNumber}) => {
                   </tr>
                 </thead>
                 <tbody>
-                 {data.slice(0,9).map((val,i) => (
+                <Suspense fallback={<p>Loading Rankings...</p>}>
+                 {data.slice(0,10).map((val,i) => (
                   <tr className={`text-center ${idNumber === val.idNumber ? 'bg-[#E58E27]' : i % 2 === 0 ? '' : 'bg-[#3A3D42]'}`} key={val.id}>
                     <td className='p-2 text-left'><span className='flex gap-4 px-2'><b>{i + 1}.</b> {val.idNumber}</span></td>
                     <td className='p-2'>{val.name}</td>
@@ -24,6 +26,7 @@ const UserTable = ({data,idNumber}) => {
                     <td className='p-2'>{val.points} pts</td>
                   </tr>
                  ))}
+                </Suspense>
                 </tbody>
             </table>
           

@@ -3,7 +3,6 @@ import {signIn} from 'next-auth/react'
 import React from 'react'
 import  {useRouter} from 'next/navigation'
 import { ToastContainer,toast,Zoom } from 'react-toastify'
-
 import 'react-toastify/dist/ReactToastify.css';
 const LoginForm = () => {
     const [data,setData] = React.useState({

@@ -1,12 +1,12 @@
 import { NextResponse } from "next/server";
 import prisma from '@/libs/prismaDb'
 
-
-export async function GET(){
-
+export async function GET(req,res){
+ 
     const students = await prisma.user.findMany({
         where:{
-            role:"student"
+            role:"student",
+           
         },
         include:{
             course:true
@@ -15,5 +15,7 @@ export async function GET(){
             points: 'desc'
         }
     })
-    return  NextResponse.json(students)
+
+   
+    return NextResponse.json(students)
 }
