@@ -27,7 +27,7 @@ const DashboardNav = ({name,email,level,rank,role}) => {
         <div className='flex items-center justify-center gap-5'>
            {role === "student" ? <span className='text-sm'>Level {data.level}</span> : null} 
            
-            <Link className='cursor-pointer' href={'/redeem'}><Image width={20} height={20} alt='cart' src={'/DashboardAssets/icons/cart.svg'}/></Link>
+            <Link className='cursor-pointer' href={'/cart'}><Image width={20} height={20} alt='cart' src={'/DashboardAssets/icons/cart.svg'}/></Link>
             <ProfileNav name={name} email={email}/>
         </div>
 
