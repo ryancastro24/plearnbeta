@@ -2,20 +2,32 @@
 import React from 'react'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
+import { useEffect } from 'react'
 const SubjectCardInnerContent = ({subjects,role}) => {
 
-
+ 
     const router = useRouter();
+
+    const updatedSubjects = subjects.map(val => {
+       const res = val.activityId.filter(data =>  data.isDone === false)
+        return {
+          ...val,
+          activityId: res
+        }
+      
+    })
+  
+
   return (
     <>
 
-            {subjects.slice(0,4).map(val => ( 
+            {updatedSubjects.slice(0,4).map(val => ( 
 
                     
             <div onClick={() => router.push(`/dashboard/${val.id}`)} key={val.id} className='h-80 w-56 bg-[#D2F5FF] relative cursor-pointer hover:bg-[#5f7176] rounded-md p-3'>
-{/* 
+
                     {val.activityId.length > 0 && <div style={{top:-10,right:-5}} className='w-7 h-7 flex justify-center items-center bg-red-500 rounded-full absolute  '>
-                    <span>{val.activityId.length}</span></div>}  */}
+                    <span>{val.activityId.length}</span></div>} 
 
                 <div className='flex flex-col items-center rounded-md overflow-hidden'>
                     <Image alt='sampleImage' src={`/DashboardAssets/img/${val.realm ? val.realm + ".png" : 'forest pixelate 0 (1).png'}`} height={160} width={200}/>

@@ -2,11 +2,15 @@
 import {signIn} from 'next-auth/react'
 import React from 'react'
 import  {useRouter} from 'next/navigation'
+import { ToastContainer,toast,Zoom } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
 const LoginForm = () => {
     const [data,setData] = React.useState({
         idNumber:"",
         password:""
     });
+
+
 
 
     const [logging,setLogging] = React.useState(false)
@@ -26,7 +30,16 @@ const LoginForm = () => {
     signIn('credentials', {...data, redirect:false})
     .then((callback)=> {
       if(callback?.error){
-        alert(callback.error);
+        toast.error(`${callback.error}`, {
+          position: "top-center",
+          autoClose: 1000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+          });
         setLogging(false)
         setData({
           idNumber:"",
@@ -34,8 +47,19 @@ const LoginForm = () => {
         })
       }
       if(callback?.ok && !callback?.error){
-       alert("User login successfully")
-       router.push('/dashboard');
+        toast.success('You Have Successfully Login!', {
+          position: "top-center",
+          autoClose: 1500,
+          hideProgressBar: true,
+          closeOnClick: false,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+          onClose: () =>  router.push('/dashboard'),
+          
+          });
+     
       
 
       }
@@ -46,6 +70,19 @@ const LoginForm = () => {
 
   return (
     <div>
+       <ToastContainer
+       position="top-center"
+       autoClose={1500}
+       hideProgressBar={true}
+       newestOnTop={false}
+       closeOnClick
+       rtl={false}
+       pauseOnFocusLoss
+       draggable
+       pauseOnHover
+       closeButton={false}
+      transition={Zoom}
+       />
         <form action="" onSubmit={loginUser} className='w-80 h-96 p-4 rounded-md bg-[#a6c7d04d]'>
             <div className='flex flex-col w-full mt-5 gap-2' >
                 <label htmlFor="idNumber">ID Number</label>
@@ -75,6 +112,8 @@ const LoginForm = () => {
             <button onClick={() => setLogging(true)} className='bg-[#E58E27] w-full mt-5 py-4 rounded ' type='submit'>{logging ? "Logging In" : "Login"}</button>
         </form>
 
+
+     
         
     </div>
   )

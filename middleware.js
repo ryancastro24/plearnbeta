@@ -5,7 +5,7 @@ export async function middleware(request){
     
   
     const path = request.nextUrl.pathname;
-    const isPublicPath = path === '/' || path === '/register'
+    const isPublicPath = path === '/' 
 
     const token = request.cookies.get('next-auth.session-token')?.value || '';
     // console.log(token);

@@ -4,8 +4,8 @@ import {useState,useEffect} from 'react'
 import axios from 'axios'
 // import {toast} from 'react-hot-toast'
 import { useRouter } from 'next/navigation'
-
-
+import { ToastContainer,toast,Zoom } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
 export default function StudentRegisterPage() {
   const [data,setData] = useState({
     idNumber:'',
@@ -63,7 +63,17 @@ export default function StudentRegisterPage() {
      axios.post('/api/register',data)
      .then(() => {
      
-     alert("User has been registered");
+      toast.success('You Have Successfully Login!', {
+        position: "top-center",
+        autoClose: 1500,
+        hideProgressBar: true,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+        
+        });
      
       setData({
         idNumber:'',
@@ -76,7 +86,7 @@ export default function StudentRegisterPage() {
         course:'',
         role:''
      })
-      router.push('/');
+    
     })                               
      .catch(() => alert("Something went error"))
 
@@ -88,6 +98,19 @@ export default function StudentRegisterPage() {
     <>
     
       <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
+      <ToastContainer
+       position="top-center"
+       autoClose={1500}
+       hideProgressBar={true}
+       newestOnTop={false}
+       closeOnClick
+       rtl={false}
+       pauseOnFocusLoss
+       draggable
+       pauseOnHover
+       closeButton={false}
+      transition={Zoom}
+       />
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <img
             className="mx-auto h-10 w-auto"
