@@ -28,6 +28,8 @@ model User {
   courseId       String?   @db.ObjectId
   subjectsId     String[]  @db.ObjectId
   subjects       Subject[] @relation(fields: [subjectsId], references: [id])
+  itemId         String[]  @db.ObjectId
+  items          Item[]    @relation(fields: [itemId], references: [id])
 }
 
 model Course {
@@ -100,4 +102,17 @@ model Subject {
   type        String
   activityId  Activity[]
   lessonId    Lesson[]
+}
+
+model Item {
+  id               String   @id @default(auto()) @map("_id") @db.ObjectId
+  name             String
+  description      String
+  price            Int
+  quantity         Int
+  numberOfpurchase Int?
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+  User             User[]   @relation(fields: [userId], references: [id])
+  userId           String[] @db.ObjectId
 }
