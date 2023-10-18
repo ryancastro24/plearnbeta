@@ -22,7 +22,7 @@ const SideSubjectOuterCard = async({id}) => {
 
   return (
     <>
-        <SideSubjects {...data}/>
+        <SideSubjects user={id} {...data}/>
        
     </>
   )

@@ -47,7 +47,7 @@ export const authOptions = {
         })
     ],
 
-
+    site: process.env.NEXTAUTH_URL,
     callbacks:{ //create callback functions     
         async jwt({token, user ,session,trigger}){
     

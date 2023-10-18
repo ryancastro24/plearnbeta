@@ -7,8 +7,36 @@ import AddStudents from '@/components/DashboardComponent/adminDashboard/AddStude
 import { getServerSession } from 'next-auth';
 import { authOptions } from '@/app/api/auth/[...nextauth]/route';
 import QuestField from '@/components/DashboardComponent/QuestField';
-async function getData(id){
-    const res = await fetch(`http://localhost:3000/api/subject/${id}`,{
+
+
+async function getAdminSubs(id){
+
+    const res = await fetch(`http://localhost:3000/api/adminSubjects/${id}`,
+
+    {
+
+        next:{revalidate:0}
+    });
+    if (!res.ok) {
+        // This will activate the closest `error.js` Error Boundary
+        throw new Error('Failed to fetch data')
+      }
+    return res.json()
+
+}
+
+async function getData(id,user_id){
+
+    const requestOptions = {
+        method: 'GET',
+        headers: {
+          'user_id': user_id,
+          // Add more custom headers as needed
+        },
+      };
+    const res = await fetch(`http://localhost:3000/api/subject/${id}`,
+    requestOptions,
+    {
 
         next:{revalidate:3600}
     });
@@ -25,12 +53,9 @@ const Subject = async ({params}) => {
 
     const finaldData = await session;
 
-    const data = await getData(params.id);
-    console.log(data.realm)
-    let bg = 'bg-';
-  let backgroundImage =  bg.concat(data.realm)
-    console.log(backgroundImage)
-
+    const data = await getData(params.id,session.user.id);
+    const adminData = await getAdminSubs(params.id)
+    
 
   return ( 
    <>
@@ -41,9 +66,9 @@ const Subject = async ({params}) => {
    
             <div className='w-full bg-[#161a1e99] p-10 h-full   '>
                 <div className='flex flex-col gap-3 mt-8 ml-8'>
-                    <span className='text-2xl font-bold'>{data.title}</span>
-                    <span>{data.subjectCode}</span>
-                    <span>Section: {data.section}</span>
+                    <span className='text-2xl font-bold'>{data.finalData[0].subjectDetails.title}</span>
+                    <span>{data.finalData[0].subjectDetails.subjectCode}</span>
+                    <span>Section: {data.finalData[0].subjectDetails.section}</span>
                     
                 </div>
 
@@ -75,7 +100,7 @@ const Subject = async ({params}) => {
 
 
 
-                    <QuestField  {...data}/>
+                    <QuestField role={session.user.role} adminData={adminData} subId={data.finalData[0].subjectDetails.id}  data={data.finalData[1].activityData}/>
 
 
 
@@ -92,22 +117,14 @@ const Subject = async ({params}) => {
                                 Lessons
                                 </span>
 
-                                <span className='text-black text-xs'>
-                                    Available: <b>{data.lessonId.length}</b>
-                                </span>
+
                             
                             
                         </div> 
                         <div className=' h-full w-2/5 rounded bg-[#E58E27] flex items-center justify-center '>
-
-                            {/* add a lessson data to change this part */}
-                            {data.lessonId.length > 0 ? <div>
-                                <span className='text-md font-thin mr-2'>0/{data.lessonId.length}</span>
-                                <span className='text-xs '>Done</span>
-                            </div>
-                            :
+            
                             <span className='text-xs font-extralight'>No Available</span>
-                        }
+                        
                     
                         </div> 
                     </div>

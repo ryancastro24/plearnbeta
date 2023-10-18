@@ -11,25 +11,27 @@ datasource db {
 }
 
 model User {
-  id             String    @id @default(auto()) @map("_id") @db.ObjectId
-  idNumber       String    @unique
-  name           String
-  email          String    @unique
-  gender         String
-  age            Int
-  yearLevel      Int?
-  role           String
-  hashedPassword String
-  points         Int?      @default(0)
-  level          Int?      @default(0)
-  createdAt      DateTime  @default(now())
-  updateAt       DateTime  @updatedAt
-  course         Course?   @relation(fields: [courseId], references: [id])
-  courseId       String?   @db.ObjectId
-  subjectsId     String[]  @db.ObjectId
-  subjects       Subject[] @relation(fields: [subjectsId], references: [id])
-  itemId         String[]  @db.ObjectId
-  items          Item[]    @relation(fields: [itemId], references: [id])
+  id                String              @id @default(auto()) @map("_id") @db.ObjectId
+  idNumber          String              @unique
+  name              String
+  email             String              @unique
+  gender            String
+  age               Int
+  yearLevel         Int?
+  role              String
+  hashedPassword    String
+  points            Int?                @default(0)
+  level             Int?                @default(0)
+  createdAt         DateTime            @default(now())
+  updateAt          DateTime            @updatedAt
+  course            Course?             @relation(fields: [courseId], references: [id])
+  courseId          String?             @db.ObjectId
+  subjectsId        String[]            @db.ObjectId
+  subjects          Subject[]           @relation(fields: [subjectsId], references: [id])
+  itemId            String[]            @db.ObjectId
+  items             Item[]              @relation(fields: [itemId], references: [id])
+  UserPurchasedItem UserPurchasedItem[]
+  DoneActiviy       DoneActiviy[]
 }
 
 model Course {
@@ -47,19 +49,29 @@ model College {
 }
 
 model Activity {
-  id         String     @id @default(auto()) @map("_id") @db.ObjectId
-  title      String     @unique
-  type       String
-  isEditable Boolean    @default(true)
-  isDone     Boolean    @default(false)
-  score      Int        @default(0)
-  createdAt  DateTime   @default(now())
-  items      Int        @default(0)
-  updatedAt  DateTime   @updatedAt
-  subject    Subject?   @relation(fields: [subjectId], references: [id])
-  subjectId  String?    @db.ObjectId
-  questionId String[]   @db.ObjectId
-  questions  Question[] @relation(fields: [questionId], references: [id])
+  id          String        @id @default(auto()) @map("_id") @db.ObjectId
+  title       String        @unique
+  type        String
+  isEditable  Boolean       @default(true)
+  isDone      Boolean       @default(false)
+  score       Int           @default(0)
+  createdAt   DateTime      @default(now())
+  items       Int           @default(0)
+  updatedAt   DateTime      @updatedAt
+  subject     Subject?      @relation(fields: [subjectId], references: [id])
+  subjectId   String?       @db.ObjectId
+  questionId  String[]      @db.ObjectId
+  questions   Question[]    @relation(fields: [questionId], references: [id])
+  DoneActiviy DoneActiviy[]
+}
+
+model DoneActiviy {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  activity   Activity @relation(fields: [activityId], references: [id])
+  activityId String   @db.ObjectId
+  user       User     @relation(fields: [userId], references: [id])
+  userId     String   @map("_userId") @db.ObjectId
+  isDone     Boolean  @default(false)
 }
 
 model Question {
@@ -105,14 +117,26 @@ model Subject {
 }
 
 model Item {
-  id               String   @id @default(auto()) @map("_id") @db.ObjectId
-  name             String
-  description      String
-  price            Int
-  quantity         Int
-  numberOfpurchase Int?
-  createdAt        DateTime @default(now())
-  updatedAt        DateTime @updatedAt
-  User             User[]   @relation(fields: [userId], references: [id])
-  userId           String[] @db.ObjectId
+  id                String              @id @default(auto()) @map("_id") @db.ObjectId
+  name              String
+  description       String
+  price             Int
+  numberOfpurchase  Int?
+  purchased         Boolean             @default(false)
+  createdAt         DateTime            @default(now())
+  updatedAt         DateTime            @updatedAt
+  User              User[]              @relation(fields: [userId], references: [id])
+  userId            String[]            @db.ObjectId
+  UserPurchasedItem UserPurchasedItem[]
+}
+
+model UserPurchasedItem {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  item      Item     @relation(fields: [itemId], references: [id])
+  itemId    String   @db.ObjectId
+  user      User     @relation(fields: [userId], references: [id])
+  userId    String   @map("_userId") @db.ObjectId
+  purchased Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
