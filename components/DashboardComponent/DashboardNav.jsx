@@ -5,7 +5,8 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import Image from 'next/image'
 import ProfileNav from './ProfileNav'
-const DashboardNav = ({id,name,email,level,rank,role,cartItems}) => {
+import { levelIdentifier } from '@/libs/testing'
+const DashboardNav = ({id,name,email,level,role,cartItems}) => {
 
   const  [cartData,setCartData] = React.useState([])
   const pathname = usePathname();
@@ -13,9 +14,10 @@ const DashboardNav = ({id,name,email,level,rank,role,cartItems}) => {
     name,
     level,  
     email,
-    rank
   })
 
+
+  const rank = levelIdentifier(level)
   useEffect(() => {
 
     setCartData(cartItems.filter(val =>  val.purchased === false))
@@ -33,7 +35,7 @@ const DashboardNav = ({id,name,email,level,rank,role,cartItems}) => {
 
 
         <div className='flex items-center justify-center gap-5'>
-           {role === "student" ? <span className='text-sm'>Level {data.level}</span> : null} 
+           {role === "student" ? <span className='text-sm flex justify-center items-center gap-2'>Level {data.level} <b>{rank}</b></span> : null} 
            <div className='relative'>
               {!!cartItems.length && <div className='w-4 h-4 absolute top-[-10px] right-[-10px] rounded-full bg-red-500 flex justify-center items-center'>
                 <span className='text-xs'>{cartData.length}</span>

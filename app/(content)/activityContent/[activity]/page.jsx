@@ -19,14 +19,13 @@ const BattleField = async({params}) => {
 
   const data = await getData(params.activity);
 
-  console.log(data)
   return (
     <div className='flex flex-col absolute top-0 z-40 w-full h-full bg-blue-950'
     >
-    <span>{data.title}</span>
+    <span>{data.activity.title}</span>
 
     <div className='flex flex-col w-full'>
-    {data.questions.map(val => (
+    {data.activity.questions.map(val => (
       <div className='mt-5 bg-red-500 p-5 w-full'>
         <h2>{val.questionText}</h2>
         

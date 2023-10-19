@@ -13,7 +13,16 @@ import Image from 'next/image'
     const [loading,setLoading] =  React.useState(false)
 
     useEffect(() => {
-     fetch(`http://localhost:3000/api/students/${content}`,{
+      const requestOptions = {
+        method: 'GET',
+        headers: {
+          'user_id': idNumber,
+          // Add more custom headers as needed
+        },
+      };
+     fetch(`http://localhost:3000/api/students/${content}`,
+     requestOptions,
+     {
         next:{
           revalidate:0
         }

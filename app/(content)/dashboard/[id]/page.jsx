@@ -74,7 +74,7 @@ const Subject = async ({params}) => {
 
 
             {finaldData.user.role === "employee" && <div className='absolute top-10 right-0'>
-                        <AddStudents subjectId={data.id}/>
+                        <AddStudents subjectId={adminData.id}/>
                 </div> }
                
             </div>
