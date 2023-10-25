@@ -1,9 +1,11 @@
 import React from 'react'
 import { levelIdentifier } from '@/libs/testing'
 import Image from 'next/image'
+import { colorLevelIdentifier } from '@/libs/testing'
 const UserProfileContent = ({data}) => {
 
     const rank  = levelIdentifier(data.level)
+    const rankColor  = colorLevelIdentifier(data.level)
   return (
     <div className='w-full h-3/5  flex p-7 relative items-center flex-col'>
             
@@ -14,7 +16,7 @@ const UserProfileContent = ({data}) => {
             
             <div className='flex justify-center items-center gap-56 relative'>
                 <div className='flex flex-col items-end'>
-                    <span className='flex justify-center items-center gap-3'><span className='text-sm'>Level {data.level}</span> <b>{rank}</b></span>
+                    <span className='flex justify-center items-center gap-3'><span className='text-sm'>Level {data.level}</span> <b><span style={{color:rankColor}}>{rank}</span> </b></span>
                     <span>Chorale Adveniente</span>
                 </div>
 

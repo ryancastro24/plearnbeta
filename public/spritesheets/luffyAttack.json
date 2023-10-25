@@ -1,0 +1,235 @@
+{
+	"frames": {
+		"luffy15-removebg-preview.png": {
+			"frame": {
+				"x": 1,
+				"y": 1,
+				"w": 60,
+				"h": 60
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 60,
+				"h": 60
+			},
+			"sourceSize": {
+				"w": 60,
+				"h": 60
+			}
+		},
+		"luffy16-removebg-preview.png": {
+			"frame": {
+				"x": 63,
+				"y": 1,
+				"w": 102,
+				"h": 69
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 102,
+				"h": 69
+			},
+			"sourceSize": {
+				"w": 102,
+				"h": 69
+			}
+		},
+		"luffy17-removebg-preview.png": {
+			"frame": {
+				"x": 1,
+				"y": 72,
+				"w": 102,
+				"h": 69
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 102,
+				"h": 69
+			},
+			"sourceSize": {
+				"w": 102,
+				"h": 69
+			}
+		},
+		"luffy18-removebg-preview.png": {
+			"frame": {
+				"x": 105,
+				"y": 72,
+				"w": 107,
+				"h": 70
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 107,
+				"h": 70
+			},
+			"sourceSize": {
+				"w": 107,
+				"h": 70
+			}
+		},
+		"luffy19-removebg-preview.png": {
+			"frame": {
+				"x": 1,
+				"y": 144,
+				"w": 107,
+				"h": 70
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 107,
+				"h": 70
+			},
+			"sourceSize": {
+				"w": 107,
+				"h": 70
+			}
+		},
+		"luffy20-removebg-preview.png": {
+			"frame": {
+				"x": 167,
+				"y": 1,
+				"w": 59,
+				"h": 58
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 59,
+				"h": 58
+			},
+			"sourceSize": {
+				"w": 59,
+				"h": 58
+			}
+		},
+		"luffy21-removebg-preview.png": {
+			"frame": {
+				"x": 110,
+				"y": 144,
+				"w": 100,
+				"h": 58
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 100,
+				"h": 58
+			},
+			"sourceSize": {
+				"w": 100,
+				"h": 58
+			}
+		},
+		"luffy22-removebg-preview.png": {
+			"frame": {
+				"x": 228,
+				"y": 1,
+				"w": 133,
+				"h": 58
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 133,
+				"h": 58
+			},
+			"sourceSize": {
+				"w": 133,
+				"h": 58
+			}
+		},
+		"luffy23-removebg-preview.png": {
+			"frame": {
+				"x": 214,
+				"y": 61,
+				"w": 59,
+				"h": 60
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 59,
+				"h": 60
+			},
+			"sourceSize": {
+				"w": 59,
+				"h": 60
+			}
+		},
+		"luffy24-removebg-preview.png": {
+			"frame": {
+				"x": 275,
+				"y": 61,
+				"w": 85,
+				"h": 54
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 85,
+				"h": 54
+			},
+			"sourceSize": {
+				"w": 85,
+				"h": 54
+			}
+		},
+		"luffy25-removebg-preview.png": {
+			"frame": {
+				"x": 275,
+				"y": 117,
+				"w": 84,
+				"h": 42
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 84,
+				"h": 42
+			},
+			"sourceSize": {
+				"w": 84,
+				"h": 42
+			}
+		}
+	},
+	"meta": {
+		"app": "http://www.codeandweb.com/texturepacker",
+		"version": "1.0",
+		"image": "luffyAttack.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 362,
+			"h": 215
+		},
+		"scale": "1"
+	}
+}

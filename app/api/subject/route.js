@@ -49,7 +49,7 @@ export async function POST(request){
         },
       })
 
-    console.log(updatedSubject);
+    
     
     return NextResponse.json(updatedSubject);
 }

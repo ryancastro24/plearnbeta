@@ -52,7 +52,6 @@ const SideSubjects = ({subjects,user}) => {
   
 
 
-  console.log(data)
   return (
     <div className='w-full mt-5 flex justify-between flex-col gap-4'>
         <h2 className='font-bold'>Other Realms</h2>

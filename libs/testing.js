@@ -60,3 +60,31 @@ export function levelIdentifier(level){
         return "Legendary"
     }
 }
+
+
+
+
+export function colorLevelIdentifier(level){
+   
+   
+    if(level <=  30){
+        return "yellow"
+    }
+   
+    if(level <= 80){
+        return 'orange'
+    }
+   
+    if(level <= 130){
+        return 'blue'
+    }
+    if(level <= 140){
+        return 'violet'
+    }
+    if(level <= 150){
+        return "purple"
+    }
+    else{
+        return "red"
+    }
+}

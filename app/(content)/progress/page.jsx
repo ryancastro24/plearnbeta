@@ -1,24 +1,11 @@
 import React from 'react'
-
-
-const getData = async() => {
-  const res = await fetch(`http://localhost:3000/api/subject`)
-
-  if (!res.ok) {
-      // This will activate the closest `error.js` Error Boundary
-      throw new Error('Failed to fetch data')
-    }
-
-  return res.json()
-}
-
-const Progres = async() => {
-
-  const user = await getData()
-  console.log(user)
+import Battleground from '@/components/GameDevComponents/Battleground'
+const Progress = () => {
   return (
-    <div>Progres</div>
+    <div className='w-full h-1/2'>
+      <span>progress</span>
+    </div>
   )
 }
 
-export default Progres
+export default Progress

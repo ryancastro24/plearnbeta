@@ -7,6 +7,11 @@ export async function GET(req,{params}){
         where:{
             userId: params.id,
             isDone:true
+        },
+        include:{
+            activity: true
         }
     })
+
+    return NextResponse.json(activities)
 }
