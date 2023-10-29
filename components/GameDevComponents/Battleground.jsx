@@ -2,9 +2,8 @@
 
 import * as PIXI from 'pixi.js';
 import { Stage, Container, Sprite, Text,AnimatedSprite, Graphics  } from '@pixi/react';
-import { useMemo } from 'react';
-import { useEffect,useState,useCallback} from 'react';
 
+import { useEffect,useState,useCallback} from 'react';
 
 
 
@@ -29,6 +28,61 @@ const backgroundImage = '/spritesheets/backgroundsample.png'
   const [enemyFrames, setEnemyFrames] = useState([]);
   const [enemyAttackFrames, setEnemyAttackFrames] = useState([]);
   const [enemyHurtFrames, setEnemyHurtFrames] = useState([]);
+
+
+  const [heroLives,setHeroLives] = useState(lives);
+  const [enemyLives,setEnemyLives] = useState(lives);
+ 
+
+
+const teddytexture = PIXI.Texture.from('https://pixijs.com/assets/bunny.png');
+
+// Create a 5x5 grid of bunnies
+const livesGrid = () => {
+  const grid = [];
+  const hearttexture = PIXI.Texture.from('/spritesheets/heart.png');
+
+  for (let i = 0; i < heroLives; i++) {
+    const bunny = (
+      <Sprite
+        key={i}
+        x={i * 25}
+        texture={hearttexture}
+      />
+    );
+    grid.push(bunny);
+  }
+
+
+  return grid;
+}
+
+
+
+const enemyLivesGrid = () => {
+  const grid = [];
+  const hearttexture = PIXI.Texture.from('/spritesheets/heart.png');
+
+  for (let i = 0; i < enemyLives; i++) {
+    const bunny = (
+      <Sprite
+        key={i}
+        x={i * 25}
+        texture={hearttexture}
+      />
+    );
+    grid.push(bunny);
+  }
+
+
+  return grid;
+}
+
+
+
+
+
+
 
 
 
@@ -90,8 +144,24 @@ const backgroundImage = '/spritesheets/backgroundsample.png'
   };
 
   useEffect(() => {
+    
     loadSpritesheet();
-  }, []);
+
+   
+ 
+  },[]);
+
+  useEffect(() => {
+  
+    if(isRight === false){
+      setHeroLives(heroLives - 1);
+    }
+    if(isRight === true){
+      setEnemyLives(enemyLives - 1)
+    }
+   
+ 
+  }, [isRight]);
 
 
   if (frames.length === 0) {
@@ -100,13 +170,22 @@ const backgroundImage = '/spritesheets/backgroundsample.png'
 
   const backgroundTexture = PIXI.Texture.from("/spritesheets/backgroundsample.png");
   const vs = PIXI.Texture.from("/spritesheets/vs.png");
+  const luffyProfile = PIXI.Texture.from("/spritesheets/luffyProfile.png");
   return (
     <Stage width={window.innerWidth} height={300} style={{backgroundColor:"white"}}>
-   
+  
     <Sprite texture={backgroundTexture} width={window.innerWidth} height={300} /> 
     
     <Graphics draw={draw} alpha={0.7}/>
+
+        <Sprite texture={luffyProfile} width={60} height={60} x={150} y={40} anchor={0.5}/>
+        <Container x={190} y={30}>
+            {livesGrid()}
+        </Container>
+
+
         <Container x={isRight ? window.innerWidth - 700 : 200} y={80} >
+          
          <AnimatedSprite
             animationSpeed={0.1}
             isPlaying={true}
@@ -124,7 +203,7 @@ const backgroundImage = '/spritesheets/backgroundsample.png'
             alpha={isRight ? 1 : 0}
         />
            <AnimatedSprite
-            animationSpeed={0.1}
+            animationSpeed={0.05}
             isPlaying={true}
             textures={luffyHurtFrames}
             scale={{ x: 4, y: 4 }}
@@ -133,6 +212,10 @@ const backgroundImage = '/spritesheets/backgroundsample.png'
         </Container>
         <Sprite texture={vs} x={window.innerWidth / 2} anchor={0.5} scale={0.2} y={60}/> 
 
+        <Container x={window.innerWidth - 200} y={30} >
+              {enemyLivesGrid()}
+        </Container>
+        
         <Container x={isRight === false ? 600 : window.innerWidth - 200} y={50} >
          
          <AnimatedSprite

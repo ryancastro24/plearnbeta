@@ -7,6 +7,8 @@ const QuestField = ({data,subId,role,adminData}) => {
 
     const router = useRouter();
 
+    const doneActivity  = data.filter(val => val.isDone === true);
+
   return (
    <>
 
@@ -31,7 +33,7 @@ const QuestField = ({data,subId,role,adminData}) => {
                         </div> 
                         <div className=' h-full w-2/5 rounded bg-[#E58E27] flex items-center justify-center '>
                             {data.length > 0 ? <div>
-                                <span className='text-md font-thin mr-2'>0/{data.length}</span>
+                                <span className='text-md mr-2'>{doneActivity.length}/{data.length}</span>
                                 <span className='text-xs '>Done</span>
                             </div>
                             :

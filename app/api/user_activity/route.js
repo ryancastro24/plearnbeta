@@ -7,6 +7,11 @@ export async function GET(req,{params}){
         where:{
             userId: params.id,
             isDone:true
-        }
+        },
+        orderBy: {
+            updatedAt: 'desc',
+          },
     })
+    
+    return NextResponse.json(activities);
 }

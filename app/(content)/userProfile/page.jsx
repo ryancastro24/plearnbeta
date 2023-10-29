@@ -56,20 +56,26 @@ const UserProfile = async() => {
 
 
         <div className='w-2/5  h-full p-5'>
-                <div className='bg-[#41454A] w-full h-full rounded flex flex-col items-center gap-3 p-3'>
-                    <h2>ITEMS COLLECTED</h2>
-                    <div className='flex justify-center items-center flex-wrap gap-3'>
-                        <div className='w-20 h-20 rounded bg-[#33363a]'></div>
-                        <div className='w-20 h-20 rounded bg-[#33363a]'></div>
-                        <div className='w-20 h-20 rounded bg-[#33363a]'></div>
-                        <div className='w-20 h-20 rounded bg-[#33363a]'></div>
-                        <div className='w-20 h-20 rounded bg-[#33363a]'></div>
-                        <div className='w-20 h-20 rounded bg-[#33363a]'></div>
-                        <div className='w-20 h-20 rounded bg-[#33363a]'></div>
-                        <div className='w-20 h-20 rounded bg-[#33363a]'></div>
-                        <div className='w-20 h-20 rounded bg-[#33363a]'></div>
-                        <div className='w-20 h-20 rounded bg-[#33363a]'></div>
+                <div className='bg-[#41454A] w-full h-full justify-between rounded flex flex-col items-center gap-3 p-3'>
+                    <div className='flex flex-col  items-center gap-2'>
+                            <h2>ITEMS COLLECTED</h2>
+                            <div className='flex justify-center items-center flex-wrap gap-3'>
+                                <div className='w-20 h-20 rounded bg-[#33363a]'></div>
+                                <div className='w-20 h-20 rounded bg-[#33363a]'></div>
+                                <div className='w-20 h-20 rounded bg-[#33363a]'></div>
+                                <div className='w-20 h-20 rounded bg-[#33363a]'></div>
+                                <div className='w-20 h-20 rounded bg-[#33363a]'></div>
+                                <div className='w-20 h-20 rounded bg-[#33363a]'></div>
+                                <div className='w-20 h-20 rounded bg-[#33363a]'></div>
+                                <div className='w-20 h-20 rounded bg-[#33363a]'></div>
+                                <div className='w-20 h-20 rounded bg-[#33363a]'></div>
+                                <div className='w-20 h-20 rounded bg-[#33363a]'></div>
 
+                            </div>
+                    </div>
+
+                    <div className='flex justify-end items-end w-full p-2'>
+                        <button className='px-3 py-2 rounded bg-orange-500'>Trade</button>
                     </div>
                 </div>
         </div>

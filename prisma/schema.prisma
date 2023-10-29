@@ -21,7 +21,7 @@ model User {
   role              String
   hashedPassword    String
   points            Int?                @default(0)
-  level             Int?                @default(0)
+  level             Float               @default(0)
   createdAt         DateTime            @default(now())
   updateAt          DateTime            @updatedAt
   course            Course?             @relation(fields: [courseId], references: [id])

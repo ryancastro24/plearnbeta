@@ -3,7 +3,6 @@ import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
-import { cartItems } from '@/libs/testing'
 import CartItemCard from '@/components/CartComponents/CartItemCard'
 import { ToastContainer,Zoom } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';

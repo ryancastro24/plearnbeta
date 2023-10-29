@@ -10,7 +10,7 @@ export async function GET(req,{params}){
         },
         include:{
             activity: true
-        }
+        },
     })
 
     return NextResponse.json(activities)

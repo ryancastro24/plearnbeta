@@ -1,6 +1,7 @@
 import React from 'react'
 import FinalBattle from '@/components/GameDevComponents/FinalBattle';
-
+import { getServerSession } from 'next-auth';
+import { authOptions } from '@/app/api/auth/[...nextauth]/route';
 async function getData(id){
   const res = await fetch(`http://localhost:3000/api/activity/${id}`,{
     next:{
@@ -16,12 +17,12 @@ async function getData(id){
 const BattleField = async({params}) => {
 
   const data = await getData(params.activity);    
-  
+  const session = await getServerSession(authOptions);
 
 
   return (
     <div>
-        <FinalBattle data={data}/>
+        <FinalBattle userId={session.user.id} data={data}/>
     </div>
   )
 }
