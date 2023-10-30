@@ -53,7 +53,7 @@ const choices = await prisma.choice.createMany({
 
 
 
-    console.log(questionData)
+    // console.log(questionData)
 
     return NextResponse.json(questionData)
 

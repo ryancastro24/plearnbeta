@@ -9,7 +9,7 @@ export async function PATCH(req,{params}){
 
     const {finalTotalScore} = await req.json()
     
-    console.log(finalTotalScore)
+    // console.log(finalTotalScore)
     const user = await prisma.user.update({
         where:{
             id:user_id

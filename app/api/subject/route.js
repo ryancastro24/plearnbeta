@@ -34,7 +34,7 @@ export async function POST(request){
         }
     })
 
-    console.log(newSubject);
+    // console.log(newSubject);
 
     const updatedSubject = await prisma.subject.update({
         where: {

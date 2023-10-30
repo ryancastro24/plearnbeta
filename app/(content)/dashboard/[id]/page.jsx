@@ -25,6 +25,7 @@ async function getAdminSubs(id){
 
 }
 
+
 async function getData(id,user_id){
 
     const requestOptions = {
@@ -47,15 +48,43 @@ async function getData(id,user_id){
     return res.json()
 }  
 
+
+
+// get subject notes
+
+async function getNote(id,user_id){
+
+    const requestOptions = {
+        method: 'GET',
+        headers: {
+          'user_id': user_id,
+          'subject_id':id
+          // Add more custom headers as needed
+        },
+      };
+    const res = await fetch(`http://localhost:3000/api/notes/`,
+    requestOptions,
+    {
+        next:{revalidate:0}
+    });
+
+
+    if (!res.ok) {
+        // This will activate the closest `error.js` Error Boundary
+        throw new Error('Failed to fetch data')
+      }
+    return res.json()
+}  
+
 const Subject = async ({params}) => {
 
     const session = await getServerSession(authOptions);
 
-    const finaldData = await session;
 
     const data = await getData(params.id,session.user.id);
     const adminData = await getAdminSubs(params.id)
-    
+    const noteData = await getNote(params.id, session.user.id)
+  
 
   return ( 
    <>
@@ -73,7 +102,7 @@ const Subject = async ({params}) => {
                 </div>
 
 
-            {finaldData.user.role === "employee" && <div className='absolute top-10 right-0'>
+            {session.user.role === "employee" && <div className='absolute top-10 right-0'>
                         <AddStudents subjectId={adminData.id}/>
                 </div> }
                
@@ -146,8 +175,13 @@ const Subject = async ({params}) => {
                 </div>
 
 
-            {finaldData.user.role === 'employee' ? <button className='px-3 py-2 rounded bg-[#E58E27] mt-5'>Add Announcements</button>: <Notes/>}
-                
+            {session.user.role === 'employee' ? <button className='px-3 py-2 rounded bg-[#E58E27] mt-5'>Add Announcements</button>: <Notes subId={params.id} userId={session.user.id}/>}
+            
+            <div className='flex justify-end items-end  gap-2  w-full'>
+                {noteData.slice(0,5).map((val,i) => <div className='w-20 flex justify-center items-center cursor-pointer hover:bg-[#E58E27] h-20 bg-[#5C626A] rounded'>
+                    <span className='text-sm font-light'>Note {i+1}</span>
+                </div>)}
+            </div>
             </div>
         </div>
    </div>
