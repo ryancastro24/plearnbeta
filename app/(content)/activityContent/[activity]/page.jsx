@@ -1,8 +1,7 @@
 import React from 'react'
-
-
-
-
+import FinalBattle from '@/components/GameDevComponents/FinalBattle';
+import { getServerSession } from 'next-auth';
+import { authOptions } from '@/app/api/auth/[...nextauth]/route';
 async function getData(id){
   const res = await fetch(`http://localhost:3000/api/activity/${id}`,{
     next:{
@@ -17,27 +16,13 @@ async function getData(id){
 }  
 const BattleField = async({params}) => {
 
-  const data = await getData(params.activity);
+  const data = await getData(params.activity);    
+  const session = await getServerSession(authOptions);
 
-  console.log(data)
+
   return (
-    <div className='flex flex-col absolute top-0 z-40 w-full h-full bg-blue-950'
-    >
-    <span>{data.title}</span>
-
-    <div className='flex flex-col w-full'>
-    {data.questions.map(val => (
-      <div className='mt-5 bg-red-500 p-5 w-full'>
-        <h2>{val.questionText}</h2>
-        
-          {val.choices.map((val,i) => (
-            <div>
-                <span> <input type="radio" checked={val.isCorrectChoice} /> {i + 1}. {val.choiceText}</span>
-            </div>
-          ))}
-      </div>
-    ))}
-    </div>
+    <div>
+        <FinalBattle userId={session.user.id} data={data}/>
     </div>
   )
 }

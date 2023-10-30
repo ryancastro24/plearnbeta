@@ -18,7 +18,7 @@ export async function POST(request){
         }
     })
 
-    console.log(acitivity)
+    
 
     return NextResponse.json(acitivity);
 }

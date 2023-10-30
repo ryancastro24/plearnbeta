@@ -1,19 +1,27 @@
 import { NextResponse } from "next/server";
 import prisma from '@/libs/prismaDb'
 
+
 export async function GET(request,{params}){
-    const act = await prisma.activity.findFirst({
+    const act = await prisma.doneActiviy.findFirst({
         where:{
-           id: params.id
+            id: params.id
         },
         include:{
-            questions:{
-                include:{
-                    choices:true
-                }
+            activity:{
+              include:{
+                  questions:{
+                    include:{
+                      choices:true,
+                     
+                    }
+                    
+                  }
+              }
             }
         }
-       })
+    })
+       
 
     return NextResponse.json(act)
 }

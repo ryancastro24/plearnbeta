@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server";
 import prisma from '@/libs/prismaDb'
+
+
 export async function GET(){
     try{    
         const subject = await prisma.subject.findMany();
@@ -32,7 +34,7 @@ export async function POST(request){
         }
     })
 
-    console.log(newSubject);
+    // console.log(newSubject);
 
     const updatedSubject = await prisma.subject.update({
         where: {
@@ -47,7 +49,7 @@ export async function POST(request){
         },
       })
 
-    console.log(updatedSubject);
+    
     
     return NextResponse.json(updatedSubject);
 }

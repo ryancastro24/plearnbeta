@@ -5,7 +5,7 @@ export async function GET(request,{params}){
 
     
 
-    console.log(params.id)
+    // console.log(params.id)
 
     const data = await prisma.user.findFirst({
         where:{

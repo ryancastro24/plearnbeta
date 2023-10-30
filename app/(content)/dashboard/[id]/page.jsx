@@ -7,11 +7,68 @@ import AddStudents from '@/components/DashboardComponent/adminDashboard/AddStude
 import { getServerSession } from 'next-auth';
 import { authOptions } from '@/app/api/auth/[...nextauth]/route';
 import QuestField from '@/components/DashboardComponent/QuestField';
-async function getData(id){
-    const res = await fetch(`http://localhost:3000/api/subject/${id}`,{
+
+
+async function getAdminSubs(id){
+
+    const res = await fetch(`http://localhost:3000/api/adminSubjects/${id}`,
+
+    {
+
+        next:{revalidate:0}
+    });
+    if (!res.ok) {
+        // This will activate the closest `error.js` Error Boundary
+        throw new Error('Failed to fetch data')
+      }
+    return res.json()
+
+}
+
+
+async function getData(id,user_id){
+
+    const requestOptions = {
+        method: 'GET',
+        headers: {
+          'user_id': user_id,
+          // Add more custom headers as needed
+        },
+      };
+    const res = await fetch(`http://localhost:3000/api/subject/${id}`,
+    requestOptions,
+    {
 
         next:{revalidate:3600}
     });
+    if (!res.ok) {
+        // This will activate the closest `error.js` Error Boundary
+        throw new Error('Failed to fetch data')
+      }
+    return res.json()
+}  
+
+
+
+// get subject notes
+
+async function getNote(id,user_id){
+
+    const requestOptions = {
+        method: 'GET',
+        headers: {
+          'user_id': user_id,
+          'subject_id':id
+          // Add more custom headers as needed
+        },
+      };
+    const res = await fetch(`http://localhost:3000/api/notes/`,
+    requestOptions,
+    {
+        next:{revalidate:0}
+    });
+
+
     if (!res.ok) {
         // This will activate the closest `error.js` Error Boundary
         throw new Error('Failed to fetch data')
@@ -23,14 +80,11 @@ const Subject = async ({params}) => {
 
     const session = await getServerSession(authOptions);
 
-    const finaldData = await session;
 
-    const data = await getData(params.id);
-    console.log(data.realm)
-    let bg = 'bg-';
-  let backgroundImage =  bg.concat(data.realm)
-    console.log(backgroundImage)
-
+    const data = await getData(params.id,session.user.id);
+    const adminData = await getAdminSubs(params.id)
+    const noteData = await getNote(params.id, session.user.id)
+  
 
   return ( 
    <>
@@ -41,15 +95,15 @@ const Subject = async ({params}) => {
    
             <div className='w-full bg-[#161a1e99] p-10 h-full   '>
                 <div className='flex flex-col gap-3 mt-8 ml-8'>
-                    <span className='text-2xl font-bold'>{data.title}</span>
-                    <span>{data.subjectCode}</span>
-                    <span>Section: {data.section}</span>
+                    <span className='text-2xl font-bold'>{data.finalData[0].subjectDetails.title}</span>
+                    <span>{data.finalData[0].subjectDetails.subjectCode}</span>
+                    <span>Section: {data.finalData[0].subjectDetails.section}</span>
                     
                 </div>
 
 
-            {finaldData.user.role === "employee" && <div className='absolute top-10 right-0'>
-                        <AddStudents subjectId={data.id}/>
+            {session.user.role === "employee" && <div className='absolute top-10 right-0'>
+                        <AddStudents subjectId={adminData.id}/>
                 </div> }
                
             </div>
@@ -75,7 +129,7 @@ const Subject = async ({params}) => {
 
 
 
-                    <QuestField  {...data}/>
+                    <QuestField role={session.user.role} adminData={adminData} subId={data.finalData[0].subjectDetails.id}  data={data.finalData[1].activityData}/>
 
 
 
@@ -92,22 +146,14 @@ const Subject = async ({params}) => {
                                 Lessons
                                 </span>
 
-                                <span className='text-black text-xs'>
-                                    Available: <b>{data.lessonId.length}</b>
-                                </span>
+
                             
                             
                         </div> 
                         <div className=' h-full w-2/5 rounded bg-[#E58E27] flex items-center justify-center '>
-
-                            {/* add a lessson data to change this part */}
-                            {data.lessonId.length > 0 ? <div>
-                                <span className='text-md font-thin mr-2'>0/{data.lessonId.length}</span>
-                                <span className='text-xs '>Done</span>
-                            </div>
-                            :
+            
                             <span className='text-xs font-extralight'>No Available</span>
-                        }
+                        
                     
                         </div> 
                     </div>
@@ -129,8 +175,13 @@ const Subject = async ({params}) => {
                 </div>
 
 
-            {finaldData.user.role === 'employee' ? <button className='px-3 py-2 rounded bg-[#E58E27] mt-5'>Add Announcements</button>: <Notes/>}
-                
+            {session.user.role === 'employee' ? <button className='px-3 py-2 rounded bg-[#E58E27] mt-5'>Add Announcements</button>: <Notes subId={params.id} userId={session.user.id}/>}
+            
+            <div className='flex justify-end items-end  gap-2  w-full'>
+                {noteData.slice(0,5).map((val,i) => <div className='w-20 flex justify-center items-center cursor-pointer hover:bg-[#E58E27] h-20 bg-[#5C626A] rounded'>
+                    <span className='text-sm font-light'>Note {i+1}</span>
+                </div>)}
+            </div>
             </div>
         </div>
    </div>

@@ -22,7 +22,7 @@ const SubjectCard = async({id}) => {
 
   return (
     <>
-        <SubjectCardInnerContent {...data}/>
+        <SubjectCardInnerContent user={id} {...data}/>
        
     </>
   )
