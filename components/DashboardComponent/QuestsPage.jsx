@@ -22,8 +22,6 @@ const updatedActivityId = adminData.activityId.map(item => ({
 
   
 
-  console.log(data);
-
 
 
   const handleUpdate = async(id) =>{

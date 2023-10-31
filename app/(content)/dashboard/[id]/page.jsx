@@ -7,6 +7,8 @@ import AddStudents from '@/components/DashboardComponent/adminDashboard/AddStude
 import { getServerSession } from 'next-auth';
 import { authOptions } from '@/app/api/auth/[...nextauth]/route';
 import QuestField from '@/components/DashboardComponent/QuestField';
+import NoteCotainer from '@/components/DashboardComponent/NoteCotainer';
+import LessonField from '@/components/DashboardComponent/LessonField';
 
 
 async function getAdminSubs(id){
@@ -131,32 +133,7 @@ const Subject = async ({params}) => {
 
                     <QuestField role={session.user.role} adminData={adminData} subId={data.finalData[0].subjectDetails.id}  data={data.finalData[1].activityData}/>
 
-
-
-
-                    
-                    <div className=' flex h-16 w-60 rounded p-1 relative bg-[#D2F5FF] cursor-pointer hover:bg-[#879fa5]'>
-                        <div className=' h-full w-3/5 rounded flex flex-col p-2 '>
-                        
-                                <span className='text-black flex gap-2 font-semibold'><Image alt='quest' 
-                                src={'/DashboardAssets/icons/lessons.svg'} 
-                                height={15}
-                                width={15}
-                                />
-                                Lessons
-                                </span>
-
-
-                            
-                            
-                        </div> 
-                        <div className=' h-full w-2/5 rounded bg-[#E58E27] flex items-center justify-center '>
-            
-                            <span className='text-xs font-extralight'>No Available</span>
-                        
-                    
-                        </div> 
-                    </div>
+                    <LessonField subId={data.finalData[0].subjectDetails.id}/>                 
 
                   
                 </div>
@@ -176,12 +153,7 @@ const Subject = async ({params}) => {
 
 
             {session.user.role === 'employee' ? <button className='px-3 py-2 rounded bg-[#E58E27] mt-5'>Add Announcements</button>: <Notes subId={params.id} userId={session.user.id}/>}
-            
-            <div className='flex justify-end items-end  gap-2  w-full'>
-                {noteData.slice(0,5).map((val,i) => <div className='w-20 flex justify-center items-center cursor-pointer hover:bg-[#E58E27] h-20 bg-[#5C626A] rounded'>
-                    <span className='text-sm font-light'>Note {i+1}</span>
-                </div>)}
-            </div>
+            <NoteCotainer noteData={noteData}/>
             </div>
         </div>
    </div>

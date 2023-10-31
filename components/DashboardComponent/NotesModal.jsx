@@ -50,7 +50,7 @@ const NotesModal = ({setIsOpenModal,subId,userId}) => {
 
 
 
-                    <div className='absolute bottom-7'>
+                    <div className='absolute bottom-7 right-32'>
                       <button onClick={() => setIsOpenModal(false)} className='px-3 py-2 rounded bg-red-500'>Close</button>
                     </div>
 
