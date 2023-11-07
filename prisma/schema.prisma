@@ -105,17 +105,18 @@ model Lesson {
 }
 
 model Subject {
-  id          String     @id @default(auto()) @map("_id") @db.ObjectId
-  title       String
-  section     String
-  subjectCode String
-  realm       String?
-  studentsId  String[]   @db.ObjectId
-  students    User[]     @relation(fields: [studentsId], references: [id])
-  type        String
-  activityId  Activity[]
-  lessonId    Lesson[]
-  notes       Note[]
+  id           String         @id @default(auto()) @map("_id") @db.ObjectId
+  title        String
+  section      String
+  subjectCode  String
+  realm        String?
+  studentsId   String[]       @db.ObjectId
+  students     User[]         @relation(fields: [studentsId], references: [id])
+  type         String
+  activityId   Activity[]
+  lessonId     Lesson[]
+  notes        Note[]
+  UploadedFile UploadedFile[]
 }
 
 model Item {
@@ -153,4 +154,12 @@ model Note {
   userId    String   @db.ObjectId
   subject   Subject  @relation(fields: [subjectId], references: [id])
   subjectId String   @db.ObjectId
+}
+
+model UploadedFile {
+  id        String  @id @default(auto()) @map("_id") @db.ObjectId
+  title     String
+  filename  String
+  subject   Subject @relation(fields: [subjectId], references: [id])
+  subjectId String  @db.ObjectId
 }

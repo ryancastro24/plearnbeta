@@ -14,13 +14,13 @@ const getData = async(id) =>{
 }
 const ContentLayout = async({children}) => {
     const session = await getServerSession(authOptions);
-    const data = await session;
+   
     const cartItemsData = await getData(session.user.id)
 
 // uncommnet dashboard component after adding students
   return (
     <div>
-        <DashboardNav  cartItems={cartItemsData} {...data.user}/> 
+        <DashboardNav  cartItems={cartItemsData} {...session.user}/> 
       <Provider>
         {children}
       </Provider>

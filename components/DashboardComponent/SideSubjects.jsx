@@ -53,7 +53,7 @@ const SideSubjects = ({subjects,user}) => {
 
 
   return (
-    <div className='w-full mt-5 flex justify-between flex-col gap-4'>
+    <div className='w-full mt-2 flex justify-between flex-col gap-4'>
         <h2 className='font-bold'>Other Realms</h2>
 
 
