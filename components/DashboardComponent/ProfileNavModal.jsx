@@ -28,7 +28,11 @@ const ProfileNavModal = ({name,email}) => {
                 </div>
             </div>
             <div className='w-full'>
-              <button className='px-3 py-2 text-white mt-3 bg-red-500 rounded cursor-pointer' onClick={() => signOut()}>Logout</button>
+              <button className='px-3 py-2 text-white mt-3 bg-red-500 rounded cursor-pointer' onClick={() => {
+                signOut()
+                localStorage.removeItem('hasDisplayedModal');
+
+                }}>Logout</button>
             </div>
     </div>
   )

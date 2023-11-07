@@ -75,6 +75,8 @@ const AddQuestionsModal = ({setData,data}) => {
           return updatedData;
         });
       };
+
+      
   return (
     <div className='w-full top-0 left-0 h-full bg-[#161a1eb3] flex justify-center items-center absolute z-40'>
         

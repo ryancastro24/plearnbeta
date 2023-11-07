@@ -19,7 +19,7 @@ export async function PATCH(req,{params}){
                 increment: finalTotalScore
             },
             level:{
-                increment: 0.1
+                increment: 0.5
             }
         }
     })

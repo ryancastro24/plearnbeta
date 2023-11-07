@@ -39,7 +39,7 @@ export async function GET(request,{params}){
     }
   }
   
-    console.log("updated successfully")
+   
     
   
   //? queery to find subject

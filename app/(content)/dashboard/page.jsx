@@ -1,5 +1,4 @@
 
-
 import { getServerSession } from 'next-auth'
 import { authOptions } from '@/app/api/auth/[...nextauth]/route'
 import RecentActivities from '@/components/DashboardComponent/RecentActivities'
@@ -9,6 +8,10 @@ import SubjectCardInnerContent from '@/components/DashboardComponent/SubjectCard
 import WorldButton from '@/components/DashboardComponent/WorldButton'
 import AdminDashboard from '@/components/DashboardComponent/AdminDashboard'
 import SideSubjectOuterCard from '@/components/DashboardComponent/SideSubjectOuterCard'
+import DashboardAnnouncement from '@/components/DashboardComponent/DashboardAnnouncement'
+
+// sample data
+
 
 const  Dashboard = async() => {
   
@@ -29,8 +32,14 @@ const  Dashboard = async() => {
     
       <div className='w-full h-full p-5 flex justify-between items-center'>
 
+            <DashboardAnnouncement/>
+        
+
           <div className='w-1/5 rounded-md h-full bg-[#41454A] p-5 flex flex-col justify-between'>
 
+
+
+      
             <RecentActivities id={finalData.user.id} />
 
             <SideSubjectOuterCard id={finalData.user.id} />
