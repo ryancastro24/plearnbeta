@@ -10,6 +10,19 @@ import QuestField from '@/components/DashboardComponent/QuestField';
 import NoteCotainer from '@/components/DashboardComponent/NoteCotainer';
 import LessonField from '@/components/DashboardComponent/LessonField';
 
+async function getLessons(id){
+    const res = await fetch(`http://localhost:3000/api/lesson/${id}`,{
+      next:{
+        revalidate:0
+      }
+    });
+    if (!res.ok) {
+        // This will activate the closest `error.js` Error Boundary
+        throw new Error('Failed to fetch data')
+      }
+    return res.json()
+  }  
+
 
 async function getAdminSubs(id){
 
@@ -82,7 +95,7 @@ const Subject = async ({params}) => {
 
     const session = await getServerSession(authOptions);
 
-
+    const lessonData = await getLessons(params.id)
     const data = await getData(params.id,session.user.id);
     const adminData = await getAdminSubs(params.id)
     const noteData = await getNote(params.id, session.user.id)
@@ -133,7 +146,7 @@ const Subject = async ({params}) => {
 
                     <QuestField role={session.user.role} adminData={adminData} subId={data.finalData[0].subjectDetails.id}  data={data.finalData[1].activityData}/>
 
-                    <LessonField subId={data.finalData[0].subjectDetails.id}/>                 
+                    <LessonField lessonData={lessonData} subId={data.finalData[0].subjectDetails.id}/>                 
 
                   
                 </div>
