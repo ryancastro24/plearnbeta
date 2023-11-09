@@ -2,7 +2,11 @@
 import React from 'react'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
-const LessonField = ({subId}) => {
+
+
+const LessonField = ({subId,lessonData}) => {
+ 
+
     const router = useRouter()
   return (
       
@@ -17,15 +21,16 @@ const LessonField = ({subId}) => {
             Lessons
             </span>
 
+            <span className='text-black text-xs'>
+                Available: <b>{lessonData.length}</b>
+            </span>
 
-        
         
     </div> 
     <div className=' h-full w-2/5 rounded bg-[#E58E27] flex items-center justify-center '>
 
-        <span className='text-xs font-extralight'>No Available</span>
+      <span>{lessonData.length} <span className='text-xs'>Lesson</span></span>
     
-
     </div> 
 </div>
   )
