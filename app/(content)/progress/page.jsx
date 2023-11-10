@@ -1,9 +1,22 @@
-import React from 'react'
+'use client'
+import {useState} from 'react'
 
-const Progres = () => {
+
+const Progress = () => {
+  
+
+
   return (
-    <div>Progres</div>
+    <div className='w-full h-full p-10 pt-20'>
+        <span>sample upload</span>
+       
+
+     <div>
+          <h1>Dashboard</h1>
+          <FileDownload files={files} />
+    </div>
+    </div>
   )
 }
 
-export default Progres
+export default Progress

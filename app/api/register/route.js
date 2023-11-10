@@ -4,14 +4,14 @@ import { NextResponse } from 'next/server'
 
 export async function POST(request){
     const body  = await request.json();
-    const {idNumber,name,email,password,gender,course,age,yearLevel} = body;
+    const {idNumber,name,email,password,gender,course,age,yearLevel,role} = body;
 
 
-    if(!name || !email || !password || !idNumber || !gender || !age || !yearLevel || !course){ //validate input 
+    if(!name || !email || !password || !idNumber || !gender || !age || !role){ //validate input 
         return new NextResponse('Missing Fields', {status:400});
     }
 
-    const dataExist = await prisma.student.findUnique({ //checks user in the database
+    const dataExist = await prisma.user.findUnique({ //checks user in the database
         where:{
             idNumber,
             email
@@ -27,7 +27,7 @@ export async function POST(request){
 
     const finalAge = +age;
     const finalYearLevel = +yearLevel;
-    const user = await prisma.student.create({ //creates  a new user in the database
+    const user = await prisma.user.create({ //creates  a new user in the database
         data:{
             idNumber,
             name,
@@ -36,7 +36,9 @@ export async function POST(request){
             gender,
             age:finalAge,
             yearLevel:finalYearLevel,
-            courseId: course
+            courseId: course,
+            role
+,
         }
     })
 

@@ -1,17 +1,25 @@
 import React from 'react'
-import Image from 'next/image'
-const RecentActivities = () => {
+import RecentActivitiesInner from './RecentActivitiesInner'
+const getData = async(id) => {
+  const res = await fetch(`http://localhost:3000/api/user_activity/done_activities/${id}`)
+
+  if (!res.ok) {
+      // This will activate the closest `error.js` Error Boundary
+      throw new Error('Failed to fetch data')
+    }
+
+  return res.json()
+}
+const RecentActivities = async({id}) => {
+
+  const activities = await getData(id)
   return (
     <div>
         <h1 className='text-xl '>Recent Activities</h1>
 
         <ul>
-            <li className='flex text-sm items-center gap-4 mt-3  cursor-pointer'><Image  src={'/DashboardAssets/icons/check-to-slot-solid 1.svg'} height={20} width={20}/>Sub Quest - EEP 1</li>
-            <li className='flex text-sm items-center gap-4 mt-3  cursor-pointer'><Image  src={'/DashboardAssets/icons/check-to-slot-solid 1.svg'} height={20} width={20}/>Sub Quest - EEP 1</li>
-            <li className='flex text-sm items-center gap-4 mt-3  cursor-pointer'><Image  src={'/DashboardAssets/icons/check-to-slot-solid 1.svg'} height={20} width={20}/>Sub Quest - EEP 1</li>
-            <li className='flex text-sm items-center gap-4 mt-3  cursor-pointer'><Image  src={'/DashboardAssets/icons/check-to-slot-solid 1.svg'} height={20} width={20}/>Sub Quest - EEP 1</li>
-            <li className='flex text-sm items-center gap-4 mt-3  cursor-pointer'><Image  src={'/DashboardAssets/icons/check-to-slot-solid 1.svg'} height={20} width={20}/>Sub Quest - EEP 1</li>
-            <li className='flex text-sm items-center gap-4 mt-3  cursor-pointer'><Image  src={'/DashboardAssets/icons/check-to-slot-solid 1.svg'} height={20} width={20}/>Sub Quest - EEP 1</li>
+           <RecentActivitiesInner activities={activities}/>
+           
         </ul>
     </div>
   )

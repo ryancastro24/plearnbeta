@@ -6,7 +6,7 @@ import brcypt from 'bcrypt'
 export const authOptions = {
     adapter:  PrismaAdapter(prisma),
     providers:[
-        CredentialsProvider({
+       CredentialsProvider({
             name:"credentials",
             credentials:{
                 idNumber: {label:"Idnumber", type:"text", placeholder:"Enter ID Number"},
@@ -22,42 +22,35 @@ export const authOptions = {
                 }
 
                 // check if use exist or registered
-                 const student = await prisma.student.findUnique({
+                 const user = await prisma.user.findUnique({
                     where:{
                         idNumber: credentials.idNumber,
                         email: credentials.email
                     },
-                    include:{
-                        subjects:{
-                            include:{
-                                activityId:true
-                            }
-                        }
-                    }
+                    
                  });
 
                 //  if no student was found
-                if(!student || !student?.hashedPassword){
-                    throw new Error("NO student Found!")
+                if(!user || !user?.hashedPassword){
+                    throw new Error("User Not Found!")
                 }   
                 // if password match
-                const passwordMatch = await brcypt.compare(credentials.password, student.hashedPassword);
+                const passwordMatch = await brcypt.compare(credentials.password, user.hashedPassword);
 
                 // if password dont match
 
                 if(!passwordMatch){
                     throw new Error("Incorrect Password")
                 }
-                console.log(student);
-                return student;
+                return user;
             } //!end of authorize callbackfunction
         })
     ],
 
-
+    
     callbacks:{ //create callback functions     
         async jwt({token, user ,session,trigger}){
-            // console.log('jwt callback', {token, user,session}) //c
+    
            
             if(user){
                 return {
@@ -68,9 +61,8 @@ export const authOptions = {
                     gender:user.gender,
                     age:user.age,
                     yearLevel:user.yearLevel,
-                    subjects:user.subjects,
+                    role:user.role,
                     points: user.points,
-                    activities: user.subjects.activityId
                 }
             }
         
@@ -89,9 +81,8 @@ export const authOptions = {
                     gender:token.gender,
                     age:token.age,
                     yearLevel:token.yearLevel,
-                    subjects:token.subjects,
+                    role:token.role,
                     points: token.points,
-                    activities:token.subjects.activities
                 }
             }
             
@@ -99,8 +90,7 @@ export const authOptions = {
     },
 
 
-    
-    secret:process.env.SECRET,
+    secret:process.env.NEXTAUTH_SECRET,
     session:{
         strategy: 'jwt' //json web tokens
     },

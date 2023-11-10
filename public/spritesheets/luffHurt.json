@@ -1,0 +1,175 @@
+{
+	"frames": {
+		"luffyHurt1-removebg-preview.png": {
+			"frame": {
+				"x": 1,
+				"y": 1,
+				"w": 63,
+				"h": 45
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 63,
+				"h": 45
+			},
+			"sourceSize": {
+				"w": 63,
+				"h": 45
+			}
+		},
+		"luffyHurt2-removebg-preview.png": {
+			"frame": {
+				"x": 66,
+				"y": 1,
+				"w": 68,
+				"h": 46
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 68,
+				"h": 46
+			},
+			"sourceSize": {
+				"w": 68,
+				"h": 46
+			}
+		},
+		"luffyHurt3-removebg-preview.png": {
+			"frame": {
+				"x": 1,
+				"y": 49,
+				"w": 61,
+				"h": 53
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 61,
+				"h": 53
+			},
+			"sourceSize": {
+				"w": 61,
+				"h": 53
+			}
+		},
+		"luffyHurt4-removebg-preview.png": {
+			"frame": {
+				"x": 64,
+				"y": 49,
+				"w": 68,
+				"h": 53
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 68,
+				"h": 53
+			},
+			"sourceSize": {
+				"w": 68,
+				"h": 53
+			}
+		},
+		"luffyHurt5-removebg-preview.png": {
+			"frame": {
+				"x": 1,
+				"y": 104,
+				"w": 69,
+				"h": 39
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 69,
+				"h": 39
+			},
+			"sourceSize": {
+				"w": 69,
+				"h": 39
+			}
+		},
+		"luffyHurt6-removebg-preview.png": {
+			"frame": {
+				"x": 72,
+				"y": 104,
+				"w": 77,
+				"h": 43
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 77,
+				"h": 43
+			},
+			"sourceSize": {
+				"w": 77,
+				"h": 43
+			}
+		},
+		"luffyHurt7-removebg-preview.png": {
+			"frame": {
+				"x": 136,
+				"y": 1,
+				"w": 64,
+				"h": 43
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 64,
+				"h": 43
+			},
+			"sourceSize": {
+				"w": 64,
+				"h": 43
+			}
+		},
+		"luffyHurt8-removebg-preview.png": {
+			"frame": {
+				"x": 136,
+				"y": 46,
+				"w": 68,
+				"h": 43
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 68,
+				"h": 43
+			},
+			"sourceSize": {
+				"w": 68,
+				"h": 43
+			}
+		}
+	},
+	"meta": {
+		"app": "http://www.codeandweb.com/texturepacker",
+		"version": "1.0",
+		"image": "luffHurt.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 205,
+			"h": 148
+		},
+		"scale": "1"
+	}
+}
