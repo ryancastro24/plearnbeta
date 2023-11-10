@@ -90,7 +90,6 @@ export const authOptions = {
     },
 
 
-   
     secret:process.env.SECRET,
     session:{
         strategy: 'jwt' //json web tokens
