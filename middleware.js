@@ -12,9 +12,22 @@ export async function middleware(request){
     // console.log(token);
 
 
-    if(isPublicPath && token || production_token) { 
+    // for production
+    if(isPublicPath &&  production_token) { 
         return NextResponse.redirect(new URL('/dashboard',request.nextUrl))
     }
+
+    if(isPublicPath && token ) { 
+        return NextResponse.redirect(new URL('/dashboard',request.nextUrl))
+    }
+
+
+    
+    if(!isPublicPath && !production_token){
+        return NextResponse.redirect(new URL('/',request.nextUrl))
+    }
+
+
 
     if(!isPublicPath && !token || production_token){
         return NextResponse.redirect(new URL('/',request.nextUrl))
