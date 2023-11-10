@@ -6,7 +6,8 @@ import brcypt from 'bcrypt'
 export const authOptions = {
     adapter:  PrismaAdapter(prisma),
     providers:[
-        CredentialsProvider({
+        process.env.VERCEL_ENV === "preview"
+        && CredentialsProvider({
             name:"credentials",
             credentials:{
                 idNumber: {label:"Idnumber", type:"text", placeholder:"Enter ID Number"},
