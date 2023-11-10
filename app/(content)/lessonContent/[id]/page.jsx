@@ -6,7 +6,7 @@ import { getServerSession } from 'next-auth'
 import { authOptions } from '@/app/api/auth/[...nextauth]/route'
 
 async function getData(id){
-  const res = await fetch(`http://localhost:3000/api/lesson/${id}`,{
+  const res = await fetch(`${process.env.NEXTAUTH_URL}/api/lesson/${id}`,{
     next:{
       revalidate:0
     }

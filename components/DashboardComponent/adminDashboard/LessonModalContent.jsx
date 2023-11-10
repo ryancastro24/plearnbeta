@@ -21,7 +21,7 @@ const LessonModalContent = ({setOpenModal,subjectId}) => {
       data.set('title', fileData.title)
      data.set('subjectId', subjectId)
 
-      const res = await fetch('http://localhost:3000/api/uploadFile',{
+      const res = await fetch(`${process.env.NEXTAUTH_URL}/api/uploadFile`,{
         method:'POST',
         body:data
       }).then(() => {

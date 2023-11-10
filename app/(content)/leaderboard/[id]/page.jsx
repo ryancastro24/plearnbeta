@@ -3,7 +3,7 @@ import CoverPhotoDiv from '@/components/LeaderBoardsComponent/CoverPhotoDiv'
 import UserProfileContent from '@/components/LeaderBoardsComponent/UserProfileContent'
 
 const getData = async(id) => {
-    const res = await fetch(`http://localhost:3000/api/students/student_profile/${id}`,{
+    const res = await fetch(`${process.env.NEXTAUTH_URL}/api/students/student_profile/${id}`,{
         next:{
             revalidate:0
         }

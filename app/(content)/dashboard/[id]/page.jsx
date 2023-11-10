@@ -11,7 +11,7 @@ import NoteCotainer from '@/components/DashboardComponent/NoteCotainer';
 import LessonField from '@/components/DashboardComponent/LessonField';
 
 async function getLessons(id){
-    const res = await fetch(`http://localhost:3000/api/lesson/${id}`,{
+    const res = await fetch(`${process.env.NEXTAUTH_URL}/api/lesson/${id}`,{
       next:{
         revalidate:0
       }
@@ -26,7 +26,7 @@ async function getLessons(id){
 
 async function getAdminSubs(id){
 
-    const res = await fetch(`http://localhost:3000/api/adminSubjects/${id}`,
+    const res = await fetch(`${process.env.NEXTAUTH_URL}/api/adminSubjects/${id}`,
 
     {
 
@@ -50,7 +50,7 @@ async function getData(id,user_id){
           // Add more custom headers as needed
         },
       };
-    const res = await fetch(`http://localhost:3000/api/subject/${id}`,
+    const res = await fetch(`${process.env.NEXTAUTH_URL}/api/subject/${id}`,
     requestOptions,
     {
 
@@ -77,7 +77,7 @@ async function getNote(id,user_id){
           // Add more custom headers as needed
         },
       };
-    const res = await fetch(`http://localhost:3000/api/notes/`,
+    const res = await fetch(`${process.env.NEXTAUTH_URL}/api/notes/`,
     requestOptions,
     {
         next:{revalidate:0}

@@ -3,7 +3,7 @@ import FinalBattle from '@/components/GameDevComponents/FinalBattle';
 import { getServerSession } from 'next-auth';
 import { authOptions } from '@/app/api/auth/[...nextauth]/route';
 async function getData(id){
-  const res = await fetch(`http://localhost:3000/api/activity/${id}`,{
+  const res = await fetch(`${process.env.NEXTAUTH_URL}/api/activity/${id}`,{
     next:{
       revalidate:0
     }

@@ -7,7 +7,7 @@ import CartItemCard from '@/components/CartComponents/CartItemCard'
 import { ToastContainer,Zoom } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 const getData = async(id) =>{
-        const res = await fetch(`http://localhost:3000/api/cart_items/${id}`,{
+        const res = await fetch(`${process.env.NEXTAUTH_URL}/api/cart_items/${id}`,{
             next:{
                 revalidate:0
             }

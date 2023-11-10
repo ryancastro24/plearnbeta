@@ -8,7 +8,7 @@ import { authOptions } from '@/app/api/auth/[...nextauth]/route';
 //get admin subjects data
 async function getAdminSubs(id){
 
-  const res = await fetch(`http://localhost:3000/api/adminSubjects/${id}`,
+  const res = await fetch(`${process.env.NEXTAUTH_URL}/api/adminSubjects/${id}`,
 
   {
 
@@ -26,7 +26,7 @@ async function getAdminSubs(id){
 //get subejcts data for student
 async function getData(id,req){
 
-  const res = await fetch(`http://localhost:3000/api/subject/${id}`,
+  const res = await fetch(`${process.env.NEXTAUTH_URL}/api/subject/${id}`,
   req,
   {
 

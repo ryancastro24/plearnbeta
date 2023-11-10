@@ -2,7 +2,7 @@
 
 import AdminInnerSubjectCard from './AdminInnerSubjectCard'
 const getData = async(id) => {
-    const res = await fetch(`http://localhost:3000/api/userSubject/${id}`)
+    const res = await fetch(`${process.env.NEXTAUTH_URL}/api/userSubject/${id}`)
 
     if (!res.ok) {
         // This will activate the closest `error.js` Error Boundary

@@ -5,7 +5,7 @@ import RedeemBottomContent from '@/components/RedeemComponents/RedeemBottomConte
 import { getServerSession } from 'next-auth'
 import { authOptions } from '@/app/api/auth/[...nextauth]/route'
 const getData = async() => {
-  const res = await fetch('http://localhost:3000/api/cart_items',{
+  const res = await fetch(`${process.env.NEXTAUTH_URL}/api/cart_items`,{
     next:{
       revalidate:3600
     }
