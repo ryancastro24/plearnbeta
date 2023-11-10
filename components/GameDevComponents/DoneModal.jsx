@@ -22,7 +22,7 @@ const [isSubmitting,setIsSubmitting] = React.useState(false)
             body: JSON.stringify({ finalTotalScore: data }), // Replace with your data object
           };
           
-          const res = await fetch(`http://localhost:3000/api/activity/done_activity_api/${actId}`, requestOptions)
+          const res = await fetch(`${process.env.NEXTAUTH_URL}/api/activity/done_activity_api/${actId}`, requestOptions)
                             .then(() => {
                                 router.back()
                             })

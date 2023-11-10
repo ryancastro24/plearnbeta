@@ -20,7 +20,7 @@ import Image from 'next/image'
           // Add more custom headers as needed
         },
       };
-     fetch(`http://localhost:3000/api/students/${content}`,
+     fetch(`${process.env.NEXTAUTH_URL}/api/students/${content}`,
      requestOptions,
      {
         next:{
