@@ -29,7 +29,7 @@ export async function middleware(request){
 
 
 
-    if(!isPublicPath && !token || production_token){
+    if(!isPublicPath && !token){
         return NextResponse.redirect(new URL('/',request.nextUrl))
     }
 
