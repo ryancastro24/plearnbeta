@@ -5,8 +5,10 @@ import Image from 'next/image'
 import axios from 'axios'
 import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
+import { useRouter } from 'next/navigation'
 const CartItemCard = ({name, description,price,purchasedId,isPurchased,user}) => {
 
+    const router = useRouter();
     const [data,setData] = React.useState({
         purchasedId,
         user,
@@ -29,6 +31,7 @@ const CartItemCard = ({name, description,price,purchasedId,isPurchased,user}) =>
                                   theme: "dark"
                                  
                                   });
+                                
                                   
                         })
                         .catch(err => {
@@ -69,16 +72,23 @@ const CartItemCard = ({name, description,price,purchasedId,isPurchased,user}) =>
             <span className={`${isPurchased ? "text-white" :" text-black"} text-lg`}>{price}pts</span> 
         </div>
 
-        <div className='flex justify-center items-center gap-2 absolute top-5 right-3'>
-            <button className={`p-2 ${isPurchased ? "bg-red-700" : "bg-red-500"} rounded`}>
-                <Image width={15} height={15} alt='delete' src={'/DashboardAssets/icons/trash-can-regular 1.svg'} />
-            </button>
-            <form onSubmit={handleSubmit}>
-                  {!isPurchased && <button onClick={() =>setloading(true)} className='p-2 bg-[#E58E27] rounded text-sm'>
-                        {loading ? 'confirming payment' :  <Image width={15} height={15} alt='buy' src={'/DashboardAssets/icons/bag-shopping-solid 1.svg'} />}
-                       
-                    </button>}  
-            </form>
+        <div className='flex  items-end gap-4 absolute top-5 right-3  flex-col justify-end'>
+
+            <div className='flex justify-end items-end gap-2 '>
+                <button className={`p-2 ${isPurchased ? "bg-red-700" : "bg-red-500"} rounded`}>
+                    <Image width={15} height={15} alt='delete' src={'/DashboardAssets/icons/trash-can-regular 1.svg'} />
+                </button>
+                <form onSubmit={handleSubmit}>
+                    {!isPurchased && <button onClick={() =>setloading(true)} className='p-2 bg-[#E58E27] rounded text-sm'>
+                            {loading ? 'confirming payment' :  <Image width={15} height={15} alt='buy' src={'/DashboardAssets/icons/bag-shopping-solid 1.svg'} />}
+                        
+                        </button>}  
+                </form>
+            </div>
+
+            <div>
+               {isPurchased && <span className='text-sm'><strong>Reference Id:</strong> {purchasedId}</span> }
+            </div>
         </div>
 
 

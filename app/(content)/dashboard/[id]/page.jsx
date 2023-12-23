@@ -9,6 +9,22 @@ import { authOptions } from '@/app/api/auth/[...nextauth]/route';
 import QuestField from '@/components/DashboardComponent/QuestField';
 import NoteCotainer from '@/components/DashboardComponent/NoteCotainer';
 import LessonField from '@/components/DashboardComponent/LessonField';
+import AddAnnoucementContent from '@/components/DashboardComponent/adminDashboard/AddAnnoucementContent';
+
+async function getAnnouncement(id){
+  
+  const res = await fetch(`http://localhost:3000/api/announcements/${id}`,{
+    next:{
+      revalidate:0
+    }
+  });
+  if (!res.ok) {
+      // This will activate the closest `error.js` Error Boundary
+      throw new Error('Failed to fetch data')
+    }
+  return res.json()
+}  
+
 
 async function getLessons(id){
     const res = await fetch(`http://localhost:3000/api/lesson/${id}`,{
@@ -99,7 +115,7 @@ const Subject = async ({params}) => {
     const data = await getData(params.id,session.user.id);
     const adminData = await getAdminSubs(params.id)
     const noteData = await getNote(params.id, session.user.id)
-  
+    const annoucementData = await getAnnouncement(params.id)
 
   return ( 
    <>
@@ -161,11 +177,11 @@ const Subject = async ({params}) => {
                      height={15} width={15} alt='annoucement' src={'/DashboardAssets/icons/announcement.svg'}/>
                      </span>
 
-                     <p className='text-sm font-extralight mt-3 text-justify'>Join us for a programming exercise on September 08, 2023 at CCIS Building. Whether you're a beginner or an experienced coder, this is a great opportunity to practice your skills and have some fun!</p>
+                     <p className='text-sm font-extralight mt-3 text-justify'>{!annoucementData?.content ? "No Announcements Available" : annoucementData.content}</p>
                 </div>
 
 
-            {session.user.role === 'employee' ? <button className='px-3 py-2 rounded bg-[#E58E27] mt-5'>Add Announcements</button>: <Notes subId={params.id} userId={session.user.id}/>}
+            {session.user.role === 'employee' ? <AddAnnoucementContent subject_id={params.id}  user_id={session.user.id}/> : <Notes subId={params.id} userId={session.user.id}/>}
             <NoteCotainer noteData={noteData}/>
             </div>
         </div>

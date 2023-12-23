@@ -75,7 +75,7 @@ const AddStudents = ({subjectId}) => {
 
         <form className='flex flex-col gap-3 ' onSubmit={handleSubmit}>
       
-          <input type="file" accept=".xlsx, .xls" onChange={handleFileUpload} />
+          <input required type="file" accept=".xlsx, .xls" onChange={handleFileUpload} />
           <div>
               <button type='submit' className='px-3 py-2 bg-[#E58E27] rounded'>add students</button>
           </div>
