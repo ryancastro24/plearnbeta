@@ -70,7 +70,7 @@ async function getData(id,user_id){
     requestOptions,
     {
 
-        next:{revalidate:3600}
+        next:{revalidate:0}
     });
     if (!res.ok) {
         // This will activate the closest `error.js` Error Boundary

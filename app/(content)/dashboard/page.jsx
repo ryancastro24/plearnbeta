@@ -18,6 +18,8 @@ const  Dashboard = async() => {
   const session = await getServerSession(authOptions)
   const finalData = await session;
 
+  console.log(session);
+
 
   if(finalData.user.role === 'employee'){
     return (
@@ -40,7 +42,7 @@ const  Dashboard = async() => {
 
 
       
-            <RecentActivities id={finalData.user.id} />
+            <RecentActivities id={session.user.id} />
 
             <SideSubjectOuterCard id={finalData.user.id} />
 
@@ -55,7 +57,7 @@ const  Dashboard = async() => {
             <div className='w-full h-80 rounded-md flex gap-4 items-center '>
 
           
-               <SubjectCard id={finalData.user.id} />
+               <SubjectCard id={session.user.id} />
             </div>
           
           </div>

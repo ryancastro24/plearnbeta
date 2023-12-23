@@ -13,7 +13,7 @@ const Progress = () => {
 
      <div>
           <h1>Dashboard</h1>
-          <FileDownload files={files} />
+        
     </div>
     </div>
   )

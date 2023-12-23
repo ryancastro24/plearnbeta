@@ -1,10 +1,13 @@
 
 import { NextResponse } from "next/server";
 import prisma from '@/libs/prismaDb'
-import {headers} from 'next/headers'
+import { headers } from 'next/headers'
+
+
 export async function GET(request,{params}){
     const headerList = headers()
     const user_id = headerList.get("user_id")
+
     try{    
 
 
@@ -13,7 +16,12 @@ export async function GET(request,{params}){
                 id:params.id
             }
         })
-        const data = await prisma.doneActiviy.findMany({
+
+        console.log(subject);
+
+
+
+        const data = await prisma.doneActivity.findMany({
             where:{
               activity:{
                 subjectId: params.id

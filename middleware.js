@@ -26,7 +26,6 @@ export const config = {
         '/',
         '/dashboard',
         '/login',
-        '/register',
         '/leaderboard',
         '/message',
         '/redeem',
