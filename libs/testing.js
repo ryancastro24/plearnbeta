@@ -88,3 +88,27 @@ export function colorLevelIdentifier(level){
         return "red"
     }
 }
+
+
+export const  sectionTimeSchedule = [
+    {id:1, time: "7:00 AM - 8:30 AM"},
+    {id:2, time: "8:30 AM - 10:00 AM"},
+    {id:3, time: "10:00 PM - 12:30 PM"},
+    {id:4, time: "1:30 PM - 3:00 PM"},
+    {id:5, time: "3:00 PM - 4:30 PM"},
+];
+
+export const levelRewards = [
+    {id:1, levelNumber:10, price: ""},
+    {id:2, levelNumber:20, price: ""},
+    {id:3, levelNumber:30, price: ""},
+    {id:4, levelNumber:40, price: ""},
+    {id:5, levelNumber:50, price: ""},
+    {id:6, levelNumber:60, price: ""},
+    {id:7, levelNumber:70, price: ""},
+    {id:8, levelNumber:80, price: ""},
+    {id:9, levelNumber:90, price: ""},
+    {id:10, levelNumber:100, price: ""},
+    {id:11, levelNumber:110, price: ""},
+    {id:12, levelNumber:120, price: ""},
+]

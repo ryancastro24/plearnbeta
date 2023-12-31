@@ -24,7 +24,7 @@ export async function PATCH(req,{params}){
         }
     })
 
-    const act = await prisma.doneActiviy.update({
+    const act = await prisma.doneActivity.update({
         where:{
             id: params.id
         },

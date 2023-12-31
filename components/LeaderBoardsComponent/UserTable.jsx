@@ -1,6 +1,5 @@
 'use client'
 import React from 'react'
-import { Suspense } from 'react'
 import { useRouter } from 'next/navigation'
 import { levelIdentifier } from '@/libs/testing'
 const UserTable = ({data,idNumber}) => {
@@ -19,8 +18,8 @@ const UserTable = ({data,idNumber}) => {
                     <th className='py-2 '>Points Earned</th>
                   </tr>
                 </thead>
-                <tbody>
-                <Suspense fallback={<p>Loading Rankings...</p>}>
+                <tbody  >
+            
                  {data.slice(0,10).map((val,i) => (
                   <tr onClick={() =>  router.push(`/leaderboard/${val.id}`)} className={`text-center  cursor-pointer hover:bg-[#de9337] ${idNumber === val.idNumber ? 'bg-[#D2F5FF] text-black' : i % 2 === 0 ? '' : 'bg-[#3A3D42]'}`} key={val.id}>
                     <td className='p-2 text-left'><span className='flex gap-4 px-2'><b>{i + 1}.</b> {val.idNumber}</span></td>
@@ -30,7 +29,7 @@ const UserTable = ({data,idNumber}) => {
                     <td className='p-2'>{val.points} pts</td>
                   </tr>
                  ))}
-                </Suspense>
+               
                 </tbody>
             </table>
           

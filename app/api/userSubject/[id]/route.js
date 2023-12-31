@@ -5,16 +5,18 @@ export async function GET(request,{params}){
 
     
 
-    // console.log(params.id)
-
     const data = await prisma.user.findFirst({
         where:{
             id:params.id
         },
         include:{
-            subjects:{
+            sections:{
                 include:{
-                    activityId:true
+                    subject:{
+                        include:{
+                            activityId: true
+                        }
+                    }
                 }
             }
         }

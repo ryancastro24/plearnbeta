@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import prisma from '@/libs/prismaDb'
-import { pipeReadable } from "next/dist/server/pipe-readable";
+
 
 export async function GET(){
     const items = await prisma.item.findMany()

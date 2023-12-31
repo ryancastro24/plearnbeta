@@ -12,12 +12,11 @@ const AddSubjectModal = ({show,idNumber}) => {
         realm:'',
         subjectTitle:'',
         subjectCode:'',
-        section:'',
         type:'',
         
     });
-
-    console.log(data);
+    
+    const [submitting,setSubmitting] = useState(false);
 
     const addSubject = async(e) => {
       e.preventDefault();
@@ -29,7 +28,6 @@ const AddSubjectModal = ({show,idNumber}) => {
                       realm:'',
                       subjectTitle:'',
                       subjectCode:'',
-                      section:'',
                       type:''
                     })
                     show(false)
@@ -37,7 +35,6 @@ const AddSubjectModal = ({show,idNumber}) => {
                   .catch((err) => alert(err))
 
        
-       console.log(res)
     }
 
   return (
@@ -102,15 +99,12 @@ const AddSubjectModal = ({show,idNumber}) => {
                           <input value={data.subjectCode} onChange={(e) => setData({...data,subjectCode:e.target.value})} className='py-2 px-3 bg-[#99b8c0] text-black outline-none placeholder:text-[#161A1E]' type="text" placeholder='Enter Subject Code' id='subject-code' />
                       </div>
 
-                      <div className="flex flex-col">
-                          <label className='text-black font-bold' htmlFor="section">Section</label>
-                          <input value={data.section} onChange={(e) => setData({...data,section:e.target.value})} className='py-2 px-3 bg-[#99b8c0] text-black outline-none placeholder:text-[#161A1E]' type="text" placeholder='Enter Section' id='section' />
-                      </div>
+                    
                  </div>
               </div>
 
               <div className='flex justify-between items-center'>
-                <button className='py-2 px-3 bg-[#E58E27] rounded' type='submit'>Create Subject</button>
+                <button onClick={() => setSubmitting(true)} className='py-2 px-3 bg-[#E58E27] rounded' type='submit'>{submitting ? "Creating..." : "Create Subject"}</button>
                
     
               </div>

@@ -9,7 +9,7 @@ import WorldButton from '@/components/DashboardComponent/WorldButton'
 import AdminDashboard from '@/components/DashboardComponent/AdminDashboard'
 import SideSubjectOuterCard from '@/components/DashboardComponent/SideSubjectOuterCard'
 import DashboardAnnouncement from '@/components/DashboardComponent/DashboardAnnouncement'
-
+import SuperAdminDashboard from '@/components/DashboardComponent/SuperAdminDashboard'
 // sample data
 
 
@@ -18,7 +18,15 @@ const  Dashboard = async() => {
   const session = await getServerSession(authOptions)
   const finalData = await session;
 
-  console.log(session);
+
+
+  if(finalData.user.role === 'admin'){
+    return (
+      <>  
+       <SuperAdminDashboard {...finalData.user}/>
+      </>
+    )
+  }
 
 
   if(finalData.user.role === 'employee'){

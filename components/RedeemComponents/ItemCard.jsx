@@ -4,7 +4,7 @@ import Image from 'next/image'
 import axios from 'axios'
 import { ToastContainer,toast,Zoom } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
-const ItemCard = ({name,description,price,user,id}) => {
+const ItemCard = ({name,description,price,user,id,image}) => {
       const [data,setData] = React.useState({
           user,
           id
@@ -44,7 +44,7 @@ const ItemCard = ({name,description,price,user,id}) => {
        closeButton={false}
       transition={Zoom}
        />
-        <div className='w-full h-36 bg-[#A0C5CF] rounded'></div>
+        <div  style={{backgroundImage:`url("/itemsAssets/${image}")`,backgroundSize:"cover"}} className='w-full h-36  rounded'></div>
         <div className='mt-3'>
             <div>
                 <h3 className='text-black flex justify-between items-center'><span className='font-bold'>{name}</span><span className='text-sm'>{price}pts</span></h3>

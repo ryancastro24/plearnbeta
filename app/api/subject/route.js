@@ -18,23 +18,21 @@ export async function GET(){
 
 export async function POST(request){
 
-    const {realm,subjectTitle,subjectCode,section,idNumber,type} = await request.json();
+    const {realm,subjectTitle,subjectCode,idNumber,type} = await request.json();
     
-    if(!realm || !subjectTitle || !subjectCode || !section || !idNumber || !type){
+    if(!realm || !subjectTitle || !subjectCode || !idNumber || !type){
         return NextResponse.json({message:"Missing Field"})
     }
 
     const newSubject = await prisma.subject.create({
         data:{
             title:subjectTitle,
-            section:section,
             subjectCode: subjectCode,
             realm:realm,
             type:type
         }
     })
 
-    // console.log(newSubject);
 
     const updatedSubject = await prisma.subject.update({
         where: {

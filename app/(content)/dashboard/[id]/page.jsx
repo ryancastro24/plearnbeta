@@ -10,6 +10,8 @@ import QuestField from '@/components/DashboardComponent/QuestField';
 import NoteCotainer from '@/components/DashboardComponent/NoteCotainer';
 import LessonField from '@/components/DashboardComponent/LessonField';
 import AddAnnoucementContent from '@/components/DashboardComponent/adminDashboard/AddAnnoucementContent';
+import AddSectionModal from '@/components/DashboardComponent/adminDashboard/AddSectionModal';
+
 
 async function getAnnouncement(id){
   
@@ -107,6 +109,26 @@ async function getNote(id,user_id){
     return res.json()
 }  
 
+
+
+
+async function getSection(id){
+
+  const res = await fetch(`http://localhost:3000/api/section/${id}`,
+  {
+      next:{revalidate:0}
+  });
+
+
+  if (!res.ok) {
+      // This will activate the closest `error.js` Error Boundary
+      throw new Error('Failed to fetch data')
+    }
+
+  return res.json()
+}  
+
+
 const Subject = async ({params}) => {
 
     const session = await getServerSession(authOptions);
@@ -116,6 +138,7 @@ const Subject = async ({params}) => {
     const adminData = await getAdminSubs(params.id)
     const noteData = await getNote(params.id, session.user.id)
     const annoucementData = await getAnnouncement(params.id)
+    const sectionData = await getSection(params.id)
 
   return ( 
    <>
@@ -128,13 +151,13 @@ const Subject = async ({params}) => {
                 <div className='flex flex-col gap-3 mt-8 ml-8'>
                     <span className='text-2xl font-bold'>{data.finalData[0].subjectDetails.title}</span>
                     <span>{data.finalData[0].subjectDetails.subjectCode}</span>
-                    <span>Section: {data.finalData[0].subjectDetails.section}</span>
                     
                 </div>
 
 
-            {session.user.role === "employee" && <div className='absolute top-10 right-0'>
-                        <AddStudents subjectId={adminData.id}/>
+            {session.user.role === "employee" && <div className='absolute w-[500px] p-5 h-full top-0 right-0'>
+                       
+                        <AddSectionModal sectionData={sectionData} subjectId={params.id}/>
                 </div> }
                
             </div>

@@ -7,7 +7,7 @@ import { authOptions } from '@/app/api/auth/[...nextauth]/route'
 const getData = async() => {
   const res = await fetch('http://localhost:3000/api/cart_items',{
     next:{
-      revalidate:3600
+      revalidate:0
     }
   })
 

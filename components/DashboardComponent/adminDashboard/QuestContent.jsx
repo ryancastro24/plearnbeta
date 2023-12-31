@@ -27,7 +27,7 @@ const QuestContent = ({questData,role,subId,adminData}) => {
         {role === 'student' ? 
         <>
          {questData.length > 0 ? <QuestsPage adminData={adminData} activityId={questData} role={role}/> : 
-          <div className='w-full h-[480px] flex justify-center items-center'><span className='text-2xl'>No Quests Available</span></div>}
+          <div className='w-full h-[480px] flex justify-center items-center'><span className='text-2xl'>No Quests Available Now try again</span></div>}
         </>
         
       :

@@ -8,7 +8,6 @@ export async function GET(request,{params}){
   const headerList = headers();
   const user_id = headerList.get('user_id')
 
-  console.log(user_id)
     const activities = await prisma.activity.findMany({
         where:{   
           subjectId:params.id
@@ -19,7 +18,7 @@ export async function GET(request,{params}){
     
   for (const activity of activities) {
     // Check if a corresponding record already exists in DoneActivity
-    const existingDoneActivity = await prisma.doneActiviy.findFirst({
+    const existingDoneActivity = await prisma.doneActivity.findFirst({
       where: {
         activityId: activity.id,
         userId: user_id // Specify the user ID
@@ -28,7 +27,7 @@ export async function GET(request,{params}){
   
     // If the record doesn't exist, create a new one
     if (!existingDoneActivity) {
-      await prisma.doneActiviy.create({
+      await prisma.doneActivity.create({
         data: {
           activity: { connect: { id: activity.id } },
           user: { connect: { id: user_id }, // Specify the user ID as needed
@@ -43,7 +42,7 @@ export async function GET(request,{params}){
     
   
   //? queery to find subject
-    const data = await prisma.doneActiviy.findMany({
+    const data = await prisma.doneActivity.findMany({
         where:{
           activity:{
             subjectId: params.id

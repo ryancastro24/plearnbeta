@@ -26,6 +26,7 @@ model User {
   courseId          String?             @db.VarChar(36)
   course            Course?             @relation(fields: [courseId], references: [id])
   subjects          Subject[]           @relation("user_subject")
+  sections          Section[]           @relation("user_section")
   items             Item[]              @relation("user_item")
   UserPurchasedItem UserPurchasedItem[]
   DoneActivity      DoneActivity[]
@@ -92,6 +93,7 @@ model Question {
 model Choice {
   id              String    @id @default(uuid())
   isCorrectChoice Boolean
+  choiceText      String
   createdAt       DateTime  @default(now())
   updatedAt       DateTime  @updatedAt
   question        Question? @relation(fields: [questionId], references: [id])
@@ -110,7 +112,6 @@ model Lesson {
 
 model Subject {
   id           String         @id @default(uuid())
-  section      String
   subjectCode  String
   title        String
   realm        String?
@@ -123,6 +124,18 @@ model Subject {
   Announcement Announcement[]
   createdAt    DateTime       @default(now())
   updatedAt    DateTime       @updatedAt
+  Section      Section[]
+}
+
+model Section {
+  id        String   @id @default(uuid())
+  name      String
+  shedule   String
+  subjectId String
+  subject   Subject  @relation(fields: [subjectId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  users     User[]   @relation("user_section")
 }
 
 model Item {
@@ -130,6 +143,7 @@ model Item {
   name              String
   description       String
   price             Int
+  image             String
   numberOfpurchase  Int?
   purchased         Boolean             @default(false)
   createdAt         DateTime            @default(now())

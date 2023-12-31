@@ -1,9 +1,10 @@
 'use client'
-import { useState,useEffect } from 'react'
+import { useState } from 'react'
 import NoteModalContent from './NoteModalContent'
 
 
 const NoteCotainer = ({noteData}) => {
+
 
 
     // Add showModal:false to each object in the activityId array
@@ -39,7 +40,7 @@ const handleShowModal = (id) => {
   return (
      
     <div className='flex flex-row-reverse justify-start items-end  gap-2  w-full'>
-          {noteList.slice(0,5).map((val,i) =><div>
+          {noteList.slice(0,5).map((val,i) =><div key={val.id}>
           
             {val.showModal &&   <div className='w-full absolute top-0 left-0 h-full'><NoteModalContent setNoteList={setNoteList} {...val}/>  </div>} 
            

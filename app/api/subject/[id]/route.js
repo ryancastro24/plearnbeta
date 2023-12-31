@@ -17,7 +17,7 @@ export async function GET(request,{params}){
             }
         })
 
-        console.log(subject);
+
 
 
 
@@ -34,7 +34,6 @@ export async function GET(request,{params}){
                       questions:{
                         include:{
                           choices:true,
-                         
                         }
                         
                       }

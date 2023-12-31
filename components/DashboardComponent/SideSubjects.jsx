@@ -4,8 +4,8 @@ import React from 'react'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import { useEffect } from 'react'
-const SideSubjects = ({subjects,user}) => {
-  const [data, setData] = React.useState(subjects);
+const SideSubjects = ({sections,user}) => {
+  const [data, setData] = React.useState(sections);
   const [fetchData, setFetchData] = React.useState("");
   const [currentSubjectIndex, setCurrentSubjectIndex] = React.useState(0); // To track the current subject's index
   const router = useRouter();
@@ -15,7 +15,7 @@ const SideSubjects = ({subjects,user}) => {
   const fetchDataAndUpdateState = async () => {
     if (currentSubjectIndex < data.length) {
       try {
-        const subjectIdToFetch = data[currentSubjectIndex].id;
+        const subjectIdToFetch = data[currentSubjectIndex].subject.id;
         const requestOptions = {
           method: 'GET',
           headers: {
@@ -59,7 +59,7 @@ const SideSubjects = ({subjects,user}) => {
 
         <div className='flex flex-col gap-2'>
             {data.slice(4,7).map(val => (
-                <div onClick={() => router.push(`/dashboard/${val.id}`)} key={val.id} className='bg-[#D2F5FF] cursor-pointer relative hover:bg-[#798f95] h-14 w-full rounded-sm flex p-2 items-center gap-3'>
+                <div onClick={() => router.push(`/dashboard/${val.subject.id}`)} key={val.id} className='bg-[#D2F5FF] cursor-pointer relative hover:bg-[#798f95] h-14 w-full rounded-sm flex p-2 items-center gap-3'>
                     
                     {val.userActivity?.length > 0 && <div style={{top:-5,right:-5}} className='w-6 h-6 flex justify-center items-center bg-red-500 rounded-full absolute  '>
                     <span className='text-sm'>{val.userActivity?.length}</span></div>} 
@@ -68,8 +68,8 @@ const SideSubjects = ({subjects,user}) => {
                   </div>
 
                   <div>
-                  <span className="text-sm text-black">{val.subjectCode}</span>
-                  <span className="text-sm text-black line-clamp-1">{val.title}</span>
+                  <span className="text-sm text-black">{val.subject.subjectCode}</span>
+                  <span className="text-sm text-black line-clamp-1">{val.subject.title}</span>
                   </div>
                  
                 </div>

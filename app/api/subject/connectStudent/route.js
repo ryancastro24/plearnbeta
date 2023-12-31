@@ -2,22 +2,21 @@ import { NextResponse } from "next/server";
 import prisma from '@/libs/prismaDb'
 
 export async function POST(request){
-    const {subjectId,studentData} = await request.json();
+    const {sectionId,studentData} = await request.json();
 
-    // console.log(subjectId)
-    // console.log(studentData)
+    
+    console.log(studentData)
 
-    const subject = await prisma.subject.update({
+    const sections = await prisma.section.update({
         where:{
-            id:subjectId
+            id:sectionId
         },
         data:{
-            students:{
+            users:{
                 connect:studentData
             }
         }
     })
-
-    console.log(subject)
-    return NextResponse.json(subject)
+    
+    return NextResponse.json(sections)
 }

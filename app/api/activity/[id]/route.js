@@ -3,7 +3,9 @@ import prisma from '@/libs/prismaDb'
 
 
 export async function GET(request,{params}){
-    const act = await prisma.doneActiviy.findFirst({
+
+
+    const act = await prisma.doneActivity.findFirst({
         where:{
             id: params.id
         },
@@ -13,7 +15,6 @@ export async function GET(request,{params}){
                   questions:{
                     include:{
                       choices:true,
-                     
                     }
                     
                   }
@@ -41,6 +42,7 @@ export async function PATCH(request,{params}) {
             isEditable
         }
     })
+
 
 
 

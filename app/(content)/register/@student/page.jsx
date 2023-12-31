@@ -6,6 +6,8 @@ import axios from 'axios'
 import { useRouter } from 'next/navigation'
 import { ToastContainer,toast,Zoom } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
+
+
 export default function StudentRegisterPage() {
   const [data,setData] = useState({
     idNumber:'',

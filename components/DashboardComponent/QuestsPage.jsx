@@ -94,7 +94,13 @@ const updatedActivityId = adminData.activityId.map(item => ({
         {role === 'student' ? 
         <div>
             
-                { activityId.map(val => <div  className='flex justify-between items-center px-4 py-4 w-full bg-[#41454A] rounded mt-4' key={val.id}>
+                { activityId.map(val => <div  className='flex justify-between relative items-center px-4 py-4 w-full bg-[#41454A] rounded mt-4' key={val.id}>
+                  
+                  {val.activity.isEditable && <div className='w-full h-full absolute inset-0 bg-[#e58f2783] z-40 flex justify-center items-center'>
+                        <span>locked</span>
+                    </div>}
+
+
                     <div className='flex flex-col gap-1'>
                       <span>{val.activity.title}</span>
                       <span className='text-sm'>{val.activity.type} {!!val.activity.questions.length &&<span className={`ml-3 text-black  px-2 py-1 rounded text-xs font-bold

@@ -23,11 +23,11 @@ function arrayToObject(dataArray) {
 
 
 
-const AddStudents = ({subjectId}) => {
+const AddStudents = ({sectionId}) => {
 
 
   const [patchedData,setPatchedData] = useState({
-    subjectId,
+    sectionId,
     studentData:null
     
   })
