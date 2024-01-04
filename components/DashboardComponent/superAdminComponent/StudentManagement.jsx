@@ -12,7 +12,7 @@ const StudentManagement = () => {
     password:'',
     gender:'',
     age:"",
-    yearLevel:null,
+    yearLevel:"",
     course:'',
     role:''
   })
@@ -28,7 +28,7 @@ const StudentManagement = () => {
               </div>
 
           
-              <div className='w-2/3 h-full pt-3 overflow-y-auto'>
+              <div className='w-2/3 h-full pt-3 overflow-y-auto scrollbar-hidden'>
                   <StudentsTable setToUpdate={setToUpdate} setToUpdateData  setData={setData}/>
               </div> 
       </div>

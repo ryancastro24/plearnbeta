@@ -76,6 +76,7 @@ model DoneActivity {
   userId     String   @db.VarChar(36)
   user       User     @relation(fields: [userId], references: [id])
   isDone     Boolean  @default(false)
+  totalScore Int?
   createdAt  DateTime @default(now())
   updatedAt  DateTime @updatedAt
 }

@@ -24,7 +24,7 @@ const UserTable = ({data,idNumber}) => {
                   <tr onClick={() =>  router.push(`/leaderboard/${val.id}`)} className={`text-center  cursor-pointer hover:bg-[#de9337] ${idNumber === val.idNumber ? 'bg-[#D2F5FF] text-black' : i % 2 === 0 ? '' : 'bg-[#3A3D42]'}`} key={val.id}>
                     <td className='p-2 text-left'><span className='flex gap-4 px-2'><b>{i + 1}.</b> {val.idNumber}</span></td>
                     <td className='p-2'>{val.name}</td>
-                    <td className='p-2'>{val.course.name} {val.yearLevel}</td>
+                    <td className='p-2'>{val.course.acronym} {val.yearLevel}</td>
                     <td className='p-2'>{levelIdentifier(val.level)}</td>
                     <td className='p-2'>{val.points} pts</td>
                   </tr>

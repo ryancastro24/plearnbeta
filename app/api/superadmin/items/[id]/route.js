@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import prisma from '@/libs/prismaDb';
-
+import { writeFile } from "fs/promises";
+import { join } from "path";
 
 export async function DELETE(req,{params}){
      const item = await prisma.item.delete({
@@ -28,8 +29,53 @@ export async function GET(req,{params}){
 
 
 
-// ! code this after NEW YEAR!
+export async function PATCH(req,{params}){
 
-// export async function PATCH(req,{params}){
-//     const {}
-// }
+    const data = await req.formData();
+    
+    const name = data.get('name');
+    const price = data.get('price');
+    const description = data.get('description');
+    const file = data.get('file');
+   
+    if(file && typeof file.arrayBuffer === 'function') {
+            
+            const bytes = await file.arrayBuffer();
+            const buffer = Buffer.from(bytes);
+        
+            const path  = join(process.cwd(), 'public', 'itemsAssets', file.name);
+            await writeFile (path,buffer)
+            console.log(`open  path ${path} to see the upload file`)
+
+
+                const fileUploaded = await prisma.item.update({
+                    where:{
+                        id: params.id
+                    },
+                    data:{
+                        name: name,
+                        description:description,
+                        price: +price,
+                        image:file.name,
+                        
+                    }
+                    })
+        console.log(fileUploaded);
+    }
+    else {
+        await prisma.item.update({
+            where:{
+                id: params.id
+            },
+            data:{
+                name: name,
+                description:description,
+                price: +price,
+            }
+            })
+   }
+  
+  
+    return NextResponse.json({success:true});
+  
+}

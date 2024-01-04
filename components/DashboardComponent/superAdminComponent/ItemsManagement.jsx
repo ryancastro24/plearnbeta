@@ -42,7 +42,7 @@ const [toUpdate,setToUpdate] = useState(false);
       <div className='w-full h-full flex justify-between items-center'>
           
           <div className='w-1/3 h-full pr-3'>
-              <ItemsForm itemData={itemData}  setItemData={setItemData}/>
+              <ItemsForm toUpdate={toUpdate} setToUpdate={setToUpdate} itemData={itemData}  setItemData={setItemData}/>
           </div>
 
           <div className='w-2/3'>
@@ -53,8 +53,8 @@ const [toUpdate,setToUpdate] = useState(false);
                 </div>
 
 
-              <div className='overflow-y-auto h-full w-full mt-4'>
-                <ItemShelf setItemData={setItemData}  items={finalItems}/>
+              <div className='overflow-y-auto h-full w-full mt-4 scrollbar-hidden'>
+                <ItemShelf setItemData={setItemData} setToUpdate={setToUpdate}  items={finalItems}/>
 
               </div>
            

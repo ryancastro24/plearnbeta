@@ -29,7 +29,8 @@ export async function PATCH(req,{params}){
             id: params.id
         },
         data:{
-            isDone:true
+            isDone:true,
+            totalScore: finalTotalScore / 2
         }
     })
 

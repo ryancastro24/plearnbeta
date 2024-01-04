@@ -4,6 +4,8 @@ import React from 'react'
 import  {useRouter} from 'next/navigation'
 import { ToastContainer,toast,Zoom } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
+import { FaAddressCard } from "react-icons/fa6";
+import { FaLock } from "react-icons/fa";
 const LoginForm = () => {
     const [data,setData] = React.useState({
         idNumber:"",
@@ -85,7 +87,7 @@ const LoginForm = () => {
        />
         <form action="" onSubmit={loginUser} className='w-80 h-96 p-4 rounded-md bg-[#a6c7d04d]'>
             <div className='flex flex-col w-full mt-5 gap-2' >
-                <label htmlFor="idNumber">ID Number</label>
+                <label htmlFor="idNumber" className='flex items-center gap-2 text-sm'> <FaAddressCard /> ID Number</label>
                 <input 
                     className='text-black px-2 py-3 rounded outline-none'                   
                     type="text" 
@@ -98,8 +100,8 @@ const LoginForm = () => {
             </div>
 
             <div className='flex flex-col w-full mt-5 gap-2'>
-                <label htmlFor="password">Password</label>
-                <input
+                <label htmlFor="password" className='flex items-center gap-2 text-sm'><FaLock /> Password</label>
+                <input  
                     className='text-black px-2 py-3 rounded outline-none'
                     type="password" 
                     placeholder='Enter Password'

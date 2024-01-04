@@ -68,7 +68,6 @@ const StudentForm = ({data,setData,toUpdate,setToUpdate}) => {
             age:'',
             yearLevel:'',
             course:'',
-            role:''
           });
           setLoading(false);
         

@@ -3,7 +3,7 @@
 import {useEffect,useState} from 'react'
 import ItemContainer from './ItemContainer';
 import axios from 'axios';
-const ItemShelf = ({items,setItemData}) => {
+const ItemShelf = ({items,setItemData,setToUpdate}) => {
 
    
 
@@ -11,7 +11,7 @@ const ItemShelf = ({items,setItemData}) => {
     <div className='w-full h-[430px] flex flex-col justify-between gap-4 '>
 
        
-        {items.map(val => <ItemContainer setItemData={setItemData} {...val}/>) }
+        {items.map(val => <ItemContainer setToUpdate={setToUpdate} setItemData={setItemData} {...val}/>) }
     </div>
   )
 }
