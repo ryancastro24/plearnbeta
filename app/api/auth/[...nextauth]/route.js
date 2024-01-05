@@ -63,6 +63,7 @@ export const authOptions = {
                     yearLevel:user.yearLevel,
                     role:user.role,
                     points: user.points,
+                    character: user.character
                 }
             }
         
@@ -83,6 +84,7 @@ export const authOptions = {
                     yearLevel:token.yearLevel,
                     role:token.role,
                     points: token.points,
+                    character:token.character
                 }
             }
             

@@ -16,22 +16,23 @@ const Carousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
 
-  const [userLevel, setUserLevel] = useState(3);
+  const [userLevel, setUserLevel] = useState(30);
   const [progress ,setProgress] = useState(0);
 
 
 
   useEffect(() => {
 
-   
-      setProgress(prev  => prev + 1);
-
-
-      if(userLevel % 10 === 0){
-        setProgress(prev => prev * 0);
-      }
-  
     
+    if(userLevel % 10 === 0){
+      setProgress(progress * 0);
+    }
+
+  
+   
+      setProgress( progress + 1);
+
+
      
   },[userLevel])
 
