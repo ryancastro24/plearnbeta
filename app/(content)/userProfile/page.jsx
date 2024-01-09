@@ -50,7 +50,7 @@ const UserProfile = async() => {
             </div>
 
 
-            <ChangePasswordfield/>
+            <ChangePasswordfield  character={session.user.character}/>
 
         </div>
 

@@ -7,7 +7,7 @@ import Image from 'next/image'
 import ProfileNav from './ProfileNav'
 import { levelIdentifier } from '@/libs/testing'
 import { colorLevelIdentifier } from '@/libs/testing'
-const DashboardNav = ({id,name,email,level,role,cartItems}) => {
+const DashboardNav = ({id,idNumber,course,name,email,level,role,cartItems}) => {
 
   const  [cartData,setCartData] = React.useState([])
  
@@ -31,7 +31,7 @@ const DashboardNav = ({id,name,email,level,role,cartItems}) => {
     <div className='flex items-center justify-between w-full px-5 py-6 z-10  absolute top-0'>
         <ul className='flex items-center justify-center gap-7  '>
             <li className={pathname === '/dashboard' ? 'text-orange-500 font-bold text-xl ': 'text-sm text-white'}><Link href={'/dashboard'}>Dashboard</Link></li>
-            <li className={pathname === '/message' ? 'text-orange-500 font-bold text-xl ': 'text-sm text-white'}><Link href={'/message'}>Messages</Link></li>
+            <li className={pathname === '/message' ? 'text-orange-500 font-bold text-xl ': 'text-sm text-white'}><Link href={'/message'}>Events</Link></li>
        {role ==="student" && <li className={pathname === '/progress' ? 'text-orange-500 font-bold text-xl ': 'text-sm text-white'}><Link href={'/progress'}>Progress</Link></li>}     
             <li className={pathname === '/leaderboard' ? 'text-orange-500 font-bold text-xl ': 'text-sm text-white'}><Link href={'/leaderboard'}>Leaderboard</Link></li>
         {role === "student" && <li className={pathname === '/redeem' ? 'text-orange-500 font-bold text-xl ': 'text-sm text-white'}><Link href={'/redeem'}>Redeem</Link></li>}    
@@ -46,7 +46,7 @@ const DashboardNav = ({id,name,email,level,role,cartItems}) => {
               </div>}
             <Link className='cursor-pointer' href={`/cart/${id}`}><Image width={20} height={20} alt='cart' src={'/DashboardAssets/icons/cart.svg'}/></Link>
           </div>
-            <ProfileNav name={name} email={email}/>
+            <ProfileNav idNumber={idNumber} course={course} name={name} email={email}/>
         </div>
 
           

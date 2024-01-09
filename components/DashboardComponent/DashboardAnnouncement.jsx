@@ -1,14 +1,11 @@
 'use client'
 import {useState, useEffect} from 'react'
 import DashboardAnnouncementInnerContent from './DashboardAnnouncementInnerContent';
-// sample data 
-
-const sampleData = [1,2];
 
 
-const DashboardAnnouncement = () => {
+const DashboardAnnouncement = ({announcementData}) => {
     const [showModal,setShowModal] = useState(false);  
-    const [data,setData] = useState(sampleData)
+    const [data,setData] = useState(announcementData)
 
 
     useEffect(() => {
@@ -20,10 +17,13 @@ const DashboardAnnouncement = () => {
             setShowModal(true)
             localStorage.setItem('hasDisplayedModal', true);
         
-    },[])
+    },[]);
+
+
+  
   return (
     <>
-    {showModal && <DashboardAnnouncementInnerContent setShowModal={setShowModal}/> }
+    {showModal && <DashboardAnnouncementInnerContent announcementData={announcementData} setShowModal={setShowModal}/> }
   </>
   )
 }

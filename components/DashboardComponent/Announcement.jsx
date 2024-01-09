@@ -4,7 +4,14 @@ import { levelRewards } from '@/libs/testing'
 import Carousel from './Carousel';
 
 
-const Announcement = () => {
+
+
+
+
+const Announcement = ({userId,levelPassData}) => {
+
+
+  
 
 
   return (
@@ -16,7 +23,7 @@ const Announcement = () => {
           
 
        
-           <Carousel/>
+           <Carousel levelPassData={levelPassData}/>
       </div>
 
 

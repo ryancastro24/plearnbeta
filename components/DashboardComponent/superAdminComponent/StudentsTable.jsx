@@ -65,7 +65,7 @@ const StudentsTable = ({setData,setToUpdate}) => {
   return (
     <>
 
-        <table  className='w-full p-3 rounded overflow-hidden h-full'>
+        <table  className='w-full p-3 rounded overflow-hidden'>
             <thead>
                 <tr className='py-2 bg-[#272A2E]'>
                     <th className='py-2'>Id Number</th>

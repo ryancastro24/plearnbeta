@@ -2,7 +2,6 @@
 
 import * as PIXI from 'pixi.js';
 import { Stage, Container, Sprite, Text,AnimatedSprite, Graphics  } from '@pixi/react';
-
 import { useEffect,useState,useCallback} from 'react';
 
 
@@ -37,7 +36,7 @@ const backgroundImage = '/spritesheets/backgroundsample.png'
 
 const teddytexture = PIXI.Texture.from('https://pixijs.com/assets/bunny.png');
 
-// Create a 5x5 grid of bunnies
+// Create a 5x5 grid of bunniesq
 const livesGrid = () => {
   const grid = [];
   const hearttexture = PIXI.Texture.from('/spritesheets/heart.png');

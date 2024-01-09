@@ -2,7 +2,7 @@
 
 import {useEffect,useState} from 'react'
 import ItemContainer from './ItemContainer';
-import axios from 'axios';
+
 const ItemShelf = ({items,setItemData,setToUpdate}) => {
 
    
