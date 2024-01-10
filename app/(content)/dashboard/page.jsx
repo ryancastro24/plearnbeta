@@ -51,6 +51,8 @@ const  Dashboard = async() => {
   const announcementData = await getAnnouncementData();
   const levelPassData = await getLevelPass(session.user.id)
 
+
+
   
 
   if(finalData.user.role === 'admin'){
@@ -93,7 +95,7 @@ const  Dashboard = async() => {
 
           <div  className='w-3/4 rounded-md h-full  flex flex-col justify-between pb-7'>
 
-            <Announcement levelPassData={levelPassData.LevelPass.levelPassItem} userId={session.user.id}/>
+            <Announcement userLevel={session.user.level} levelPassData={levelPassData.LevelPass.levelPassItem} userId={session.user.id}/>
 
             <div className='w-full h-80 rounded-md flex gap-4 items-center '>
 
