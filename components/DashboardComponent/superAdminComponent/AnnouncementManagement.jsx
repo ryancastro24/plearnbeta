@@ -9,7 +9,9 @@ const AnnouncementManagement = () => {
       title:"",
       image:"",
       dateAndTime:"",
-      description:""
+      description:"",
+      startsOn:null,
+      endsOn:null,
   })
 
   const [announcements,setAnnouncements] = useState([])

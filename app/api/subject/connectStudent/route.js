@@ -4,9 +4,6 @@ import prisma from '@/libs/prismaDb'
 export async function POST(request){
     const {sectionId,studentData} = await request.json();
 
-    
-    console.log(studentData)
-
     const sections = await prisma.section.update({
         where:{
             id:sectionId

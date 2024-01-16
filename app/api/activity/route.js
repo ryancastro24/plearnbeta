@@ -2,9 +2,9 @@ import { NextResponse } from "next/server";
 import prisma from '@/libs/prismaDb'
 
 export async function POST(request){
-    const {id,title,type} = await request.json();
+    const {id,title,type,topic} = await request.json();
 
-    if(!id || !title || !type){
+    if(!id || !title || !type || !topic){
         return NextResponse.json({message:"Missing Fields"})
     }
 
@@ -14,7 +14,8 @@ export async function POST(request){
         data:{
             title,
             type,
-            subjectId:id
+            subjectId:id,
+            topic
         }
     })
 

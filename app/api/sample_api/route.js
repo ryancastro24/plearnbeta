@@ -3,11 +3,14 @@ import prisma from '@/libs/prismaDb';
 
 export async function GET(req,{params}){
 
-    const lesson = await prisma.uploadedFile.findFirst({
+    const user = await prisma.user.findFirst({
         where:{
-            id:"6548b5bd99d77e7d81a42e1c"
+            id: "5272a42e-6bdc-4cf7-999b-a4d5ac75a0d5"
+        },
+        include:{
+            itemCollectibles: true
         }
     })
 
-    return NextResponse.json(lesson)
+    return NextResponse.json(user)
 }

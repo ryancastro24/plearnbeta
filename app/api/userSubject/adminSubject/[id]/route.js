@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server";
 import prisma from '@/libs/prismaDb'
-import { truncate } from "fs/promises";
 
 export async function GET(request,{params}){
 

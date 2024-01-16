@@ -14,14 +14,35 @@ const luffyHurtSpriteSheet = "/spritesheets/luffHurt.json";
 const enemySpriteSheet = "/spritesheets/enemy.json";
 const enemyAttackSpriteSheet = "/spritesheets/enemyAttack.json";
 const enemyHurtSpriteSheet = "/spritesheets/enemyHurt.json";
+const narutoIdleSpriteSheet = "/spritesheets/naruto_idle.json";
+const narutoAttackSpriteSheet = "/spritesheets/naruto_attack.json";
+const narutoHurtSpriteSheet = "/spritesheets/naruto_hurt.json";
+const namiIdleSpriteSheet = "/spritesheets/nami_idle.json";
+const namiAttackSpriteSheet = "/spritesheets/nami_attack.json";
+const namiHurtSpriteSheet = "/spritesheets/nami_hurt.json";
 
 const backgroundImage = '/spritesheets/backgroundsample.png'
 
- const Battleground = ({isRight, lives}) => {
+ const Battleground = ({isRight, lives,character}) => {
   //luffy frames
   const [frames, setFrames] = useState([]);
   const [luffAttackFrames, setLuffyAttackFrames] = useState([]);
   const [luffyHurtFrames, setLuffyHurtFrames] = useState([]);
+
+
+  //naruto frames
+  const [narutoFrames,setNarutoFrames] = useState([]);
+  const [narutoAttackFrames,setNarutoAttackFrames] = useState([]);
+  const [narutoHurtFrames,setNarutoHurtFrames] = useState([]);
+
+
+  //nami frames
+
+  const [namiFrames,setNamiFrames] = useState([]);
+  const [namiAttackFrames,setNamiAttackFrames] = useState([]);
+  const [namiHurtFrames,setNamiHurtFrames] = useState([]);
+
+
 
   //enemy frames
   const [enemyFrames, setEnemyFrames] = useState([]);
@@ -34,7 +55,6 @@ const backgroundImage = '/spritesheets/backgroundsample.png'
  
 
 
-const teddytexture = PIXI.Texture.from('https://pixijs.com/assets/bunny.png');
 
 // Create a 5x5 grid of bunniesq
 const livesGrid = () => {
@@ -101,6 +121,13 @@ const enemyLivesGrid = () => {
       const enemyHurtResource = await PIXI.Assets.load(enemyHurtSpriteSheet);
       const luffyAttackResource = await PIXI.Assets.load(luffyAttackSpriteSheet);
       const luffyHurtResource = await PIXI.Assets.load(luffyHurtSpriteSheet);
+      const narutoIdleResource = await PIXI.Assets.load(narutoIdleSpriteSheet);
+      const narutoAttackResource = await PIXI.Assets.load(narutoAttackSpriteSheet);
+      const narutoHurtResource = await PIXI.Assets.load(narutoHurtSpriteSheet);
+      const namiIdleResource = await PIXI.Assets.load(namiIdleSpriteSheet);
+      const namiAttackResource = await PIXI.Assets.load(namiAttackSpriteSheet);
+      const namiHurtResource = await PIXI.Assets.load(namiHurtSpriteSheet);
+      
       setFrames(
         Object.keys(resource.data.frames).map(frame =>
           PIXI.Texture.from(frame)
@@ -137,6 +164,48 @@ const enemyLivesGrid = () => {
           PIXI.Texture.from(frame)
         )
       );
+
+
+      setNarutoFrames(
+        Object.keys(narutoIdleResource.data.frames).map(frame =>
+          PIXI.Texture.from(frame)
+        )
+      );
+      
+      
+      
+      setNarutoAttackFrames(
+        Object.keys(narutoAttackResource.data.frames).map(frame =>
+          PIXI.Texture.from(frame)
+        )
+      );
+
+      setNarutoHurtFrames(
+        Object.keys(narutoHurtResource.data.frames).map(frame =>
+          PIXI.Texture.from(frame)
+        )
+      );
+
+
+      setNamiFrames(
+        Object.keys(namiIdleResource.data.frames).map(frame =>
+          PIXI.Texture.from(frame)
+        )
+      );
+
+      setNamiAttackFrames(
+        Object.keys(namiAttackResource.data.frames).map(frame =>
+          PIXI.Texture.from(frame)
+        )
+      );
+
+      
+      setNamiHurtFrames(
+        Object.keys(namiHurtResource.data.frames).map(frame =>
+          PIXI.Texture.from(frame)
+        )
+      );
+
     } catch (error) {
       console.error('Error loading spritesheet:', error);
     }
@@ -188,7 +257,9 @@ const enemyLivesGrid = () => {
          <AnimatedSprite
             animationSpeed={0.1}
             isPlaying={true}
-            textures={frames}
+            textures={
+              character === 'luffy' ? frames : character  === "naruto" ?  narutoFrames : namiFrames
+            }
             scale={{ x: 4, y: 4 }}
             tint={isRight == false ? 0xFF0000 : 0xFFFFFF}
             alpha={isRight ? 0 : isRight  === false ? 0 : 1}
@@ -197,14 +268,14 @@ const enemyLivesGrid = () => {
           <AnimatedSprite
             animationSpeed={0.1}
             isPlaying={true}
-            textures={luffAttackFrames}
+            textures={character === 'luffy' ? luffAttackFrames : character  === "naruto" ?  narutoAttackFrames : namiAttackFrames}
             scale={{ x: 4, y: 4 }}
             alpha={isRight ? 1 : 0}
         />
            <AnimatedSprite
             animationSpeed={0.05}
             isPlaying={true}
-            textures={luffyHurtFrames}
+            textures={character === 'luffy' ? luffyHurtFrames : character  === "naruto" ?  narutoHurtFrames : namiHurtFrames}
             scale={{ x: 4, y: 4 }}
             alpha={isRight === false ? 1 : 0}
         />

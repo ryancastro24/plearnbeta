@@ -10,8 +10,10 @@ export async function POST(request){
   const title = data.get('title');
   const dateAndTime = data.get('dateAndTime');
   const description = data.get('description');
+  const startsOn = data.get('startsOn');
+  const endsOn = data.get('endsOn');
 
-
+ 
   if(!file){
     return NextResponse.json({success:false})
   } 
@@ -23,13 +25,17 @@ export async function POST(request){
   await writeFile (path,buffer)
   console.log(`open  path ${path} to see the upload file`)
 
+  const dateObjectStartsOn = new Date(startsOn);
+  const dateObjectEndsOn = new Date(endsOn);
 
   const announcementUpload  = await prisma.generalAnnouncement.create({
     data:{
         title: title,
         dateAndTime: dateAndTime,
         description: description,
-        image: file.name
+        image: file.name,
+        startsOn: dateObjectStartsOn,
+        endsOn: dateObjectEndsOn
     }
   })
   

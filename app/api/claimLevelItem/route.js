@@ -29,7 +29,7 @@ export async function PATCH(req){
     }
 
 
-    if(name === "coinbag"){
+   else  if(name === "coinbag"){
         await prisma.user.update({
              where:{
                 id: userId
@@ -42,6 +42,19 @@ export async function PATCH(req){
         })
     }
 
+    else{
+        await prisma.user.update({
+            where:{
+               id: userId
+            },
+            data:{
+                itemCollectibles:{
+                   connect : [{id: id} ]
+
+               },
+           }
+       })
+    }
 
     return NextResponse.json({message:"success"})
 

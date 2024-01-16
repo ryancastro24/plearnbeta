@@ -27,7 +27,7 @@ const LevelPassItemModal = ({levelItemActualData,setShowModal,userId}) => {
                     <Image src={image} width={300} height={300} alt='item image' />
 
 
-
+                    <span>{name === "coin" ? "+ 100pts" : name === "coinbag" ? "+ 1000pts" : name}</span>
 
                 <button onClick={handleClaimUpdate} className='px-3 py-2 rounded bg-orange-500'>claim</button>
 

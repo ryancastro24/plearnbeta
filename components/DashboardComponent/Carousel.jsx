@@ -28,7 +28,7 @@ const achieved  = true;
 const Carousel = ({levelPassData,setLevelItemActualData,setShowModal,userLevel}) => { 
 
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [progress ,setProgress] = useState(userLevel);
+  const [progress ,setProgress] = useState(parseInt(userLevel));
 
   const handlePrev = () => {
     setCurrentIndex((prevIndex) => (prevIndex === 0 ? data.length - 1 : prevIndex - 1));

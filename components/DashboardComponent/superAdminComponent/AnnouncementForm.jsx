@@ -25,6 +25,8 @@ const handleSubmit =  async(e) => {
       announcementData.set('file', data.image)
       announcementData.set('title', data.title)
       announcementData.set('dateAndTime', data.dateAndTime)
+      announcementData.set("startsOn", data.startsOn);
+      announcementData.set("endsOn", data.endsOn);
       announcementData.set('description', data.description)
 
       const res = await fetch('http://localhost:3000/api/superadmin/announcements',{
@@ -35,7 +37,9 @@ const handleSubmit =  async(e) => {
             title:"",
             description:"",
             dateAndTime:"",
-            image:null
+            image:null,
+            startsOn:null,
+            endsOn:null,
         })
         setLoading(false);
         })
@@ -56,7 +60,10 @@ const handleSubmit =  async(e) => {
                 <input required className='px-3 text-black py-2 rounded outline-orange-500 w-full' type="text" placeholder='Title' value={data.title} onChange={(e) => setData({...data,title:e.target.value})} />
                 <input required className='px-3 text-black py-2 rounded outline-orange-500 w-full' type="text" placeholder='Date and Time' value={data.dateAndTime} onChange={(e) => setData({...data,dateAndTime:e.target.value})} />
                 <textarea required className='px-3 text-black py-2 rounded outline-orange-500 w-full resize-none' type="text" placeholder='Description' value={data.description} onChange={(e) => setData({...data,description:e.target.value})}></textarea>
+                <input className='px-3  py-2 rounded outline-orange-500 w-full text-black' value={data.startsOn} type="datetime-local"   onChange={(e) => setData({...data,startsOn:e.target.value})} />
+                <input className='px-3  py-2 rounded outline-orange-500 w-full text-black' value={data.endsOn} type="datetime-local" onChange={(e) => setData({...data,endsOn:e.target.value})} />
                 <input className='px-3  py-2 rounded outline-orange-500 w-full' type="file"  onChange={(e) => setData({...data,image:e.target.files?.[0]})} />
+               
 
                 <button className='w-full py-3 hover:bg-orange-700 rounded bg-orange-600'>{loading ? "submitting..." :"submit"}</button>
         </form>  

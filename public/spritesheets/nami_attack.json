@@ -1,0 +1,355 @@
+{
+	"frames": {
+		"nami_attack 1.png": {
+			"frame": {
+				"x": 1,
+				"y": 1,
+				"w": 45,
+				"h": 62
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 45,
+				"h": 62
+			},
+			"sourceSize": {
+				"w": 45,
+				"h": 62
+			}
+		},
+		"nami_attack 10.png": {
+			"frame": {
+				"x": 48,
+				"y": 1,
+				"w": 45,
+				"h": 67
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 45,
+				"h": 67
+			},
+			"sourceSize": {
+				"w": 45,
+				"h": 67
+			}
+		},
+		"nami_attack 11.png": {
+			"frame": {
+				"x": 95,
+				"y": 1,
+				"w": 53,
+				"h": 52
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 53,
+				"h": 52
+			},
+			"sourceSize": {
+				"w": 53,
+				"h": 52
+			}
+		},
+		"nami_attack 12.png": {
+			"frame": {
+				"x": 150,
+				"y": 1,
+				"w": 69,
+				"h": 52
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 69,
+				"h": 52
+			},
+			"sourceSize": {
+				"w": 69,
+				"h": 52
+			}
+		},
+		"nami_attack 13.png": {
+			"frame": {
+				"x": 95,
+				"y": 55,
+				"w": 52,
+				"h": 59
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 52,
+				"h": 59
+			},
+			"sourceSize": {
+				"w": 52,
+				"h": 59
+			}
+		},
+		"nami_attack 14.png": {
+			"frame": {
+				"x": 149,
+				"y": 55,
+				"w": 54,
+				"h": 65
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 54,
+				"h": 65
+			},
+			"sourceSize": {
+				"w": 54,
+				"h": 65
+			}
+		},
+		"nami_attack 15.png": {
+			"frame": {
+				"x": 1,
+				"y": 122,
+				"w": 60,
+				"h": 63
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 60,
+				"h": 63
+			},
+			"sourceSize": {
+				"w": 60,
+				"h": 63
+			}
+		},
+		"nami_attack 16.png": {
+			"frame": {
+				"x": 63,
+				"y": 122,
+				"w": 54,
+				"h": 71
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 54,
+				"h": 71
+			},
+			"sourceSize": {
+				"w": 54,
+				"h": 71
+			}
+		},
+		"nami_attack 17.png": {
+			"frame": {
+				"x": 119,
+				"y": 122,
+				"w": 80,
+				"h": 69
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 80,
+				"h": 69
+			},
+			"sourceSize": {
+				"w": 80,
+				"h": 69
+			}
+		},
+		"nami_attack 2.png": {
+			"frame": {
+				"x": 221,
+				"y": 1,
+				"w": 59,
+				"h": 62
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 59,
+				"h": 62
+			},
+			"sourceSize": {
+				"w": 59,
+				"h": 62
+			}
+		},
+		"nami_attack 3.png": {
+			"frame": {
+				"x": 205,
+				"y": 65,
+				"w": 45,
+				"h": 63
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 45,
+				"h": 63
+			},
+			"sourceSize": {
+				"w": 45,
+				"h": 63
+			}
+		},
+		"nami_attack 4.png": {
+			"frame": {
+				"x": 252,
+				"y": 65,
+				"w": 45,
+				"h": 72
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 45,
+				"h": 72
+			},
+			"sourceSize": {
+				"w": 45,
+				"h": 72
+			}
+		},
+		"nami_attack 5.png": {
+			"frame": {
+				"x": 201,
+				"y": 139,
+				"w": 65,
+				"h": 66
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 65,
+				"h": 66
+			},
+			"sourceSize": {
+				"w": 65,
+				"h": 66
+			}
+		},
+		"nami_attack 6.png": {
+			"frame": {
+				"x": 1,
+				"y": 207,
+				"w": 65,
+				"h": 61
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 65,
+				"h": 61
+			},
+			"sourceSize": {
+				"w": 65,
+				"h": 61
+			}
+		},
+		"nami_attack 7.png": {
+			"frame": {
+				"x": 68,
+				"y": 207,
+				"w": 44,
+				"h": 61
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 44,
+				"h": 61
+			},
+			"sourceSize": {
+				"w": 44,
+				"h": 61
+			}
+		},
+		"nami_attack 8.png": {
+			"frame": {
+				"x": 114,
+				"y": 207,
+				"w": 55,
+				"h": 62
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 55,
+				"h": 62
+			},
+			"sourceSize": {
+				"w": 55,
+				"h": 62
+			}
+		},
+		"nami_attack 9.png": {
+			"frame": {
+				"x": 268,
+				"y": 139,
+				"w": 38,
+				"h": 59
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 38,
+				"h": 59
+			},
+			"sourceSize": {
+				"w": 38,
+				"h": 59
+			}
+		}
+	},
+	"meta": {
+		"app": "http://www.codeandweb.com/texturepacker",
+		"version": "1.0",
+		"image": "nami_attack.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 307,
+			"h": 270
+		},
+		"scale": "1"
+	}
+}

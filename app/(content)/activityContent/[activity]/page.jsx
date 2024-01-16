@@ -23,7 +23,7 @@ const BattleField = async({params}) => {
 
   return (
     <div>
-        <FinalBattle userId={session.user.id} data={data}/>
+        <FinalBattle character={session.user.character} userId={session.user.id} data={data}/>
     </div>
   )
 }

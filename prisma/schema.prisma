@@ -35,6 +35,7 @@ model User {
   Announcement      Announcement[]
   LevelPass         LevelPass?          @relation(fields: [levelPassId], references: [id])
   levelPassId       String?
+  itemCollectibles  LevelPassItem[]
 }
 
 model Course {
@@ -61,6 +62,11 @@ model Activity {
   id           String         @id @default(uuid())
   title        String         @unique
   type         String
+  topic        String
+  startsOn     DateTime?
+  endsOn       DateTime?
+  starts       Boolean        @default(false)
+  ends         Boolean        @default(false)
   isEditable   Boolean        @default(true)
   isDone       Boolean        @default(false)
   score        Int            @default(0)
@@ -204,6 +210,10 @@ model GeneralAnnouncement {
   id          String   @id @default(uuid())
   title       String
   image       String
+  startsOn    DateTime
+  endsOn      DateTime
+  starts      Boolean  @default(false)
+  ends        Boolean  @default(false)
   dateAndTime String
   description String
   createdAt   DateTime @default(now())
@@ -223,14 +233,15 @@ model LevelPass {
 }
 
 model LevelPassItem {
-  id          String     @id @default(uuid())
-  name        String
-  level       Int
-  userId      String
-  achieved    Boolean    @default(false)
-  image       String
-  createdAt   DateTime   @default(now())
-  updatedAt   DateTime   @updatedAt
-  LevelPass   LevelPass? @relation(fields: [levelPassId], references: [id])
-  levelPassId String?
+  id               String     @id @default(uuid())
+  name             String
+  level            Int
+  userId           String
+  achieved         Boolean    @default(false)
+  image            String
+  createdAt        DateTime   @default(now())
+  updatedAt        DateTime   @updatedAt
+  LevelPass        LevelPass? @relation(fields: [levelPassId], references: [id])
+  levelPassId      String?
+  itemCollectibles User[]
 }

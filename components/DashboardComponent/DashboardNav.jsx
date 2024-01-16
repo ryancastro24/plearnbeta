@@ -31,8 +31,8 @@ const DashboardNav = ({id,idNumber,course,name,email,level,role,cartItems}) => {
     <div className='flex items-center justify-between w-full px-5 py-6 z-10  absolute top-0'>
         <ul className='flex items-center justify-center gap-7  '>
             <li className={pathname === '/dashboard' ? 'text-orange-500 font-bold text-xl ': 'text-sm text-white'}><Link href={'/dashboard'}>Dashboard</Link></li>
-            <li className={pathname === '/message' ? 'text-orange-500 font-bold text-xl ': 'text-sm text-white'}><Link href={'/message'}>Events</Link></li>
-       {role ==="student" && <li className={pathname === '/progress' ? 'text-orange-500 font-bold text-xl ': 'text-sm text-white'}><Link href={'/progress'}>Progress</Link></li>}     
+            <li className={pathname === '/events' ? 'text-orange-500 font-bold text-xl ': 'text-sm text-white'}><Link href={'/events'}>Events</Link></li>
+       {role ==="student" && <li className={pathname === '/progress' ? 'text-orange-500 font-bold text-xl ': 'text-sm text-white'}><Link href={'/progress'}>Alliances</Link></li>}     
             <li className={pathname === '/leaderboard' ? 'text-orange-500 font-bold text-xl ': 'text-sm text-white'}><Link href={'/leaderboard'}>Leaderboard</Link></li>
         {role === "student" && <li className={pathname === '/redeem' ? 'text-orange-500 font-bold text-xl ': 'text-sm text-white'}><Link href={'/redeem'}>Redeem</Link></li>}    
         </ul>

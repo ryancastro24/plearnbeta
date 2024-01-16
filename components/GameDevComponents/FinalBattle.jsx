@@ -1,19 +1,19 @@
 'use client'
-
-import React from 'react'
 import Battleground from './Battleground';
-import { useEffect } from 'react';
+import { useEffect,useState } from 'react';
 import DoneModal from './DoneModal';
 import styles from '@/styles/GameDevStyles/BattleGroundStyle.module.css'
 import IntroModal from './IntroModal';
-const FinalBattle = ({data,userId}) => {
-    const [isRight,setIsRight] = React.useState(null);
-    const [count,setCount]  = React.useState(0);
-    const [isDone, setIsDone] = React.useState(false);
-    const [score,setScore] =  React.useState([])
-    const [introModal,setIntroModal] = React.useState(true)
+const FinalBattle = ({data,userId,character}) => {
+    const [isRight,setIsRight] = useState(null);
+    const [count,setCount]  = useState(0);
+    const [isDone, setIsDone] = useState(false);
+    const [score,setScore] =  useState([])
+    const [introModal,setIntroModal] = useState(true)
+    const [topicData,setTopicData] = useState([]);
 
     const totalScore =  score.filter( val => val == true)
+    console.log(data.activity.topic);
 
     useEffect(() => {
 
@@ -29,6 +29,42 @@ const FinalBattle = ({data,userId}) => {
     },[count])
 
 
+    
+  useEffect(() => {
+    const fetchData = async () => {
+
+      const requestOptions = {
+        next:{
+          revalidate:0,
+        },
+        method: 'GET',
+        headers: {
+          'topic': data.activity.topic,
+          // Add more custom headers as needed
+        },
+      
+      };
+      try {
+        const response = await fetch('http://localhost:3000/api/openai',requestOptions); // Replace with your actual API endpoint
+        if (!response.ok) {
+          throw new Error('Failed to fetch data');
+        }
+
+        const data = await response.json();
+
+        
+       let pointsArray = data.choices[0].text.split('\n').filter(point => point.trim() !== '');
+        setTopicData(pointsArray);
+      } catch (error) {
+      
+        console.error('Error fetching data:', error);
+        // Handle the error as needed
+      }
+    };
+
+    fetchData();
+  }, []); 
+
 
     
 
@@ -36,9 +72,9 @@ const FinalBattle = ({data,userId}) => {
 
   return (
     <div className='flex flex-col absolute top-0 z-40 w-full h-full bg-[#161A1E]'>
-        {introModal && <IntroModal play={setIntroModal}/>}
+        {introModal && <IntroModal character={character} topicData={topicData}  play={setIntroModal}/>}
         {isDone && <DoneModal userId={userId} actId={data.id}  totalScore={totalScore.length} score={score.length - 1}/>}
-        <Battleground lives={data.activity.questions.length}  isRight={isRight}/>   
+        <Battleground character={character} lives={data.activity.questions.length}  isRight={isRight}/>   
 
 
         <div className='w-full overflow-hidden  h-full px-10 py-6'>

@@ -1,0 +1,5 @@
+-- AlterTable
+ALTER TABLE `activity` ADD COLUMN `ends` BOOLEAN NOT NULL DEFAULT false,
+    ADD COLUMN `endsOn` DATETIME(3) NULL,
+    ADD COLUMN `starts` BOOLEAN NOT NULL DEFAULT false,
+    ADD COLUMN `startsOn` DATETIME(3) NULL;
