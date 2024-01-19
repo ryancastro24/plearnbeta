@@ -29,7 +29,7 @@ export const config = {
         '/leaderboard',
         '/events',
         '/redeem',
-        '/progress'
+        '/alliance'
 
     ]
 }

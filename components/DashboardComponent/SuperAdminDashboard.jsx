@@ -5,7 +5,7 @@ import StudentManagement from './superAdminComponent/StudentManagement'
 import EmployeeManagement from './superAdminComponent/EmployeeManagement'
 import ItemsManagement from './superAdminComponent/ItemsManagement'
 import AnnouncementManagement from './superAdminComponent/AnnouncementManagement'
-import OtherMatters from './superAdminComponent/OtherMatters'
+import Alliances from './superAdminComponent/Alliances'
 const SuperAdminDashboard = () => {
     const [navigationData,setNavigationData] = useState('student');
   return (
@@ -29,7 +29,7 @@ const SuperAdminDashboard = () => {
             {navigationData === 'employee' && <EmployeeManagement/>}
             {navigationData === 'items' && <ItemsManagement/>}
             {navigationData === 'announcement' && <AnnouncementManagement/>}
-            {navigationData === 'others' && <OtherMatters/>}
+            {navigationData === 'alliance' && <Alliances/>}
         
         </div>
 

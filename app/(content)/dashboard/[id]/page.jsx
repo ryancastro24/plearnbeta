@@ -140,17 +140,26 @@ const Subject = async ({params}) => {
     const annoucementData = await getAnnouncement(params.id)
     const sectionData = await getSection(params.id)
 
+  
+
+
+  
+
   return ( 
    <>
-   <div className={`w-full h-screen absolute top-0 bg-forest z-20 bg-cover`}>
+   <div className={`w-full h-screen absolute top-0  z-20 bg-cover`}>
         <Backbutton/>
-        <div className={`w-full bg-forest h-2/5 bg-cover relative`}>
+        <div style={{
+          backgroundImage:`url("/DashboardAssets/subject_background/${data.finalData[0].subjectDetails.realm}.png")`,
+          backgroundPosition:"center center",
+          backgroundSize:"cover"}} 
+          className={`w-full  h-2/5 relative`}>
 
    
             <div className='w-full bg-[#161a1e99] p-10 h-full   '>
                 <div className='flex flex-col gap-3 mt-8 ml-8'>
-                    <span className='text-2xl font-bold'>{data.finalData[0].subjectDetails.title}</span>
-                    <span>{data.finalData[0].subjectDetails.subjectCode}</span>
+                    <span className='text-4xl font-bold'>{data.finalData[0].subjectDetails.title}</span>
+                    <span className='text-lg'>Subject Description: {data.finalData[0].subjectDetails.subjectCode}</span>
                     
                 </div>
 
@@ -164,12 +173,12 @@ const Subject = async ({params}) => {
 
         </div>
 
-        <div className='w-full bg-[#41454A] p-10 rounded-t-3xl h-3/5 relative'>
+        <div className='w-full bg-[#41454A] p-10 h-3/5 relative'>
 
 
             <div className='w-full  h-full'>
                 <div className='flex flex-col gap-3 ml-8'>
-                    <span className='text-2xl font-bold text-[#E58E27]'>Welcome to the Jungle</span>
+                    <span className='text-2xl font-bold text-[#E58E27]'>Welcome to the {data.finalData[0].subjectDetails.realm}</span>
                     <span>Mr. Mark Phil Pacot</span>
                 </div>
 

@@ -32,7 +32,7 @@ const DashboardNav = ({id,idNumber,course,name,email,level,role,cartItems}) => {
         <ul className='flex items-center justify-center gap-7  '>
             <li className={pathname === '/dashboard' ? 'text-orange-500 font-bold text-xl ': 'text-sm text-white'}><Link href={'/dashboard'}>Dashboard</Link></li>
             <li className={pathname === '/events' ? 'text-orange-500 font-bold text-xl ': 'text-sm text-white'}><Link href={'/events'}>Events</Link></li>
-       {role ==="student" && <li className={pathname === '/progress' ? 'text-orange-500 font-bold text-xl ': 'text-sm text-white'}><Link href={'/progress'}>Alliances</Link></li>}     
+       {role ==="student" && <li className={pathname === '/alliance' ? 'text-orange-500 font-bold text-xl ': 'text-sm text-white'}><Link href={'/alliance'}>Alliances</Link></li>}     
             <li className={pathname === '/leaderboard' ? 'text-orange-500 font-bold text-xl ': 'text-sm text-white'}><Link href={'/leaderboard'}>Leaderboard</Link></li>
         {role === "student" && <li className={pathname === '/redeem' ? 'text-orange-500 font-bold text-xl ': 'text-sm text-white'}><Link href={'/redeem'}>Redeem</Link></li>}    
         </ul>

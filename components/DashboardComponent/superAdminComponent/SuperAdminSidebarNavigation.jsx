@@ -15,7 +15,7 @@ const SuperAdminSidebarNavigation = ({setNavigationData,navigationData}) => {
                     <li className={`cursor-pointer py-2 ${navigationData === "employee" ? "bg-orange-500" : ""} rounded w-full hover:bg-orange-500 px-3 text-sm flex items-center gap-2`} onClick={() => setNavigationData('employee')}><GrUserWorker /> Employee Management</li>
                     <li className={`cursor-pointer py-2 ${navigationData === "items" ? "bg-orange-500" : ""} rounded w-full hover:bg-orange-500 px-3 text-sm flex items-center gap-2`} onClick={() => setNavigationData('items')}><TbBallpen /> Items Management</li>
                     <li className={`cursor-pointer py-2 ${navigationData === "announcement" ? "bg-orange-500" : ""} rounded w-full hover:bg-orange-500 px-3 text-sm flex items-center gap-2`} onClick={() => setNavigationData('announcement')}><GrAnnounce /> Announcement</li>
-                    <li className={`cursor-pointer py-2 ${navigationData === "others" ? "bg-orange-500" : ""} rounded w-full hover:bg-orange-500 px-3 text-sm flex items-center gap-2`} onClick={() => setNavigationData('others')}><TbSitemap />Other Matter</li>
+                    <li className={`cursor-pointer py-2 ${navigationData === "alliance" ? "bg-orange-500" : ""} rounded w-full hover:bg-orange-500 px-3 text-sm flex items-center gap-2`} onClick={() => setNavigationData('alliance')}><TbSitemap />Alliances</li>
             </ul>
 
     </div>

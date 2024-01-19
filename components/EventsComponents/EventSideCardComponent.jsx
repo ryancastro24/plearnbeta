@@ -1,7 +1,7 @@
 'use client'
 import {useState,useEffect} from 'react'
 
-const EventSideCardComponent = ({eventData,title,image,dateAndTime,description,setEventData,startsOn,endsOn,starts,ends}) => {
+const EventSideCardComponent = ({id,eventData,title,image,dateAndTime,description,setEventData,startsOn,endsOn,starts,ends}) => {
   
 
     const targetDate = new Date(startsOn);
@@ -34,7 +34,7 @@ const EventSideCardComponent = ({eventData,title,image,dateAndTime,description,s
     
         // Cleanup the interval on component unmount
         return () => clearInterval(interval);
-      }, []);
+      }, []); 
     
   
     return (
@@ -53,7 +53,7 @@ const EventSideCardComponent = ({eventData,title,image,dateAndTime,description,s
                     <span className='text-sm'>{dateAndTime}</span>
 
                     <div className='flex justify-between items-end'>
-                        <button onClick={() => setEventData({title,image,dateAndTime,description, startsOn,endsOn,starts,ends})} className='px-3 py-2 text-sm hover:bg-orange-700 mt-3 rounded bg-orange-600'>preview</button>
+                        <button onClick={() => setEventData({id,title,image,dateAndTime,description, startsOn,endsOn,starts,ends})} className='px-3 py-2 text-sm hover:bg-orange-700 mt-3 rounded bg-orange-600'>preview</button>
                        
                        <div className='flex flex-col'>
                         <span className='text-xs'>Starts on:</span>

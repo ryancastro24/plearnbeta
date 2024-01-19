@@ -112,3 +112,18 @@ export const levelRewards = [
     {id:11, levelNumber:110, price: ""},
     {id:12, levelNumber:120, price: ""},
 ]
+
+
+export const sampleAlliances = [
+    {id:1,name:"Chorale Adveniente", banner:"sample banner"},
+    {id:2,name:"Sites", banner:"sample banner"},
+    {id:3,name:"Abbess", banner:"sample banner"},
+    {id:4,name:"Minegears", banner:"sample banner"},
+    {id:5,name:"Young Flames of Jesus", banner:"sample banner"},
+    {id:6,name:"Robotics Corp", banner:"sample banner"},
+    {id:7,name:"Swift Society", banner:"sample banner"},
+    {id:8,name:"Geodetics", banner:"sample banner"},
+    {id:9,name:"Chassess", banner:"sample banner"},
+    {id:10,name:"DLC CSU", banner:"sample banner"},
+
+]

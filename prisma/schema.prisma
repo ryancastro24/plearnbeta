@@ -36,6 +36,9 @@ model User {
   LevelPass         LevelPass?          @relation(fields: [levelPassId], references: [id])
   levelPassId       String?
   itemCollectibles  LevelPassItem[]
+  alliancePosition  String?
+  alliance          Alliance?           @relation(fields: [allianceId], references: [id])
+  allianceId        String?
 }
 
 model Course {
@@ -244,4 +247,22 @@ model LevelPassItem {
   LevelPass        LevelPass? @relation(fields: [levelPassId], references: [id])
   levelPassId      String?
   itemCollectibles User[]
+}
+
+model Alliance {
+  id             String   @id @default(uuid())
+  alliance_name  String
+  alliance_image String
+  members        User[]
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+}
+
+model AllianceRequest {
+  id          String   @id @default(uuid())
+  approved    Boolean  @default(false)
+  alliance_id String
+  userId      String   @db.VarChar(36)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 }
