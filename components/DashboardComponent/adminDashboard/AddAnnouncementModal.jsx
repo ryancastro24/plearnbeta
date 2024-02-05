@@ -17,6 +17,7 @@ const AddAnnouncementModal = ({setOpenModal,subject_id,user_id}) => {
                   .then(() => {
                     alert("announcement has been added")
                     setOpenModal(false)
+                    window.location.reload();
                   })
 
     }

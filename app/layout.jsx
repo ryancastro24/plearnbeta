@@ -1,6 +1,6 @@
 import '@/styles/globals.css'
 import { Poppins } from 'next/font/google'
- 
+
 const poppins = Poppins({
   weight: ['400','700'],
   subsets: ['latin'],
@@ -12,7 +12,10 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={poppins.className}>
+    <html lang="en" className={`${poppins.className} scroll-smooth`}>
+        <head>
+        <link rel="icon" href="/HomePageAssets/logo.png" />
+        </head>
       <body>{children}</body>
     </html>
   )

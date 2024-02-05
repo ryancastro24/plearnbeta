@@ -3,6 +3,7 @@ import React from 'react';
 import * as XLSX from 'xlsx';
 
 const ExcelGradeDownload = ({ data, fileName }) => {
+
   const allActivityTitles = data.reduce((acc, user) => {
     user.DoneActivity.forEach((activity) => {
       if (!acc.includes(activity.activity.title)) {

@@ -6,7 +6,7 @@ import AddQuestionsModal from './adminDashboard/AddQuestionsModal'
 import { useRouter } from 'next/navigation'
 import axios from 'axios'
 
-const QuestsPage = ({activityId,role,adminData}) => {
+const QuestsPage = ({activityId,role,adminData,subId}) => {
 
     const router  = useRouter();
    
@@ -40,6 +40,7 @@ const updatedActivityId = adminData.activityId.map(item => ({
           return updatedData;
         });
         alert("data has been updated")
+        window.location.reload();
       
       })
 
@@ -89,10 +90,10 @@ const updatedActivityId = adminData.activityId.map(item => ({
   
 
   return (
-    <div className=' w-full mt-5 '>
+    <div className='w-full h-full mt-5 '>
 
         {role === 'student' ? 
-        <div>
+        <div className='pb-5'>
             
                 { activityId.map(val => <div  className='flex justify-between relative items-center px-4 py-4 w-full bg-[#41454A] rounded mt-4' key={val.id}>
                   
@@ -109,7 +110,7 @@ const updatedActivityId = adminData.activityId.map(item => ({
                     </div>
                 <div>
                   <div>
-                  {role === 'student' && !val.isDone && <button onClick={() => router.push(`/activityContent/${val.id}`)} className='px-3 py-2 bg-[#E58E27] rounded'>Enter Battle</button>}
+                  {role === 'student' && !val.isDone && <button onClick={() => router.push(`/activityContent/${val.id}?subId=${subId}`)} className='px-3 py-2 bg-[#E58E27] rounded'>Enter Battle</button>}
                   {role === 'student' && val.isDone && <Image  src={'/DashboardAssets/icons/doneEdit.svg'} alt='edit quest' width={25} height={25}/> }  
                   </div>
                   {val.showModal && <AddQuestionsModal setData={setData} data={val}/>}
@@ -135,7 +136,7 @@ const updatedActivityId = adminData.activityId.map(item => ({
         : 
         
         
-        <div>
+        <div className='pb-5'>
                             
               {data.map(val => <div  className='flex justify-between items-center px-4 py-4 w-full bg-[#41454A] rounded mt-4' key={val.id}>
                   <div className='flex flex-col gap-1'>

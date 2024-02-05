@@ -64,3 +64,21 @@ export const getSpecificAllianceRequest = async(id) => {
 
   return res.json()
 }
+
+
+
+
+export const getSampleOpenworldTopics = async(id) => {
+  const res = await fetch(`http://localhost:3000/api/openworld/${id}`,{
+    next:{
+      revalidate:0
+    }
+  })
+
+  if (!res.ok) {
+      // This will activate the closest `error.js` Error Boundary
+      throw new Error('Failed to fetch data')
+    }
+
+  return res.json()
+}

@@ -24,7 +24,8 @@ const NotesModal = ({setIsOpenModal,subId,userId}) => {
                       content:"",
                     })
 
-                    setIsOpenModal(false)
+                    setIsOpenModal(false);
+                    window.location.reload();
                   })
   }
   return (

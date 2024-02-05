@@ -1,0 +1,515 @@
+{
+	"frames": {
+		"Mashirito attack 1.png": {
+			"frame": {
+				"x": 1,
+				"y": 1,
+				"w": 37,
+				"h": 57
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 37,
+				"h": 57
+			},
+			"sourceSize": {
+				"w": 37,
+				"h": 57
+			}
+		},
+		"Mashirito attack 10.png": {
+			"frame": {
+				"x": 40,
+				"y": 1,
+				"w": 86,
+				"h": 71
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 86,
+				"h": 71
+			},
+			"sourceSize": {
+				"w": 86,
+				"h": 71
+			}
+		},
+		"Mashirito attack 11.png": {
+			"frame": {
+				"x": 128,
+				"y": 1,
+				"w": 85,
+				"h": 74
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 85,
+				"h": 74
+			},
+			"sourceSize": {
+				"w": 85,
+				"h": 74
+			}
+		},
+		"Mashirito attack 12.png": {
+			"frame": {
+				"x": 215,
+				"y": 1,
+				"w": 58,
+				"h": 77
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 58,
+				"h": 77
+			},
+			"sourceSize": {
+				"w": 58,
+				"h": 77
+			}
+		},
+		"Mashirito attack 13.png": {
+			"frame": {
+				"x": 275,
+				"y": 1,
+				"w": 80,
+				"h": 83
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 80,
+				"h": 83
+			},
+			"sourceSize": {
+				"w": 80,
+				"h": 83
+			}
+		},
+		"Mashirito attack 14.png": {
+			"frame": {
+				"x": 1,
+				"y": 86,
+				"w": 91,
+				"h": 77
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 91,
+				"h": 77
+			},
+			"sourceSize": {
+				"w": 91,
+				"h": 77
+			}
+		},
+		"Mashirito attack 15.png": {
+			"frame": {
+				"x": 94,
+				"y": 86,
+				"w": 85,
+				"h": 70
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 85,
+				"h": 70
+			},
+			"sourceSize": {
+				"w": 85,
+				"h": 70
+			}
+		},
+		"Mashirito attack 16.png": {
+			"frame": {
+				"x": 181,
+				"y": 86,
+				"w": 80,
+				"h": 70
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 80,
+				"h": 70
+			},
+			"sourceSize": {
+				"w": 80,
+				"h": 70
+			}
+		},
+		"Mashirito attack 17.png": {
+			"frame": {
+				"x": 263,
+				"y": 86,
+				"w": 83,
+				"h": 74
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 83,
+				"h": 74
+			},
+			"sourceSize": {
+				"w": 83,
+				"h": 74
+			}
+		},
+		"Mashirito attack 18.png": {
+			"frame": {
+				"x": 94,
+				"y": 162,
+				"w": 83,
+				"h": 75
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 83,
+				"h": 75
+			},
+			"sourceSize": {
+				"w": 83,
+				"h": 75
+			}
+		},
+		"Mashirito attack 19.png": {
+			"frame": {
+				"x": 179,
+				"y": 162,
+				"w": 74,
+				"h": 77
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 74,
+				"h": 77
+			},
+			"sourceSize": {
+				"w": 74,
+				"h": 77
+			}
+		},
+		"Mashirito attack 2.png": {
+			"frame": {
+				"x": 255,
+				"y": 162,
+				"w": 39,
+				"h": 57
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 39,
+				"h": 57
+			},
+			"sourceSize": {
+				"w": 39,
+				"h": 57
+			}
+		},
+		"Mashirito attack 20.png": {
+			"frame": {
+				"x": 296,
+				"y": 162,
+				"w": 76,
+				"h": 75
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 76,
+				"h": 75
+			},
+			"sourceSize": {
+				"w": 76,
+				"h": 75
+			}
+		},
+		"Mashirito attack 21.png": {
+			"frame": {
+				"x": 1,
+				"y": 221,
+				"w": 80,
+				"h": 68
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 80,
+				"h": 68
+			},
+			"sourceSize": {
+				"w": 80,
+				"h": 68
+			}
+		},
+		"Mashirito attack 22.png": {
+			"frame": {
+				"x": 83,
+				"y": 239,
+				"w": 64,
+				"h": 73
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 64,
+				"h": 73
+			},
+			"sourceSize": {
+				"w": 64,
+				"h": 73
+			}
+		},
+		"Mashirito attack 23.png": {
+			"frame": {
+				"x": 255,
+				"y": 239,
+				"w": 92,
+				"h": 77
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 92,
+				"h": 77
+			},
+			"sourceSize": {
+				"w": 92,
+				"h": 77
+			}
+		},
+		"Mashirito attack 24.png": {
+			"frame": {
+				"x": 357,
+				"y": 1,
+				"w": 92,
+				"h": 85
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 92,
+				"h": 85
+			},
+			"sourceSize": {
+				"w": 92,
+				"h": 85
+			}
+		},
+		"Mashirito attack 25.png": {
+			"frame": {
+				"x": 374,
+				"y": 88,
+				"w": 74,
+				"h": 86
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 74,
+				"h": 86
+			},
+			"sourceSize": {
+				"w": 74,
+				"h": 86
+			}
+		},
+		"Mashirito attack 3.png": {
+			"frame": {
+				"x": 374,
+				"y": 176,
+				"w": 39,
+				"h": 52
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 39,
+				"h": 52
+			},
+			"sourceSize": {
+				"w": 39,
+				"h": 52
+			}
+		},
+		"Mashirito attack 4.png": {
+			"frame": {
+				"x": 415,
+				"y": 176,
+				"w": 41,
+				"h": 56
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 41,
+				"h": 56
+			},
+			"sourceSize": {
+				"w": 41,
+				"h": 56
+			}
+		},
+		"Mashirito attack 5.png": {
+			"frame": {
+				"x": 374,
+				"y": 234,
+				"w": 39,
+				"h": 59
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 39,
+				"h": 59
+			},
+			"sourceSize": {
+				"w": 39,
+				"h": 59
+			}
+		},
+		"Mashirito attack 6.png": {
+			"frame": {
+				"x": 1,
+				"y": 295,
+				"w": 79,
+				"h": 74
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 79,
+				"h": 74
+			},
+			"sourceSize": {
+				"w": 79,
+				"h": 74
+			}
+		},
+		"Mashirito attack 7.png": {
+			"frame": {
+				"x": 149,
+				"y": 295,
+				"w": 81,
+				"h": 76
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 81,
+				"h": 76
+			},
+			"sourceSize": {
+				"w": 81,
+				"h": 76
+			}
+		},
+		"Mashirito attack 8.png": {
+			"frame": {
+				"x": 349,
+				"y": 295,
+				"w": 81,
+				"h": 76
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 81,
+				"h": 76
+			},
+			"sourceSize": {
+				"w": 81,
+				"h": 76
+			}
+		},
+		"Mashirito attack 9.png": {
+			"frame": {
+				"x": 1,
+				"y": 373,
+				"w": 75,
+				"h": 71
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 75,
+				"h": 71
+			},
+			"sourceSize": {
+				"w": 75,
+				"h": 71
+			}
+		}
+	},
+	"meta": {
+		"app": "http://www.codeandweb.com/texturepacker",
+		"version": "1.0",
+		"image": "mashirito_attack.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 457,
+			"h": 445
+		},
+		"scale": "1"
+	}
+}

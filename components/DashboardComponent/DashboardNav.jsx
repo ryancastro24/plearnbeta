@@ -31,6 +31,7 @@ const DashboardNav = ({id,idNumber,course,name,email,level,role,cartItems}) => {
     <div className='flex items-center justify-between w-full px-5 py-6 z-10  absolute top-0'>
         <ul className='flex items-center justify-center gap-7  '>
             <li className={pathname === '/dashboard' ? 'text-orange-500 font-bold text-xl ': 'text-sm text-white'}><Link href={'/dashboard'}>Dashboard</Link></li>
+            <li className={pathname === '/gettingStarted' ? 'text-orange-500 font-bold text-xl ': 'text-sm text-white'}><Link href={'/gettingStarted'}>Getting Started</Link></li>
             <li className={pathname === '/events' ? 'text-orange-500 font-bold text-xl ': 'text-sm text-white'}><Link href={'/events'}>Events</Link></li>
        {role ==="student" && <li className={pathname === '/alliance' ? 'text-orange-500 font-bold text-xl ': 'text-sm text-white'}><Link href={'/alliance'}>Alliances</Link></li>}     
             <li className={pathname === '/leaderboard' ? 'text-orange-500 font-bold text-xl ': 'text-sm text-white'}><Link href={'/leaderboard'}>Leaderboard</Link></li>
@@ -44,7 +45,7 @@ const DashboardNav = ({id,idNumber,course,name,email,level,role,cartItems}) => {
               {!!cartItems.length && <div className='w-4 h-4 absolute top-[-10px] right-[-10px] rounded-full bg-red-500 flex justify-center items-center'>
                 <span className='text-xs'>{cartData.length}</span>
               </div>}
-            <Link className='cursor-pointer' href={`/cart/${id}`}><Image width={20} height={20} alt='cart' src={'/DashboardAssets/icons/cart.svg'}/></Link>
+          {role === "student" &&  <Link className='cursor-pointer' href={`/cart/${id}`}><Image width={20} height={20} alt='cart' src={'/DashboardAssets/icons/cart.svg'}/></Link>}
           </div>
             <ProfileNav idNumber={idNumber} course={course} name={name} email={email}/>
         </div>

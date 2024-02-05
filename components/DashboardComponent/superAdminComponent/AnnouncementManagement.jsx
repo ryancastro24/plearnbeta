@@ -44,7 +44,7 @@ const AnnouncementManagement = () => {
           <h2 className='text-center'>Announcement Management</h2>
           <AnnouncementForm data={data} setData={setData}/>
       </div>
-      <div className='w-2/3 h-full p-4'>
+      <div className='w-2/3 overflow-y-auto h-full p-4 scrollbar-hidden'>
           <AnnouncementShelf announcements={announcements} setAnnouncements={setAnnouncements}/>
       </div>
 

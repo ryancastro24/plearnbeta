@@ -40,7 +40,7 @@ const Alliances = () => {
         <AllianceForm allianceData={allianceData} setAllianceData={setAllianceData}/>  
       </div> 
 
-      <div className='w-2/3 h-full pl-7'>
+      <div className='w-2/3 overflow-y-auto scrollbar-hidden h-full pl-7'>
       <AllianceShelf alliance={alliance}/>
       </div>
        

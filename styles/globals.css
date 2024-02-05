@@ -9,6 +9,7 @@
   margin:0;
   padding: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 :root {
   --foreground-rgb: 0, 0, 0;
@@ -755,4 +756,10 @@ label.radio-button5{
 
 .scrollbar-hidden {
   scrollbar-width: none;
+}
+
+
+
+.scroll-smooth {
+  scroll-behavior: smooth;
 }

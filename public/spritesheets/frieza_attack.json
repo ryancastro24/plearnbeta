@@ -1,0 +1,535 @@
+{
+	"frames": {
+		"frieza attack 1.png": {
+			"frame": {
+				"x": 1,
+				"y": 1,
+				"w": 48,
+				"h": 50
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 48,
+				"h": 50
+			},
+			"sourceSize": {
+				"w": 48,
+				"h": 50
+			}
+		},
+		"frieza attack 10.png": {
+			"frame": {
+				"x": 51,
+				"y": 1,
+				"w": 48,
+				"h": 59
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 48,
+				"h": 59
+			},
+			"sourceSize": {
+				"w": 48,
+				"h": 59
+			}
+		},
+		"frieza attack 11.png": {
+			"frame": {
+				"x": 101,
+				"y": 1,
+				"w": 51,
+				"h": 56
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 51,
+				"h": 56
+			},
+			"sourceSize": {
+				"w": 51,
+				"h": 56
+			}
+		},
+		"frieza attack 12.png": {
+			"frame": {
+				"x": 154,
+				"y": 1,
+				"w": 54,
+				"h": 53
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 54,
+				"h": 53
+			},
+			"sourceSize": {
+				"w": 54,
+				"h": 53
+			}
+		},
+		"frieza attack 13.png": {
+			"frame": {
+				"x": 210,
+				"y": 1,
+				"w": 43,
+				"h": 62
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 43,
+				"h": 62
+			},
+			"sourceSize": {
+				"w": 43,
+				"h": 62
+			}
+		},
+		"frieza attack 14.png": {
+			"frame": {
+				"x": 1,
+				"y": 65,
+				"w": 48,
+				"h": 47
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 48,
+				"h": 47
+			},
+			"sourceSize": {
+				"w": 48,
+				"h": 47
+			}
+		},
+		"frieza attack 15.png": {
+			"frame": {
+				"x": 51,
+				"y": 65,
+				"w": 42,
+				"h": 53
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 42,
+				"h": 53
+			},
+			"sourceSize": {
+				"w": 42,
+				"h": 53
+			}
+		},
+		"frieza attack 16.png": {
+			"frame": {
+				"x": 95,
+				"y": 65,
+				"w": 42,
+				"h": 47
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 42,
+				"h": 47
+			},
+			"sourceSize": {
+				"w": 42,
+				"h": 47
+			}
+		},
+		"frieza attack 17.png": {
+			"frame": {
+				"x": 139,
+				"y": 65,
+				"w": 47,
+				"h": 44
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 47,
+				"h": 44
+			},
+			"sourceSize": {
+				"w": 47,
+				"h": 44
+			}
+		},
+		"frieza attack 18.png": {
+			"frame": {
+				"x": 188,
+				"y": 65,
+				"w": 50,
+				"h": 51
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 50,
+				"h": 51
+			},
+			"sourceSize": {
+				"w": 50,
+				"h": 51
+			}
+		},
+		"frieza attack 19.png": {
+			"frame": {
+				"x": 1,
+				"y": 118,
+				"w": 44,
+				"h": 54
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 44,
+				"h": 54
+			},
+			"sourceSize": {
+				"w": 44,
+				"h": 54
+			}
+		},
+		"frieza attack 2.png": {
+			"frame": {
+				"x": 95,
+				"y": 118,
+				"w": 44,
+				"h": 55
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 44,
+				"h": 55
+			},
+			"sourceSize": {
+				"w": 44,
+				"h": 55
+			}
+		},
+		"frieza attack 20.png": {
+			"frame": {
+				"x": 141,
+				"y": 118,
+				"w": 47,
+				"h": 57
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 47,
+				"h": 57
+			},
+			"sourceSize": {
+				"w": 47,
+				"h": 57
+			}
+		},
+		"frieza attack 21.png": {
+			"frame": {
+				"x": 190,
+				"y": 118,
+				"w": 42,
+				"h": 57
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 42,
+				"h": 57
+			},
+			"sourceSize": {
+				"w": 42,
+				"h": 57
+			}
+		},
+		"frieza attack 22.png": {
+			"frame": {
+				"x": 1,
+				"y": 177,
+				"w": 44,
+				"h": 54
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 44,
+				"h": 54
+			},
+			"sourceSize": {
+				"w": 44,
+				"h": 54
+			}
+		},
+		"frieza attack 23.png": {
+			"frame": {
+				"x": 47,
+				"y": 177,
+				"w": 46,
+				"h": 57
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 46,
+				"h": 57
+			},
+			"sourceSize": {
+				"w": 46,
+				"h": 57
+			}
+		},
+		"frieza attack 24.png": {
+			"frame": {
+				"x": 95,
+				"y": 177,
+				"w": 70,
+				"h": 52
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 70,
+				"h": 52
+			},
+			"sourceSize": {
+				"w": 70,
+				"h": 52
+			}
+		},
+		"frieza attack 25.png": {
+			"frame": {
+				"x": 167,
+				"y": 177,
+				"w": 60,
+				"h": 48
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 60,
+				"h": 48
+			},
+			"sourceSize": {
+				"w": 60,
+				"h": 48
+			}
+		},
+		"frieza attack 26.png": {
+			"frame": {
+				"x": 229,
+				"y": 177,
+				"w": 38,
+				"h": 57
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 38,
+				"h": 57
+			},
+			"sourceSize": {
+				"w": 38,
+				"h": 57
+			}
+		},
+		"frieza attack 3.png": {
+			"frame": {
+				"x": 255,
+				"y": 1,
+				"w": 45,
+				"h": 52
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 45,
+				"h": 52
+			},
+			"sourceSize": {
+				"w": 45,
+				"h": 52
+			}
+		},
+		"frieza attack 4.png": {
+			"frame": {
+				"x": 240,
+				"y": 65,
+				"w": 63,
+				"h": 50
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 63,
+				"h": 50
+			},
+			"sourceSize": {
+				"w": 63,
+				"h": 50
+			}
+		},
+		"frieza attack 5.png": {
+			"frame": {
+				"x": 240,
+				"y": 117,
+				"w": 62,
+				"h": 49
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 62,
+				"h": 49
+			},
+			"sourceSize": {
+				"w": 62,
+				"h": 49
+			}
+		},
+		"frieza attack 6.png": {
+			"frame": {
+				"x": 1,
+				"y": 236,
+				"w": 54,
+				"h": 48
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 54,
+				"h": 48
+			},
+			"sourceSize": {
+				"w": 54,
+				"h": 48
+			}
+		},
+		"frieza attack 7.png": {
+			"frame": {
+				"x": 269,
+				"y": 168,
+				"w": 41,
+				"h": 51
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 41,
+				"h": 51
+			},
+			"sourceSize": {
+				"w": 41,
+				"h": 51
+			}
+		},
+		"frieza attack 8.png": {
+			"frame": {
+				"x": 57,
+				"y": 236,
+				"w": 55,
+				"h": 48
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 55,
+				"h": 48
+			},
+			"sourceSize": {
+				"w": 55,
+				"h": 48
+			}
+		},
+		"frieza attack 9.png": {
+			"frame": {
+				"x": 269,
+				"y": 221,
+				"w": 43,
+				"h": 58
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 43,
+				"h": 58
+			},
+			"sourceSize": {
+				"w": 43,
+				"h": 58
+			}
+		}
+	},
+	"meta": {
+		"app": "http://www.codeandweb.com/texturepacker",
+		"version": "1.0",
+		"image": "frieza_attack.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 313,
+			"h": 285
+		},
+		"scale": "1"
+	}
+}

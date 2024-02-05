@@ -21,7 +21,7 @@ const AllianceContainer = ({id,alliance_name,alliance_image,userId}) => {
   return (
     <div className='w-56 h-48 rounded bg-[#D2F5FF] p-3 flex flex-col justify-between items-center'>
             <div className='flex justify-center items-center flex-col gap-2 '>
-                <h2 className='text-black'>{alliance_name}</h2> 
+                <h2 className='text-black text-center'>{alliance_name}</h2> 
                 <Image src={`/AllianceAssets/${alliance_image}`} width={90} height={90} alt='banner' />
             </div>
 

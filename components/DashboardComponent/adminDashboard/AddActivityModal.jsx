@@ -3,6 +3,7 @@
 import React from 'react'
 import axios from 'axios'
 import Image from 'next/image'
+import { FaXmark } from "react-icons/fa6";
 const AddActivityModal = ({id,setShowModal}) => {
     
     const [data,setData] = React.useState({
@@ -22,6 +23,7 @@ const AddActivityModal = ({id,setShowModal}) => {
                                 alert("Activity Added")
                                 setSending(false)
                                 setShowModal(false)
+                                window.location.reload();
                             })
 
 
@@ -43,6 +45,7 @@ const AddActivityModal = ({id,setShowModal}) => {
                 <div className='flex flex-col gap-1'>
                     <label htmlFor="type">Enter Type</label>
                    <select value={data.type} onChange={(e) => setData({...data,type:e.target.value})} className='bg-[#8BB1BC] px-3 py-2 rounded w-full text-black' name="type" id="type">
+                        <option  value="">Select Category</option>
                         <option  value="subquest">Sub Quest</option>
                         <option value="mainquest">Main Quest</option>
                    </select>
@@ -61,8 +64,8 @@ const AddActivityModal = ({id,setShowModal}) => {
                
             </form>
 
-            <button onClick={() => setShowModal(false)} className='bg-red-500  p-2 px-3 opacity-25 hover:opacity-100 rounded-full absolute top-3 right-3'>
-                <Image width={15} height={15} alt='close'  src={'/DashboardAssets/icons/close.svg'}/>
+            <button style={{top:"-13px",right:"-13px"}} onClick={() => setShowModal(false)} className='bg-red-500  hover:bg-red-700  p-2 text-white rounded-full absolute'>
+                <span className='text-2xl'><FaXmark /></span>
             </button>
         </div>
     </div>

@@ -4,16 +4,19 @@ import { useEffect,useState } from 'react';
 import DoneModal from './DoneModal';
 import styles from '@/styles/GameDevStyles/BattleGroundStyle.module.css'
 import IntroModal from './IntroModal';
-const FinalBattle = ({data,userId,character}) => {
+
+
+const FinalBattle = ({data,userId,character,subjectTheme}) => {
     const [isRight,setIsRight] = useState(null);
     const [count,setCount]  = useState(0);
     const [isDone, setIsDone] = useState(false);
     const [score,setScore] =  useState([])
     const [introModal,setIntroModal] = useState(true)
     const [topicData,setTopicData] = useState([]);
-
+    
     const totalScore =  score.filter( val => val == true)
     console.log(data.activity.topic);
+    console.log(subjectTheme);
 
     useEffect(() => {
 
@@ -74,14 +77,14 @@ const FinalBattle = ({data,userId,character}) => {
     <div className='flex flex-col absolute top-0 z-40 w-full h-full bg-[#161A1E]'>
         {introModal && <IntroModal character={character} topicData={topicData}  play={setIntroModal}/>}
         {isDone && <DoneModal userId={userId} actId={data.id}  totalScore={totalScore.length} score={score.length - 1}/>}
-        <Battleground character={character} lives={data.activity.questions.length}  isRight={isRight}/>   
+        <Battleground subjectTheme={subjectTheme} character={character} lives={data.activity.questions.length}  isRight={isRight}/>   
 
 
         <div className='w-full overflow-hidden  h-full px-10 py-6'>
               <div  className={styles.questionborder}>
                     
                 <div className='w-full p-5 h-full bg-[#101316] flex justify-center items-center'>
-                         <p className='text-xl '>{data.activity.questions[count]?.questionText}</p>
+                         <p className='text-xl text-center '>{data.activity.questions[count]?.questionText}</p>
                 </div>
               </div>
 

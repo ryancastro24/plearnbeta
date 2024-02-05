@@ -34,14 +34,30 @@ const Sections = async({params}) => {
 
       <div className='flex flex-col w-full gap-3 mt-3 h-[450px] overflow-y-auto scrollbar-hidden'>
           {studentData.users.map(val => <div className="w-full rounded bg-[#33373b] p-5" key={val.id}>
-              <ul>
+               <ul>
                   <li className='text-2xl'>
                     {val.name} <span className='text-sm'>{val.idNumber}</span>
-                    <ol className='flex flex-col gap-3 pl-3 mt-3'>
-                        {val.DoneActivity.map(val => <li key={val.id} className='text-sm list-decimal'>{val.activity.title} <span className='bg-orange-500 rounded p-2 py-1 text-xs ml-3'>{val.totalScore} pts</span> </li>)}
+                    <ol className='pl-3 mt-3'>
+                        {val.DoneActivity.map(val => <table className='flex border'>
+                  <thead>
+                    <tr>
+                       <th className='text-sm p-2'>{val.activity.title} - </th>
+                    </tr>
+                     
+                  </thead>
+                  <tbody>
+                    <tr>
+                        <td className='text-sm p-2'> <b>score:</b> {val.totalScore}/{val.activity.questions.length}</td>
+                    </tr>
+                  </tbody>
+              </table>
+              
+              )}
                     </ol>
                   </li>
-              </ul>
+              </ul> 
+
+              
             </div>)}
 
       </div>

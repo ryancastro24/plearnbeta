@@ -11,22 +11,25 @@ const QuestContent = ({questData,role,subId,adminData}) => {
 
   return (
     <>
+
+<QuestPageFooter setShowModal={setShowModal} role={role} activityLength={questData.length}/>
     <div className='flex justify-between w-full items-center '>
+
+     
 
         {showModal && <AddActivityModal setShowModal={setShowModal} id={subId}/>}
         <h1 className='text-2xl'>Available Quest</h1>
-        <span >
-          {questData.length  > 0 ?  <span>0/{questData.length} Done</span> : <span>No Available Data</span>}
-        </span>
         
       </div>
 
 
       <div>
 
+        
+
         {role === 'student' ? 
         <>
-         {questData.length > 0 ? <QuestsPage adminData={adminData} activityId={questData} role={role}/> : 
+         {questData.length > 0 ? <QuestsPage subId={subId} adminData={adminData} activityId={questData} role={role}/> : 
           <div className='w-full h-[480px] flex justify-center items-center'><span className='text-2xl'>No Quests Available Now try again</span></div>}
         </>
         
@@ -40,7 +43,7 @@ const QuestContent = ({questData,role,subId,adminData}) => {
       </div>
 
 
-      <QuestPageFooter setShowModal={setShowModal} role={role} activityLength={questData.length}/>
+     
 
     </>
   )

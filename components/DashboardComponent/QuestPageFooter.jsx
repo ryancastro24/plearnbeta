@@ -2,16 +2,12 @@
 import React from 'react'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
+import { IoMdArrowRoundBack } from "react-icons/io";
 const QuestPageFooter = ({role,setShowModal,activityLength}) => {
     const router = useRouter();
   return (
-    <div className='mt-4 w-full flex justify-between items-center pb-10'>
-            <button onClick={() => router.back()} className='px-3 py-2 rounded bg-red-500 flex justify-center items-center gap-2'>Return <Image 
-            src={'/DashboardAssets/icons/exit.svg'} 
-            alt='return'
-            width={15}
-            height={15}
-            />
+    <div className='w-full flex justify-between items-center mb-5 pb-4 pt-4 sticky top-4 bg-[#161A1E]'>
+            <button onClick={() => router.back()} className=' flex justify-center hover:gap-3 items-center gap-2'><IoMdArrowRoundBack /> BACK
             </button>
             <div className='flex justify-center items-center gap-2'>
               {!!activityLength && <button className='px-3 py-2 rounded bg-[#242B32] flex justify-center items-center gap-2'>Sort

@@ -26,6 +26,11 @@ const LessonPage = async({params}) => {
   
   return (
     <div className='bg-[#161A1E] z-40 p-10 absolute flex flex-col justify-between top-0 w-full h-full'>
+         <div className='w-full mb-5'>
+             <FooterBackButton/>
+         </div>
+
+
         <div>
             <h2 className='text-2xl'>Available Lessons</h2>
         </div>
@@ -50,7 +55,7 @@ const LessonPage = async({params}) => {
        
 
         <div className='w-full h-20 flex gap-3 items-center'>
-            <FooterBackButton/>
+           
 
           {session.user.role === "employee" &&  <AddLessonModal subjectId={params.id}/>}
            

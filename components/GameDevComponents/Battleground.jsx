@@ -1,7 +1,7 @@
 'use client'
 
 import * as PIXI from 'pixi.js';
-import { Stage, Container, Sprite, Text,AnimatedSprite, Graphics  } from '@pixi/react';
+import { Stage, Container, Sprite,AnimatedSprite, Graphics  } from '@pixi/react';
 import { useEffect,useState,useCallback} from 'react';
 
 
@@ -11,19 +11,40 @@ import { useEffect,useState,useCallback} from 'react';
 const spritesheet1 = "/spritesheets/luffyStandMove.json";
 const luffyAttackSpriteSheet = "/spritesheets/luffyAttack.json";
 const luffyHurtSpriteSheet = "/spritesheets/luffHurt.json";
+
 const enemySpriteSheet = "/spritesheets/enemy.json";
 const enemyAttackSpriteSheet = "/spritesheets/enemyAttack.json";
 const enemyHurtSpriteSheet = "/spritesheets/enemyHurt.json";
+
 const narutoIdleSpriteSheet = "/spritesheets/naruto_idle.json";
 const narutoAttackSpriteSheet = "/spritesheets/naruto_attack.json";
 const narutoHurtSpriteSheet = "/spritesheets/naruto_hurt.json";
+
 const namiIdleSpriteSheet = "/spritesheets/nami_idle.json";
 const namiAttackSpriteSheet = "/spritesheets/nami_attack.json";
 const namiHurtSpriteSheet = "/spritesheets/nami_hurt.json";
 
-const backgroundImage = '/spritesheets/backgroundsample.png'
+const mashiritoIdleSpriteSheet = '/spritesheets/mashirito_idle.json';
+const mashiritoHurtSpriteSheet = '/spritesheets/mashirito_hurt.json';
+const mashiritoAttackSpriteSheet = '/spritesheets/mashirito_attack.json';
 
- const Battleground = ({isRight, lives,character}) => {
+const caramelmanIdleSpriteSheet  = '/spritesheets/caramelman_idle.json';
+const caramelmanHurtSpriteSheet  = '/spritesheets/caramelman_hurt.json';
+const caramelmanAttackSpriteSheet  = '/spritesheets/caramelman_attack.json';
+
+const friezaIdleSpriteSheet = '/spritesheets/frieza_idle.json';
+const friezaHurtSpriteSheet = '/spritesheets/frieza_hurt.json';
+const friezaAttackSpriteSheet = '/spritesheets/frieza_attack.json';
+
+
+
+
+
+
+
+
+
+ const Battleground = ({isRight, lives,character,subjectTheme}) => {
   //luffy frames
   const [frames, setFrames] = useState([]);
   const [luffAttackFrames, setLuffyAttackFrames] = useState([]);
@@ -48,6 +69,27 @@ const backgroundImage = '/spritesheets/backgroundsample.png'
   const [enemyFrames, setEnemyFrames] = useState([]);
   const [enemyAttackFrames, setEnemyAttackFrames] = useState([]);
   const [enemyHurtFrames, setEnemyHurtFrames] = useState([]);
+
+
+
+  //mashirito frames
+  const [mashiritoIdleFrames,setMashiritoIdleFrames] = useState([]);
+  const [mashiritoHurtFrames,setMashiritoHurtFrames] = useState([]);
+  const [mashiritoAttackFrames,setMashiritoAttackFrames] = useState([]);
+
+
+  //caramelman frames
+  const [caramelmanIdleFrames,setCaramelmanIdleFrames] = useState([]);
+  const [caramelmanHurtFrames,setCaramelmanHurtFrames] = useState([]);
+  const [caramelmanAttackFrames,setCaramelmanAttackFrames] = useState([]);
+
+
+  //frieza frames
+  const [friezaIdleFrames,setFriezaIdleFrames] = useState([]);
+  const [friezaHurtFrames,setFriezaHurtFrames] = useState([]);
+  const [friezaAttackFrames,setFriezaAttackFrames] = useState([]);
+
+
 
 
   const [heroLives,setHeroLives] = useState(lives);
@@ -118,15 +160,32 @@ const enemyLivesGrid = () => {
       const resource = await PIXI.Assets.load(spritesheet1);
       const enemyResource = await PIXI.Assets.load(enemySpriteSheet);
       const enemyAttackResource = await PIXI.Assets.load(enemyAttackSpriteSheet);
+
       const enemyHurtResource = await PIXI.Assets.load(enemyHurtSpriteSheet);
       const luffyAttackResource = await PIXI.Assets.load(luffyAttackSpriteSheet);
       const luffyHurtResource = await PIXI.Assets.load(luffyHurtSpriteSheet);
+
       const narutoIdleResource = await PIXI.Assets.load(narutoIdleSpriteSheet);
       const narutoAttackResource = await PIXI.Assets.load(narutoAttackSpriteSheet);
       const narutoHurtResource = await PIXI.Assets.load(narutoHurtSpriteSheet);
+
       const namiIdleResource = await PIXI.Assets.load(namiIdleSpriteSheet);
       const namiAttackResource = await PIXI.Assets.load(namiAttackSpriteSheet);
       const namiHurtResource = await PIXI.Assets.load(namiHurtSpriteSheet);
+
+      const mashiritoIdleResources = await PIXI.Assets.load(mashiritoIdleSpriteSheet);
+      const mashiritoAttackResources = await PIXI.Assets.load(mashiritoHurtSpriteSheet);
+      const mashiritoHurtResources = await PIXI.Assets.load(mashiritoAttackSpriteSheet);
+
+      const caramelmanIdleResources = await PIXI.Assets.load(caramelmanIdleSpriteSheet);
+      const caramelmanHurtResources = await PIXI.Assets.load(caramelmanHurtSpriteSheet);
+      const caramelmanAttackResources = await PIXI.Assets.load(caramelmanAttackSpriteSheet);
+
+      const  friezaIdleResources = await PIXI.Assets.load(friezaIdleSpriteSheet);
+      const  friezaHurtResources = await PIXI.Assets.load(friezaHurtSpriteSheet);
+      const  friezaAttackResources = await PIXI.Assets.load(friezaAttackSpriteSheet);
+
+   
       
       setFrames(
         Object.keys(resource.data.frames).map(frame =>
@@ -171,7 +230,7 @@ const enemyLivesGrid = () => {
           PIXI.Texture.from(frame)
         )
       );
-      
+    
       
       
       setNarutoAttackFrames(
@@ -200,11 +259,71 @@ const enemyLivesGrid = () => {
       );
 
       
-      setNamiHurtFrames(
+      setNamiHurtFrames(  
         Object.keys(namiHurtResource.data.frames).map(frame =>
           PIXI.Texture.from(frame)
         )
       );
+
+      setMashiritoIdleFrames(
+        Object.keys(mashiritoIdleResources.data.frames).map(frame =>
+          PIXI.Texture.from(frame)
+        )
+      );
+
+      
+      setMashiritoHurtFrames(
+        Object.keys(mashiritoHurtResources.data.frames).map(frame =>
+          PIXI.Texture.from(frame)
+        )
+      );
+      
+      setMashiritoAttackFrames(
+        Object.keys(mashiritoAttackResources.data.frames).map(frame =>
+          PIXI.Texture.from(frame)
+        )
+      );
+
+      setCaramelmanIdleFrames(
+        Object.keys(caramelmanIdleResources.data.frames).map(frame =>
+          PIXI.Texture.from(frame)
+        )
+      );
+
+      setCaramelmanHurtFrames(
+        Object.keys(caramelmanHurtResources.data.frames).map(frame =>
+          PIXI.Texture.from(frame)
+        )
+      );
+
+      setCaramelmanAttackFrames(
+        Object.keys(caramelmanAttackResources.data.frames).map(frame =>
+          PIXI.Texture.from(frame)
+        )
+      );
+
+
+     setFriezaIdleFrames(
+        Object.keys(friezaIdleResources.data.frames).map(frame =>
+        PIXI.Texture.from(frame)
+         )
+     );
+
+     setFriezaHurtFrames(
+      Object.keys(friezaHurtResources.data.frames).map(frame =>
+      PIXI.Texture.from(frame)
+     )
+   );
+
+   setFriezaAttackFrames(
+    Object.keys(friezaAttackResources.data.frames).map(frame =>
+    PIXI.Texture.from(frame)
+    )
+ );
+
+
+  
+
 
     } catch (error) {
       console.error('Error loading spritesheet:', error);
@@ -236,13 +355,24 @@ const enemyLivesGrid = () => {
     return null;
   }
 
-  const backgroundTexture = PIXI.Texture.from("/spritesheets/backgroundsample.png");
+  const forestBackground = PIXI.Texture.from("/GameDevAssets/forest.png");
+  const seaBackground =  PIXI.Texture.from("/GameDevAssets/sea.jpg");
+  const snowBackground =  PIXI.Texture.from("/GameDevAssets/snow.jpg");
+  const desertBackground =  PIXI.Texture.from("/GameDevAssets/desert.jpg");
+  const cityBackground =  PIXI.Texture.from("/GameDevAssets/city.jpg");
+
+
   const vs = PIXI.Texture.from("/spritesheets/vs.png");
   const luffyProfile = PIXI.Texture.from("/spritesheets/luffyProfile.png");
   return (
     <Stage width={window.innerWidth} height={300} style={{backgroundColor:"white"}}>
   
-    <Sprite texture={backgroundTexture} width={window.innerWidth} height={300} /> 
+    <Sprite texture={
+      subjectTheme === "sea" ? seaBackground :
+      subjectTheme === "snow" ? snowBackground: 
+      subjectTheme === "city" ? cityBackground:
+      subjectTheme === "desert" ? desertBackground : forestBackground
+    } width={window.innerWidth} height={300} /> 
     
     <Graphics draw={draw} alpha={0.7}/>
 
@@ -291,7 +421,12 @@ const enemyLivesGrid = () => {
          <AnimatedSprite
             animationSpeed={0.1}
             isPlaying={true}
-            textures={enemyFrames}
+            textures={
+              subjectTheme === "sea" ? caramelmanIdleFrames :
+              subjectTheme === "snow" ? friezaIdleFrames : 
+              subjectTheme === "city" ? mashiritoIdleFrames : enemyFrames
+              
+            }
             scale={{ x: -4, y: 4 }}
             alpha={isRight ? 0 : isRight  === false ? 0 : 1}
         />
@@ -304,8 +439,13 @@ const enemyLivesGrid = () => {
          
          <AnimatedSprite
             animationSpeed={0.05}
-            isPlaying={true}
-            textures={enemyHurtFrames}
+            isPlaying={true}pm 
+            textures={
+              subjectTheme === "sea" ? caramelmanHurtFrames :
+              subjectTheme === "snow" ? friezaHurtFrames : 
+              subjectTheme === "city" ? mashiritoHurtFrames : enemyHurtFrames
+              
+            }
             scale={{ x: -4, y: 4 }}
             alpha={isRight ? 1 : 0}
         />
@@ -319,8 +459,13 @@ const enemyLivesGrid = () => {
          
          <AnimatedSprite
             animationSpeed={0.1}
-            isPlaying={true}
-            textures={enemyAttackFrames}
+            isPlaying={true}a
+            textures={
+              subjectTheme === "sea" ? caramelmanAttackFrames :
+              subjectTheme === "snow" ? friezaAttackFrames : 
+              subjectTheme === "city" ? mashiritoAttackFrames : enemyAttackFrames
+               
+            }
             scale={{ x: -4, y: 4 }}
             alpha={isRight == false ? 1 : 0}
         />

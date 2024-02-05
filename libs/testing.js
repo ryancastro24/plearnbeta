@@ -126,4 +126,28 @@ export const sampleAlliances = [
     {id:9,name:"Chassess", banner:"sample banner"},
     {id:10,name:"DLC CSU", banner:"sample banner"},
 
-]
+];
+
+export const openworldCourseRelatedTopics = [
+        {id:1, title:"Python Beginner Course", image:"sea" },
+        {id:2, title:"HTML Beginner Course", image:"forest" },
+        {id:3, title:"Javascript Beginner Course", image:"desert" },
+        {id:4, title:"CSS Beginner Course", image:"snow" },
+];
+
+
+
+export const openworldGeneralTopics = [
+    {id:6, title:"Critical Thinking & Problem Solving:", image:"sea" },
+    {id:7, title:"Digital Literacy", image:"forest" },
+    {id:8, title:"Environmental Awareness:", image:"desert" },
+    {id:9, title:"Civic Engagement ", image:"snow" },
+    {id:10, title:"Financial Literacy", image:"city" },
+    {id:11, title:"Cultural Diversity", image:"desert" },
+    {id:12, title:"Health and Wellness", image:"snow" },
+    {id:13, title:"Media Literacy", image:"snow" },
+];
+
+
+
+export const allOpenworldSampleTopics = [...openworldCourseRelatedTopics,...openworldGeneralTopics];

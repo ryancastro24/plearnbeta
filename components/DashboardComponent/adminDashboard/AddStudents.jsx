@@ -36,6 +36,7 @@ const AddStudents = ({sectionId}) => {
     e.preventDefault(); 
     const res = axios.post('/api/subject/connectStudent',patchedData)
     .then(() => alert("data has been updated"))
+    .then(()=> window.location.reload())
     .catch((err) => alert(err));
     console.log(res)
   }
@@ -66,8 +67,6 @@ const AddStudents = ({sectionId}) => {
     }
   };
 
-
-  console.log(patchedData)
 
   return (
     <div>

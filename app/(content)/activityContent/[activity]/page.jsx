@@ -1,31 +1,77 @@
-import React from 'react'
+'use client'
+import React from 'react';
 import FinalBattle from '@/components/GameDevComponents/FinalBattle';
-import { getServerSession } from 'next-auth';
-import { authOptions } from '@/app/api/auth/[...nextauth]/route';
-async function getData(id){
-  const res = await fetch(`http://localhost:3000/api/activity/${id}`,{
-    next:{
-      revalidate:0
-    }
+import { useSession } from 'next-auth/react';
+import { useSearchParams  } from 'next/navigation';
+async function getData(id) {
+  const res = await fetch(`http://localhost:3000/api/activity/${id}`, {
+    next: {
+      revalidate: 0,
+    },
   });
-  
-  if (!res.ok) {
-      // This will activate the closest `error.js` Error Boundary
-      throw new Error('Failed to fetch data')
-    }
-  return res.json()
-}  
-const BattleField = async({params}) => {
 
-  const data = await getData(params.activity);    
-  const session = await getServerSession(authOptions);
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error('Failed to fetch data');
+  }
+  return res.json();
+}
+
+async function getSubject(id) {
+  const res = await fetch(`http://localhost:3000/api/specificSubjectGaming/${id}`, {
+    next: {
+      revalidate: 0,
+    },
+  });
+
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error('Failed to fetch data');
+  }
+  return res.json();
+}
+
+const BattleField = ({ params }) => {
+  const { data: session } = useSession();
+  const [data, setData] = React.useState(null);
+  const [subject, setSubject] = React.useState(null);
+  const searchParams = useSearchParams()
+ 
+  const subId = searchParams.get('subId')
+
+
+
+
+  React.useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const result = await getData(params.activity);
+        const subjectData = await getSubject(subId);
+        setData(result);
+        setSubject(subjectData);
+      } catch (error) {
+        // Handle error, e.g., set an error state
+        console.error(error.message);
+      }
+    };
+
+    fetchData();
+  }, [params.activity]);
+
+
+
 
 
   return (
     <div>
-        <FinalBattle character={session.user.character} userId={session.user.id} data={data}/>
+      {data && subject ? (
+        <FinalBattle subjectTheme={subject.realm} character={session.user.character} userId={session.user.id} data={data} />
+      ) : (
+        // Loading state or error handling
+        <p>Loading...</p>
+      )}
     </div>
-  )
-}
+  );
+};
 
-export default BattleField
+export default BattleField;

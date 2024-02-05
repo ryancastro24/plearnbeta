@@ -1,0 +1,335 @@
+{
+	"frames": {
+		"caramelman attack 1.png": {
+			"frame": {
+				"x": 1,
+				"y": 1,
+				"w": 76,
+				"h": 75
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 76,
+				"h": 75
+			},
+			"sourceSize": {
+				"w": 76,
+				"h": 75
+			}
+		},
+		"caramelman attack 10.png": {
+			"frame": {
+				"x": 79,
+				"y": 1,
+				"w": 74,
+				"h": 66
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 74,
+				"h": 66
+			},
+			"sourceSize": {
+				"w": 74,
+				"h": 66
+			}
+		},
+		"caramelman attack 11.png": {
+			"frame": {
+				"x": 155,
+				"y": 1,
+				"w": 74,
+				"h": 69
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 74,
+				"h": 69
+			},
+			"sourceSize": {
+				"w": 74,
+				"h": 69
+			}
+		},
+		"caramelman attack 12.png": {
+			"frame": {
+				"x": 231,
+				"y": 1,
+				"w": 80,
+				"h": 75
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 80,
+				"h": 75
+			},
+			"sourceSize": {
+				"w": 80,
+				"h": 75
+			}
+		},
+		"caramelman attack 13.png": {
+			"frame": {
+				"x": 1,
+				"y": 78,
+				"w": 95,
+				"h": 72
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 95,
+				"h": 72
+			},
+			"sourceSize": {
+				"w": 95,
+				"h": 72
+			}
+		},
+		"caramelman attack 14.png": {
+			"frame": {
+				"x": 98,
+				"y": 78,
+				"w": 97,
+				"h": 72
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 97,
+				"h": 72
+			},
+			"sourceSize": {
+				"w": 97,
+				"h": 72
+			}
+		},
+		"caramelman attack 15.png": {
+			"frame": {
+				"x": 197,
+				"y": 78,
+				"w": 95,
+				"h": 78
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 95,
+				"h": 78
+			},
+			"sourceSize": {
+				"w": 95,
+				"h": 78
+			}
+		},
+		"caramelman attack 16.png": {
+			"frame": {
+				"x": 1,
+				"y": 158,
+				"w": 99,
+				"h": 71
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 99,
+				"h": 71
+			},
+			"sourceSize": {
+				"w": 99,
+				"h": 71
+			}
+		},
+		"caramelman attack 2.png": {
+			"frame": {
+				"x": 102,
+				"y": 158,
+				"w": 81,
+				"h": 79
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 81,
+				"h": 79
+			},
+			"sourceSize": {
+				"w": 81,
+				"h": 79
+			}
+		},
+		"caramelman attack 3.png": {
+			"frame": {
+				"x": 185,
+				"y": 158,
+				"w": 76,
+				"h": 73
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 76,
+				"h": 73
+			},
+			"sourceSize": {
+				"w": 76,
+				"h": 73
+			}
+		},
+		"caramelman attack 4.png": {
+			"frame": {
+				"x": 1,
+				"y": 233,
+				"w": 79,
+				"h": 75
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 79,
+				"h": 75
+			},
+			"sourceSize": {
+				"w": 79,
+				"h": 75
+			}
+		},
+		"caramelman attack 5.png": {
+			"frame": {
+				"x": 185,
+				"y": 233,
+				"w": 79,
+				"h": 69
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 79,
+				"h": 69
+			},
+			"sourceSize": {
+				"w": 79,
+				"h": 69
+			}
+		},
+		"caramelman attack 6.png": {
+			"frame": {
+				"x": 313,
+				"y": 1,
+				"w": 74,
+				"h": 86
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 74,
+				"h": 86
+			},
+			"sourceSize": {
+				"w": 74,
+				"h": 86
+			}
+		},
+		"caramelman attack 7.png": {
+			"frame": {
+				"x": 294,
+				"y": 89,
+				"w": 103,
+				"h": 80
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 103,
+				"h": 80
+			},
+			"sourceSize": {
+				"w": 103,
+				"h": 80
+			}
+		},
+		"caramelman attack 8.png": {
+			"frame": {
+				"x": 266,
+				"y": 171,
+				"w": 108,
+				"h": 84
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 108,
+				"h": 84
+			},
+			"sourceSize": {
+				"w": 108,
+				"h": 84
+			}
+		},
+		"caramelman attack 9.png": {
+			"frame": {
+				"x": 82,
+				"y": 257,
+				"w": 74,
+				"h": 66
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 74,
+				"h": 66
+			},
+			"sourceSize": {
+				"w": 74,
+				"h": 66
+			}
+		}
+	},
+	"meta": {
+		"app": "http://www.codeandweb.com/texturepacker",
+		"version": "1.0",
+		"image": "caramelman_attack.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 398,
+			"h": 324
+		},
+		"scale": "1"
+	}
+}

@@ -29,9 +29,18 @@ export async function GET(req,{params}){
                             },
                         },
                         include: {
-                            activity: true,
+                            activity:{
+                                include:{
+                                    questions:{
+                                      include:{
+                                        choices:true,
+                                      }
+                                      
+                                    }
+                                }
+                            }
                         },
-                    }
+                    } 
                 }
             }
             

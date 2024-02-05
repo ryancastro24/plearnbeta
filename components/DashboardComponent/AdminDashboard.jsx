@@ -4,6 +4,7 @@ import Image from 'next/image'
 import AdminSearchBtn from './adminDashboard/AdminSearchBtn'
 import AddSubjectModal from './adminDashboard/AddSubjectModal'
 import AdminSubjectCard from './adminDashboard/AdminSubjectCards'
+import Link from 'next/link'
 const AdminDashboard = ({subjects,idNumber,id}) => {
 
     const [isShow,setIsShow] = useState(false);
@@ -18,7 +19,7 @@ const AdminDashboard = ({subjects,idNumber,id}) => {
             <AdminSearchBtn/>   
 
             <div className='flex justify-center items-center gap-3'>
-              <button className='px-4 py-2 bg-[#41454A] flex justify-center items-center gap-2 rounded'><Image alt='archives' src={'/DashboardAssets/icons/archive.svg'} height={15} width={15}  />Archives</button>
+              <Link href={'/adminArchives'} className='px-4 py-2 bg-[#41454A] flex justify-center items-center gap-2 rounded'><Image alt='archives' src={'/DashboardAssets/icons/archive.svg'} height={15} width={15}  />Archives</Link>
               <button onClick={() => setIsShow(true)} className='px-4 py-2 bg-[#E58E27] flex justify-center items-center gap-2 rounded'><Image alt='archives' src={'/DashboardAssets/icons/add.svg'} height={15} width={15}  />Add Subject</button>
             </div>
           </div>

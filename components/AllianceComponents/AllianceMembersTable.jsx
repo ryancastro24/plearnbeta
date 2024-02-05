@@ -6,7 +6,9 @@ const AllianceMembersTable = ({allianceMembers}) => {
 
     const router = useRouter();
 
-  
+    const handleStopPropagation = async(e) => {
+      e.stopPropagation();
+    }
 
   return (
     <div>
@@ -31,7 +33,7 @@ const AllianceMembersTable = ({allianceMembers}) => {
                     <td className='p-2'>{val.level}</td>
                     <td className='p-2'>{val.alliancePosition}</td>
                     <td className='p-2'>
-                        <button className='px-3 py-2 rounded bg-red-600 hover:bg-red-700'>report</button>
+                        <button onClick={(e) => handleStopPropagation(e)} className='px-3 py-2 rounded bg-red-600 hover:bg-red-700'>report</button>
                     </td>
                   </tr>
                  ))}

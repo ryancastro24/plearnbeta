@@ -1,0 +1,115 @@
+{
+	"frames": {
+		"frieza idle 1.png": {
+			"frame": {
+				"x": 1,
+				"y": 1,
+				"w": 37,
+				"h": 60
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 37,
+				"h": 60
+			},
+			"sourceSize": {
+				"w": 37,
+				"h": 60
+			}
+		},
+		"frieza idle 2.png": {
+			"frame": {
+				"x": 40,
+				"y": 1,
+				"w": 46,
+				"h": 62
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 46,
+				"h": 62
+			},
+			"sourceSize": {
+				"w": 46,
+				"h": 62
+			}
+		},
+		"frieza idle 3.png": {
+			"frame": {
+				"x": 88,
+				"y": 1,
+				"w": 38,
+				"h": 59
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 38,
+				"h": 59
+			},
+			"sourceSize": {
+				"w": 38,
+				"h": 59
+			}
+		},
+		"frieza idle 4.png": {
+			"frame": {
+				"x": 88,
+				"y": 62,
+				"w": 40,
+				"h": 59
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 40,
+				"h": 59
+			},
+			"sourceSize": {
+				"w": 40,
+				"h": 59
+			}
+		},
+		"frieza idle 5.png": {
+			"frame": {
+				"x": 128,
+				"y": 1,
+				"w": 46,
+				"h": 59
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 46,
+				"h": 59
+			},
+			"sourceSize": {
+				"w": 46,
+				"h": 59
+			}
+		}
+	},
+	"meta": {
+		"app": "http://www.codeandweb.com/texturepacker",
+		"version": "1.0",
+		"image": "frieza_idle.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 175,
+			"h": 122
+		},
+		"scale": "1"
+	}
+}

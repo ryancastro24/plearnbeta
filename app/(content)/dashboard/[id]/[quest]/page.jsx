@@ -53,10 +53,10 @@ const SampleQuest = async({params}) => {
     const adminData = await getAdminSubs(params.id)
  
   return (
-    <div className='p-10  px-14 w-full h-full bg-[#161A1E] z-30 absolute top-0  '>
+    <div className='px-10 w-full h-full bg-[#161A1E] z-30 absolute top-0'>
       <QuestContent  adminData={adminData} subId={data.finalData[0].subjectDetails.id} questData={data.finalData[1].activityData} role={session.user.role}/>
     </div>
   )
 }
 
-export default SampleQuest
+export default SampleQuest;

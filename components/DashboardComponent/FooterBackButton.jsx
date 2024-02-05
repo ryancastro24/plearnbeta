@@ -1,17 +1,12 @@
 'use client'
 import React from 'react'
 import { useRouter } from 'next/navigation'
-import Image from 'next/image'
+import { IoMdArrowRoundBack } from "react-icons/io";
 const FooterBackButton = () => {
     const router = useRouter()
   return (
    <>
-    <button onClick={() => router.back()} className='px-3 py-2 rounded bg-red-500 flex justify-center items-center gap-2'>Return <Image 
-            src={'/DashboardAssets/icons/exit.svg'} 
-            alt='return'
-            width={15}
-            height={15}
-            />
+   <button onClick={() => router.back()} className=' flex justify-center hover:gap-3 items-center gap-2'><IoMdArrowRoundBack /> BACK
     </button>
     
    </>

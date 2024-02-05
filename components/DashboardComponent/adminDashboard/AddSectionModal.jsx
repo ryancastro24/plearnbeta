@@ -28,7 +28,8 @@ const AddSectionModal = ({subjectId,sectionData}) => {
                         
                                 setOpenModal(false);
 
-                                alert("data has been added!")
+                                alert("data has been added!");
+                                window.location.reload();
                             });
 
      
