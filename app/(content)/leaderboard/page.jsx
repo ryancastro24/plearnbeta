@@ -10,7 +10,7 @@ const Leaderboards = async() => {
   
   const session = await getServerSession(authOptions)
   return (
-    <LeaderboardInnerPage idNumber={session.user.idNumber}  />
+    <LeaderboardInnerPage role={session.user.role} idNumber={session.user.idNumber}  />
   )
 }
 

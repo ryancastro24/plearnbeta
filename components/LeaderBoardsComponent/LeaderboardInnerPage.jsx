@@ -5,7 +5,7 @@ import UserTable from './UserTable'
 import { useEffect } from 'react';
 import AllianceRanking from './AllianceRanking';
 import Image from 'next/image'
- const LeaderboardInnerPage = ({idNumber}) => {
+ const LeaderboardInnerPage = ({idNumber,role}) => {
 
     const [content,setContent] = React.useState('overall')
     const [data,setData] = React.useState([])
@@ -40,8 +40,8 @@ import Image from 'next/image'
             <h1 className='text-2xl'>Rankings</h1>
             <ul className='flex  flex-col mt-5'>
                 <li  onClick={() => setContent("overall")} className={`p-2 px-4 rounded cursor-pointer ${content === 'overall' ? "bg-[#272A2E]": "hover:bg-[#E58E27] "}`}  >Overall Rankings</li>
-                <li onClick={() => setContent("college")} className={`p-2 px-4 rounded  cursor-pointer ${content === 'college' ? "bg-[#272A2E]": "hover:bg-[#E58E27]"}`} >College Rankings</li>
-                <li  onClick={() => setContent("course")} className={`p-2 px-4 rounded  cursor-pointer ${content === 'course' ? "bg-[#272A2E] ": "hover:bg-[#E58E27]"}`} >Course Rankings</li>
+               {role === "student" && <li onClick={() => setContent("college")} className={`p-2 px-4 rounded  cursor-pointer ${content === 'college' ? "bg-[#272A2E]": "hover:bg-[#E58E27]"}`} >College Rankings</li> }
+                {role === "student" &&   <li  onClick={() => setContent("course")} className={`p-2 px-4 rounded  cursor-pointer ${content === 'course' ? "bg-[#272A2E] ": "hover:bg-[#E58E27]"}`} >Course Rankings</li> }
                
             </ul>
 

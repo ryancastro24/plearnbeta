@@ -33,7 +33,8 @@ export async function GET(req,res){
             }
         },
         include:{
-            course:true
+            course:true,
+            alliance:true
         },
         orderBy: {
             points: 'desc'

@@ -129,7 +129,7 @@ model Subject {
   title        String
   realm        String?
   students     User[]         @relation("user_subject")
-  type         String
+  type         String?
   activityId   Activity[]
   lessonId     Lesson[]
   notes        Note[]
@@ -263,6 +263,14 @@ model AllianceRequest {
   approved    Boolean  @default(false)
   alliance_id String
   userId      String   @db.VarChar(36)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model SubjectCourseCode {
+  id          String   @id @default(uuid())
+  code        String
+  description String
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 }

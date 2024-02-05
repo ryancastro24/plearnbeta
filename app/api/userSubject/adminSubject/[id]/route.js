@@ -12,8 +12,15 @@ export async function GET(request,{params}){
             id:params.id
         },
         include:{
-            subjects:true
-        }
+            subjects:{
+                orderBy: {
+                    subjectCode: 'asc', // 'asc' for ascending order, 'desc' for descending order
+                  },
+            }
+             
+        },
+
+       
         
     })
 

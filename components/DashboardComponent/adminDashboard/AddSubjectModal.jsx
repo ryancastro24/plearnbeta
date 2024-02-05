@@ -2,7 +2,7 @@
 
 import '@/styles/globals.css'
 import axios from 'axios'
-import { useState } from 'react'
+import { useState,useEffect } from 'react'
 
 
 const AddSubjectModal = ({show,idNumber}) => {
@@ -12,9 +12,34 @@ const AddSubjectModal = ({show,idNumber}) => {
         realm:'',
         subjectTitle:'',
         subjectCode:'',
-        type:'',
         
     });
+
+
+  const [subjectCourseCode,setSubjectCourseCode ] = useState([]);
+
+  const [subjectDesc,setSubjectDesc] = useState("asdadasd");
+
+
+  useEffect(() => {
+    const subjectCourseCodeGetter = async () => {
+      try {
+        const response = await axios.get('/api/subjectCourseCode');
+        const data = response.data;
+        setSubjectCourseCode(data)
+      } catch (error) {
+        // Handle any errors that occurred during the request
+        console.error('Error:', error);
+        throw error; // Re-throw the error to propagate it further if needed
+      }
+    };
+    
+    // You can call the function like this:
+    subjectCourseCodeGetter();
+    
+    
+  },[subjectCourseCode])
+
     
     const [submitting,setSubmitting] = useState(false);
 
@@ -28,7 +53,7 @@ const AddSubjectModal = ({show,idNumber}) => {
                       realm:'',
                       subjectTitle:'',
                       subjectCode:'',
-                      type:''
+                     
                     })
                     show(false)
                   })
@@ -37,6 +62,21 @@ const AddSubjectModal = ({show,idNumber}) => {
        
     }
 
+
+    const handleSubjectTitleChange = (e) => {
+      const selectedCode = e.target.value;
+      const selectedSubject = subjectCourseCode.find((val) => val.code === selectedCode);
+  
+      if (selectedSubject) {
+        setData({ ...data, subjectCode: selectedCode,subjectTitle: selectedSubject.description});
+      } else {
+        setSubjectDesc('');
+        setData({ ...data, subjectCode: '' });
+      }
+    };
+  
+  
+
   return (
     <div className='w-full top-0 left-0 h-full bg-[#161a1eb3] flex justify-center items-center absolute z-40'>
 
@@ -44,10 +84,10 @@ const AddSubjectModal = ({show,idNumber}) => {
   
 
 
-            <div className='w-[700px] h-[450px] bg-[#D2F5FF] relative rounded-md p-7'>
+            <div className=' bg-[#D2F5FF] relative rounded-md p-7'>
 
 
-            <form onSubmit={addSubject} action="" className='flex flex-col justify-between h-full w-full'>
+            <form onSubmit={addSubject} action="" className='flex flex-col justify-between gap-5 items-center h-full w-full'>
 
             <div className='flex flex-col gap-3'>
                 <span className='text-black'>Choose Realm</span>
@@ -110,38 +150,42 @@ const AddSubjectModal = ({show,idNumber}) => {
               </div>
             </div>
 
-              <div className='flex flex-col gap-5'>
+              <div className='flex flex-col gap-5 w-full'>
 
                   <div className='flex gap-5'>
 
+                    
+                                            
                       <div className="flex flex-col">
-                          <label className='text-black font-bold' htmlFor="subject-title">Subject Title</label>
-                          <input value={data.subjectTitle} onChange={(e) => setData({...data,subjectTitle:e.target.value})} className='py-2 px-3 bg-[#99b8c0] text-black outline-none placeholder:text-[#161A1E]' type="text" placeholder='Enter Subject Title' id='subject-title' />
-                      </div>
-
-                      <div className="flex flex-col">
-                          <label className='text-black font-bold' htmlFor="subject-title">Type</label>
-                          <select value={data.type} onChange={(e) => setData({...data,type:e.target.value})} className='py-2 px-3 bg-[#99b8c0] text-black outline-none' name="" id="">
-                            <option value="">Select Type</option>
-                            <option value="major">Major</option>
-                            <option value="minor">Minor</option>
+                          <label className='text-black font-bold text-sm mb-2' htmlFor="subject-title">Subject Course Code</label>
+                          <select required value={data.subjectCode} 
+                          onChange={handleSubjectTitleChange}
+                          className='py-2 px-3 bg-[#99b8c0] text-black outline-none' name="" id="">
+                            <option value="">Select Subject</option>
+                            {subjectCourseCode.map(val =>  <option key={val.id}  value={val.code}>{val.code}</option> )}
                           </select>
                       </div>
+
+                      
+                        <div className='flex  gap-5'>
+                            <div className="flex flex-col">
+                                  <label className='text-black font-bold text-sm mb-2' htmlFor="subject-description">Subject Description</label>
+                                  <input value={data.subjectTitle}  className='py-2 px-3 bg-[#99b8c0] text-black outline-none w-[400px] placeholder:text-[#161A1E]' required placeholder='Subject Description' type="text"  id='subject-description' />
+                              </div>
+
+                            
+                        </div>
+
+
+
 
                        
                   </div>
 
-                 <div className='flex  gap-5'>
-                    <div className="flex flex-col">
-                          <label className='text-black font-bold' htmlFor="subject-code">Subject Code</label>
-                          <input value={data.subjectCode} onChange={(e) => setData({...data,subjectCode:e.target.value})} className='py-2 px-3 bg-[#99b8c0] text-black outline-none placeholder:text-[#161A1E]' type="text" placeholder='Enter Subject Code' id='subject-code' />
-                      </div>
 
-                    
-                 </div>
               </div>
 
-              <div className='flex justify-between items-center'>
+              <div className='flex w-full'>
                 <button onClick={() => setSubmitting(true)} className='py-2 px-3 bg-[#E58E27] rounded' type='submit'>{submitting ? "Creating..." : "Create Subject"}</button>
                
     

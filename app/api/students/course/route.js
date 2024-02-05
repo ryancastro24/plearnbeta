@@ -12,7 +12,8 @@ export async function GET(req,res){
             idNumber:user_id
         },
         select:{
-            course:true
+            course:true,
+          
         }
         
     })
@@ -27,7 +28,8 @@ export async function GET(req,res){
            }
         },
         include:{
-            course:true
+            course:true,
+            alliance:true
         },
         orderBy: {
             points: 'desc'

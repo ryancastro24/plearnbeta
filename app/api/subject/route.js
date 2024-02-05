@@ -18,9 +18,9 @@ export async function GET(){
 
 export async function POST(request){
 
-    const {realm,subjectTitle,subjectCode,idNumber,type} = await request.json();
+    const {realm,subjectTitle,subjectCode,idNumber} = await request.json();
     
-    if(!realm || !subjectTitle || !subjectCode || !idNumber || !type){
+    if(!realm || !subjectTitle || !subjectCode || !idNumber ){
         return NextResponse.json({message:"Missing Field"})
     }
 
@@ -29,7 +29,6 @@ export async function POST(request){
             title:subjectTitle,
             subjectCode: subjectCode,
             realm:realm,
-            type:type
         }
     })
 
